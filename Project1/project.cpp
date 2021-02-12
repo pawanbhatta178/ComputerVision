@@ -59,14 +59,17 @@ public:
     {
         return numRows;
     }
+
     int getNumCols()
     {
         return numCols;
     }
+
     int getMinVal()
     {
         return minVal;
     }
+
     int getMaxVal()
     {
         return maxVal;
@@ -141,10 +144,12 @@ public:
 
     void threshold(string inFile, string outFile3, string outFile4, int thrVal)
     {
-        Image binaryImg(numRows, numCols, 0, 1, thresholdValue);
+        Image binaryImg(numRows, numCols, 0, 1, thrVal);
         ofstream out_file3, out_file4;
         out_file3.open(outFile3);
         out_file4.open(outFile4);
+        out_file3 << "The threshold value uses is " << thrVal << endl;
+        out_file4 << "The threshold value uses is " << thrVal << endl;
         out_file3 << binaryImg.getNumRows() << " " << binaryImg.getNumCols() << " " << binaryImg.getMinVal() << " " << binaryImg.getMaxVal() << " " << endl;
         out_file4 << binaryImg.getNumRows() << " " << binaryImg.getNumCols() << " " << binaryImg.getMinVal() << " " << binaryImg.getMaxVal() << " " << endl;
         ifstream input_file;
