@@ -1,0 +1,1 @@
+./a.out data1.txt 30 rfImg.txt AvgOutImg.txt AvgThrImg.txt AvgPrettyPrint.txt MedianOutImg.txt MedianThrImg.txt MedianPrettyPrint.txt CPOutImg.txt CPThrImg.txt CPPrettyPrint.txt
