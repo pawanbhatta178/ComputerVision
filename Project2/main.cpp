@@ -107,7 +107,9 @@ int main(int argc, const char *argv[])
             ImageProcessing imgProcessing;
             imgProcessing.thrVal = thrVal;
             input >> imgProcessing.numRows >> imgProcessing.numCols >> imgProcessing.minVal >> imgProcessing.maxVal;
-                }
+            imgProcessing.newMin = imgProcessing.minVal;
+            imgProcessing.newMax = imgProcessing.maxVal;
+        }
         else
         {
             cout << "Error: Some output files is missing or couldnt be opened" << endl;
