@@ -23,9 +23,31 @@ public:
 
     void threshold(int *arr1, int *arr2, int frameSize) {}
 
-    void imgReformat(int *inAry, ofstream &outImg, int frameSize)
+    void imgReformat(int **inAry, ofstream &outImg, int frameSize)
     {
+
         outImg << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        string str = to_string(newMax);
+        int width = str.length();
+        int r = frameSize;
+        while (r < (numRows + frameSize))
+        {
+            int c = frameSize;
+            while (c < (numCols + frameSize))
+            {
+                outImg << inAry[r][c];
+                str = to_string(inAry[r][c]);
+                int ww = str.length();
+                while (ww < width)
+                {
+                    outImg << " ";
+                    ww++;
+                }
+                c++;
+            }
+            r++;
+            outImg << endl;
+        }
     }
 
     void loadCPmasks()
@@ -35,6 +57,7 @@ public:
     void loadNeighbors()
     {
     }
+
     void loadImage(ifstream &input)
     {
         mirror3by3Ary = new int *[numRows + 2];
@@ -49,48 +72,105 @@ public:
             mirror5by5Ary[i] = new int[numCols + 4];
         }
 
-        for (int i = 1; i < numRows + 1; ++i)
-        {
-            for (int j = 1; j < numCols + 1; ++j)
-            {
-                input >> mirror3by3Ary[i][j];
-            }
-        }
-
         for (int i = 0; i < numRows; ++i)
         {
             for (int j = 0; j < numCols; ++j)
             {
                 int pixel;
                 input >> pixel;
-                mirror3by3Ary[i][j] = pixel;
-                mirror5by5Ary[i][j] = pixel;
-            }
-        }
-
-        for (int i = 1; i < numRows + 1; ++i)
-        {
-            cout << endl;
-            for (int j = 1; j < numCols + 1; ++j)
-            {
-                cout << mirror3by3Ary[i][j];
-            }
-        }
-
-        cout << endl
-             << "5x5" << endl;
-        for (int i = 1; i < numRows + 1; ++i)
-        {
-
-            for (int j = 2; j < numCols + 2; ++j)
-            {
-                cout << mirror5by5Ary[i][j];
+                mirror3by3Ary[i + 1][j + 1] = pixel;
+                mirror5by5Ary[i + 2][j + 2] = pixel;
             }
         }
     }
 
     void mirrorFraming(int **ary, int frameSize)
     {
+        int totalRows = numRows + 2 * frameSize;
+        int totalCols = numCols + 2 * frameSize;
+
+        int yDiff = 1;
+        for (int i = frameSize - 1; i >= 0; i--)
+        {
+            if (frameSize == 1)
+            {
+                mirror3by3Ary[i] = ary[i + yDiff];
+            }
+            if (frameSize == 2)
+            {
+                mirror5by5Ary[i] = ary[i + yDiff];
+            }
+            yDiff = yDiff + 2;
+        }
+        yDiff = 1;
+        for (int i = totalRows - frameSize; i < totalRows; ++i)
+        {
+
+            for (int j = 0; j < totalCols; j++)
+            {
+                if (frameSize == 1)
+                {
+                    mirror3by3Ary[i] = ary[i - yDiff];
+                }
+                if (frameSize == 2)
+                {
+                    mirror5by5Ary[i] = ary[i - yDiff];
+                }
+            }
+            yDiff = yDiff + 2;
+        }
+
+        int xDiff = 1;
+        for (int i = frameSize - 1; i >= 0; i--)
+        {
+
+            for (int j = 0; j < totalRows; j++)
+            {
+                if (frameSize == 1)
+                {
+                    mirror3by3Ary[j][i] = ary[j][i + xDiff];
+                }
+                if (frameSize == 2)
+                {
+                    mirror5by5Ary[j][i] = ary[j][i + xDiff];
+                }
+            }
+            xDiff = xDiff + 2;
+        }
+        xDiff = 1;
+        for (int i = totalCols - frameSize; i < totalCols; ++i)
+        {
+
+            for (int j = 0; j < totalRows; j++)
+            {
+                if (frameSize == 1)
+                {
+                    mirror3by3Ary[j][i] = ary[j][i - xDiff];
+                }
+                if (frameSize == 2)
+                {
+                    mirror5by5Ary[j][i] = ary[j][i - xDiff];
+                }
+            }
+            xDiff = xDiff + 2;
+        }
+
+        // for (int i = 0; i < totalCols; ++i)
+        // {
+
+        //     for (int j = 0; j < totalRows; ++j)
+        //     {
+        //         if (frameSize == 1)
+        //         {
+        //             cout << mirror3by3Ary[i][j] << " ";
+        //         }
+        //         else
+        //         {
+        //             cout << mirror5by5Ary[i][j] << " ";
+        //         }
+        //     }
+        //     cout << endl;
+        // }
     }
     void computeAvg()
     {
@@ -123,6 +203,7 @@ public:
     void aryToFile(int **ary, ofstream &outFile, int frameSize)
     {
     }
+
     void prettyPrint(int **inAry, ofstream &outFile)
     {
     }
@@ -172,6 +253,8 @@ int main(int argc, const char *argv[])
             imgProcessing.newMax = imgProcessing.maxVal;
 
             imgProcessing.loadImage(input);
+            imgProcessing.mirrorFraming(imgProcessing.mirror3by3Ary, 1);
+            imgProcessing.imgReformat(imgProcessing.mirror3by3Ary, rfImg, 1);
         }
         else
         {
