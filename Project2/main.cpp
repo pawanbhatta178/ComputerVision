@@ -470,6 +470,18 @@ int main(int argc, const char *argv[])
             imgProcessing.aryToFile(thrAry, MedianThrImg, 1);
 
             imgProcessing.prettyPrint(thrAry, MedianPrettyPrint, 1);
+
+            imgProcessing.mirrorFraming(imgProcessing.mirror5by5Ary, 2);
+
+            imgProcessing.computeCPfilter();
+
+            imgProcessing.imgReformat(imgProcessing.CPAry, CPOutImg, 2);
+
+            imgProcessing.threshold(imgProcessing.CPAry, thrAry, 1);
+
+            imgProcessing.aryToFile(thrAry, CPThrImg, 2);
+
+            imgProcessing.prettyPrint(thrAry, CPPrettyPrint, 2);
         }
         else
         {
