@@ -155,25 +155,46 @@ public:
             xDiff = xDiff + 2;
         }
 
-        // for (int i = 0; i < totalCols; ++i)
-        // {
+        for (int i = 0; i < totalCols; ++i)
+        {
 
-        //     for (int j = 0; j < totalRows; ++j)
-        //     {
-        //         if (frameSize == 1)
-        //         {
-        //             cout << mirror3by3Ary[i][j] << " ";
-        //         }
-        //         else
-        //         {
-        //             cout << mirror5by5Ary[i][j] << " ";
-        //         }
-        //     }
-        //     cout << endl;
-        // }
+            for (int j = 0; j < totalRows; ++j)
+            {
+                if (frameSize == 1)
+                {
+                    cout << mirror3by3Ary[i][j] << " ";
+                }
+                else
+                {
+                    cout << mirror5by5Ary[i][j] << " ";
+                }
+            }
+            cout << endl;
+        }
     }
     void computeAvg()
     {
+        newMin = 9999;
+        newMax = 1;
+        int r = 1;
+        while (r < numRows + 1)
+        {
+            int c = 1;
+            while (c < numCols + 1)
+            {
+                avgAry[r][c] = avg3x3(r, c);
+                if (newMin > avgAry[r][c])
+                {
+                    newMin = avgAry[r][c];
+                }
+                if (newMax < avgAry[r][c])
+                {
+                    newMax = avgAry[r][c];
+                }
+                c++;
+            }
+            r++;
+        }
     }
     void computeMedian()
     {
@@ -186,8 +207,35 @@ public:
     }
     int avg3x3(int i, int j)
     {
-        return 0;
+        const int frameSize = 1;
+        const int totalCols = 2 * frameSize + 1;
+        const int totalRows = 2 * frameSize + 1;
+        const int totalCells = totalCols * totalRows;
+        int sum = 0;
+        int r = i - frameSize;
+        while (r <= (i + frameSize))
+        {
+            if (r >= 0 && r < numRows + frameSize)
+            {
+                int c = j - frameSize;
+                while (c <= (j + frameSize))
+                {
+                    if (c >= 0 && c < numCols + frameSize)
+                    {
+                        cout << mirror3by3Ary[r][c] << endl;
+                        sum += mirror3by3Ary[r][c];
+                    }
+                    c++;
+                }
+            }
+            r++;
+        }
+        int avg = sum / totalCells;
+        cout << "SUM: " << sum << endl;
+        cout << "AVG: " << avg << endl;
+        return avg;
     }
+
     int median3x3(int i, int j)
     {
         return 0;
@@ -206,6 +254,22 @@ public:
 
     void prettyPrint(int **inAry, ofstream &outFile)
     {
+    }
+
+    void copy2DArray(int **ary1, int **ary2)
+    {
+        ary2 = new int *[numRows + 2];
+        for (int i = 0; i < numRows + 2; ++i)
+        {
+            ary2[i] = new int[numCols + 2]();
+        }
+        for (int i = 0; i < numRows + 2; ++i)
+        {
+            for (int j = 0; j < numCols; j++)
+            {
+                ary2[i][j] = ary1[i][j];
+            }
+        }
     }
 
     void cleanUp()
@@ -251,10 +315,10 @@ int main(int argc, const char *argv[])
             input >> imgProcessing.numRows >> imgProcessing.numCols >> imgProcessing.minVal >> imgProcessing.maxVal;
             imgProcessing.newMin = imgProcessing.minVal;
             imgProcessing.newMax = imgProcessing.maxVal;
-
             imgProcessing.loadImage(input);
             imgProcessing.mirrorFraming(imgProcessing.mirror3by3Ary, 1);
             imgProcessing.imgReformat(imgProcessing.mirror3by3Ary, rfImg, 1);
+            imgProcessing.computeAvg();
         }
         else
         {
