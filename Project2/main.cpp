@@ -21,7 +21,33 @@ public:
     int **medianAry;
     int **CPAry;
 
-    void threshold(int *arr1, int *arr2, int frameSize) {}
+    void threshold(int **ary1, int **ary2, int frameSize)
+    {
+        newMin = 0;
+        newMax = 1;
+
+        int r = frameSize;
+        while (r < numRows + frameSize)
+        {
+            int c = frameSize;
+            while (c < numCols + frameSize)
+            {
+                if (ary1[r][c] >= thrVal)
+                {
+                    ary2[r][c] = 1;
+                    cout << ary2[r][c];
+                }
+                else
+                {
+                    ary2[r][c] = 0;
+                    cout << ary2[r][c];
+                }
+                c++;
+            }
+            cout << endl;
+            r++;
+        }
+    }
 
     void imgReformat(int **inAry, ofstream &outImg, int frameSize)
     {
@@ -176,6 +202,12 @@ public:
     {
         newMin = 9999;
         newMax = 1;
+        avgAry = new int *[numRows + 2];
+        for (int i = 0; i < numRows + 2; ++i)
+        {
+            avgAry[i] = new int[numCols + 2]();
+        }
+
         int r = 1;
         while (r < numRows + 1)
         {
@@ -195,7 +227,9 @@ public:
             }
             r++;
         }
+        mirrorFraming(avgAry, 1);
     }
+
     void computeMedian()
     {
     }
@@ -250,10 +284,34 @@ public:
     }
     void aryToFile(int **ary, ofstream &outFile, int frameSize)
     {
+        imgReformat(ary, outFile, frameSize);
     }
 
-    void prettyPrint(int **inAry, ofstream &outFile)
+    void prettyPrint(int **inAry, ofstream &outFile, int frameSize)
     {
+        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        newMin = 0;
+        newMax = 1;
+
+        int r = frameSize;
+        while (r < numRows + frameSize)
+        {
+            int c = frameSize;
+            while (c < numCols + frameSize)
+            {
+                if (inAry[r][c] > 0)
+                {
+                    outFile << 1 << " ";
+                }
+                else
+                {
+                    outFile << ". ";
+                }
+                c++;
+            }
+            outFile << endl;
+            r++;
+        }
     }
 
     void copy2DArray(int **ary1, int **ary2)
@@ -319,7 +377,19 @@ int main(int argc, const char *argv[])
             imgProcessing.mirrorFraming(imgProcessing.mirror3by3Ary, 1);
             imgProcessing.imgReformat(imgProcessing.mirror3by3Ary, rfImg, 1);
             imgProcessing.computeAvg();
-        }
+            imgProcessing.imgReformat(imgProcessing.avgAry, AvgOutImg, 1);
+            int **thrAry;
+            thrAry = new int *[imgProcessing.numRows + 2];
+            for (int i = 0; i < imgProcessing.numRows + 2; ++i)
+            {
+                thrAry[i] = new int[imgProcessing.numCols + 2]();
+            }
+            imgProcessing.threshold(imgProcessing.avgAry, thrAry, 1);
+
+            imgProcessing.aryToFile(thrAry, AvgThrImg, 1);
+
+            imgProcessing.prettyPrint(thrAry, AvgPrettyPrint, 1);
+                }
         else
         {
             cout << "Error: Some output files is missing or couldnt be opened" << endl;
