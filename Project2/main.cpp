@@ -262,6 +262,32 @@ public:
     }
     void computeCPfilter()
     {
+        newMin = 9999;
+        newMax = 0;
+        CPAry = new int *[numRows + 4];
+        for (int i = 0; i < numRows + 4; ++i)
+        {
+            CPAry[i] = new int[numCols + 4]();
+        }
+        int r = 2;
+        while (r < numRows + 2)
+        {
+            int c = 2;
+            while (c < numCols + 2)
+            {
+                CPAry[r][c] = CP5x5(r, c);
+                if (newMin > CPAry[r][c])
+                {
+                    newMin = CPAry[r][c];
+                }
+                if (newMax < CPAry[r][c])
+                {
+                    newMax = CPAry[r][c];
+                }
+                c++;
+            }
+            r++;
+        }
     }
     void sort(int *neighborAry)
     {
