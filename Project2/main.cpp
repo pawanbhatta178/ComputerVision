@@ -23,8 +23,9 @@ public:
 
     void threshold(int *arr1, int *arr2, int frameSize) {}
 
-    void imgReformat(int *inAry, ImageProcessing *outImg, int frameSize)
+    void imgReformat(int *inAry, ofstream &outImg, int frameSize)
     {
+        outImg << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
     }
 
     void loadCPmasks()
@@ -34,10 +35,61 @@ public:
     void loadNeighbors()
     {
     }
-    void loadImage()
+    void loadImage(ifstream &input)
     {
+        mirror3by3Ary = new int *[numRows + 2];
+        for (int i = 0; i < numRows + 2; ++i)
+        {
+            mirror3by3Ary[i] = new int[numCols + 2]();
+        }
+
+        mirror5by5Ary = new int *[numRows + 4]();
+        for (int i = 0; i < numRows + 4; ++i)
+        {
+            mirror5by5Ary[i] = new int[numCols + 4];
+        }
+
+        for (int i = 1; i < numRows + 1; ++i)
+        {
+            for (int j = 1; j < numCols + 1; ++j)
+            {
+                input >> mirror3by3Ary[i][j];
+            }
+        }
+
+        for (int i = 0; i < numRows; ++i)
+        {
+            for (int j = 0; j < numCols; ++j)
+            {
+                int pixel;
+                input >> pixel;
+                mirror3by3Ary[i][j] = pixel;
+                mirror5by5Ary[i][j] = pixel;
+            }
+        }
+
+        for (int i = 1; i < numRows + 1; ++i)
+        {
+            cout << endl;
+            for (int j = 1; j < numCols + 1; ++j)
+            {
+                cout << mirror3by3Ary[i][j];
+            }
+        }
+
+        cout << endl
+             << "5x5" << endl;
+        for (int i = 1; i < numRows + 1; ++i)
+        {
+
+            for (int j = 2; j < numCols + 2; ++j)
+            {
+                cout << mirror5by5Ary[i][j];
+            }
+        }
     }
-    void mirrorFraming(int *ary, int frameSize)
+
+    void mirrorFraming(int **ary, int frameSize)
     {
     }
     void computeAvg()
@@ -74,6 +126,15 @@ public:
     void prettyPrint(int **inAry, ofstream &outFile)
     {
     }
+
+    void cleanUp()
+    {
+        for (int i = 0; i < numRows + 2; ++i)
+        {
+            delete[] mirror3by3Ary[i];
+        }
+        delete[] mirror3by3Ary;
+    }
 };
 
 int main(int argc, const char *argv[])
@@ -109,6 +170,8 @@ int main(int argc, const char *argv[])
             input >> imgProcessing.numRows >> imgProcessing.numCols >> imgProcessing.minVal >> imgProcessing.maxVal;
             imgProcessing.newMin = imgProcessing.minVal;
             imgProcessing.newMax = imgProcessing.maxVal;
+
+            imgProcessing.loadImage(input);
         }
         else
         {
