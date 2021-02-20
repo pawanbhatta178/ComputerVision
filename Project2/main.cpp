@@ -232,12 +232,57 @@ public:
 
     void computeMedian()
     {
+        newMin = 9999;
+        newMax = 0;
+        medianAry = new int *[numRows + 2];
+        for (int i = 0; i < numRows + 2; ++i)
+        {
+            medianAry[i] = new int[numCols + 2]();
+        }
+
+        int r = 1;
+        while (r < numRows + 1)
+        {
+            int c = 1;
+            while (c < numCols + 1)
+            {
+                medianAry[r][c] = median3x3(r, c);
+                if (newMin > medianAry[r][c])
+                {
+                    newMin = medianAry[r][c];
+                }
+                if (newMax < medianAry[r][c])
+                {
+                    newMax = medianAry[r][c];
+                }
+                c++;
+            }
+            r++;
+        }
     }
     void computeCPfilter()
     {
     }
     void sort(int *neighborAry)
     {
+        int temp;
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = i + 1; j < 9; j++)
+            {
+                if (neighborAry[i] > neighborAry[j])
+                {
+                    temp = neighborAry[i];
+                    neighborAry[i] = neighborAry[j];
+                    neighborAry[j] = temp;
+                }
+            }
+        }
+        // for (int i = 0; i < 9; i++)
+        // {
+        //     cout << neighborAry[i] << " ";
+        // }
+        // cout << endl;
     }
     int avg3x3(int i, int j)
     {
@@ -265,15 +310,41 @@ public:
             r++;
         }
         int avg = sum / totalCells;
-        cout << "SUM: " << sum << endl;
-        cout << "AVG: " << avg << endl;
         return avg;
     }
 
     int median3x3(int i, int j)
     {
-        return 0;
+        const int frameSize = 1;
+        const int totalCols = 2 * frameSize + 1;
+        const int totalRows = 2 * frameSize + 1;
+        const int totalCells = totalCols * totalRows;
+
+        int r = i - frameSize;
+
+        int index = 0;
+        while (r <= (i + frameSize))
+        {
+            if (r >= 0 && r < numRows + frameSize)
+            {
+                int c = j - frameSize;
+                while (c <= (j + frameSize))
+                {
+                    if (c >= 0 && c < numCols + frameSize)
+                    {
+                        neighborAry[index] = mirror3by3Ary[r][c];
+                        index++;
+                    }
+                    c++;
+                }
+            }
+            r++;
+        }
+        sort(neighborAry);
+        int median = neighborAry[5];
+        return median;
     }
+
     int CP5x5(int i, int j)
     {
         return 0;
@@ -389,7 +460,17 @@ int main(int argc, const char *argv[])
             imgProcessing.aryToFile(thrAry, AvgThrImg, 1);
 
             imgProcessing.prettyPrint(thrAry, AvgPrettyPrint, 1);
-                }
+
+            imgProcessing.computeMedian();
+
+            imgProcessing.imgReformat(imgProcessing.medianAry, MedianOutImg, 1);
+
+            imgProcessing.threshold(imgProcessing.medianAry, thrAry, 1);
+
+            imgProcessing.aryToFile(thrAry, MedianThrImg, 1);
+
+            imgProcessing.prettyPrint(thrAry, MedianPrettyPrint, 1);
+        }
         else
         {
             cout << "Error: Some output files is missing or couldnt be opened" << endl;
