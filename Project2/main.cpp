@@ -119,10 +119,6 @@ public:
         memcpy(CPmasks, masks, sizeof(masks));
     }
 
-    void loadNeighbors()
-    {
-    }
-
     void loadImage(ifstream &input)
     {
         mirror3by3Ary = new int *[numRows + 2];
@@ -220,6 +216,7 @@ public:
             xDiff = xDiff + 2;
         }
     }
+
     void computeAvg()
     {
         newMin = 9999;
@@ -282,6 +279,7 @@ public:
             r++;
         }
     }
+
     void computeCPfilter()
     {
         loadCPmasks();
@@ -327,7 +325,6 @@ public:
             }
             r++;
         }
-
         int gaussianAvg;
         int leastDiff = 999;
         for (int k = 0; k < 8; k++)
@@ -467,22 +464,6 @@ public:
         }
     }
 
-    void copy2DArray(int **ary1, int **ary2)
-    {
-        ary2 = new int *[numRows + 2];
-        for (int i = 0; i < numRows + 2; ++i)
-        {
-            ary2[i] = new int[numCols + 2]();
-        }
-        for (int i = 0; i < numRows + 2; ++i)
-        {
-            for (int j = 0; j < numCols; j++)
-            {
-                ary2[i][j] = ary1[i][j];
-            }
-        }
-    }
-
     void cleanUp()
     {
         for (int i = 0; i < numRows + 2; ++i)
@@ -490,6 +471,30 @@ public:
             delete[] mirror3by3Ary[i];
         }
         delete[] mirror3by3Ary;
+
+        for (int i = 0; i < numRows + 4; ++i)
+        {
+            delete[] mirror5by5Ary[i];
+        }
+        delete[] mirror5by5Ary;
+
+        for (int i = 0; i < numRows + 2; ++i)
+        {
+            delete[] avgAry[i];
+        }
+        delete[] avgAry;
+
+        for (int i = 0; i < numRows + 2; ++i)
+        {
+            delete[] medianAry[i];
+        }
+        delete[] medianAry;
+
+        for (int i = 0; i < numRows + 4; ++i)
+        {
+            delete[] CPAry[i];
+        }
+        delete[] CPAry;
     }
 };
 
@@ -575,6 +580,8 @@ int main(int argc, const char *argv[])
             imgProcessing.aryToFile(thrAry, CPThrImg, 2);
 
             imgProcessing.prettyPrint(thrAry, CPPrettyPrint, 2);
+
+            // imgProcessing.cleanUp();
         }
         else
         {
