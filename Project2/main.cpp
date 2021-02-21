@@ -35,16 +35,13 @@ public:
                 if (ary1[r][c] >= thrVal)
                 {
                     ary2[r][c] = 1;
-                    cout << ary2[r][c];
                 }
                 else
                 {
                     ary2[r][c] = 0;
-                    cout << ary2[r][c];
                 }
                 c++;
             }
-            cout << endl;
             r++;
         }
     }
@@ -78,11 +75,48 @@ public:
 
     void loadCPmasks()
     {
-        CPmasks[0] = {{0, 0, 0, 0, 0},
-                      {0, 0, 0, 0, 0},
-                      {0, 0, 1, 0, 0},
-                      {0, 1, 1, 1, 0},
-                      {1, 1, 1, 1, 1}};
+        int masks[8][5][5] = {{{0, 0, 0, 0, 0},
+                               {0, 0, 0, 0, 0},
+                               {0, 0, 1, 0, 0},
+                               {0, 1, 1, 1, 0},
+                               {1, 1, 1, 1, 1}},
+                              {{1, 0, 0, 0, 0},
+                               {1, 1, 0, 0, 0},
+                               {1, 1, 1, 0, 0},
+                               {1, 1, 0, 0, 0},
+                               {1, 0, 0, 0, 0}},
+                              {{1, 1, 1, 1, 1},
+                               {0, 1, 1, 1, 0},
+                               {0, 0, 1, 0, 0},
+                               {0, 0, 0, 0, 0},
+                               {0, 0, 0, 0, 0}},
+                              {{0, 0, 0, 0, 1},
+                               {0, 0, 0, 1, 1},
+                               {0, 0, 1, 1, 1},
+                               {0, 0, 0, 1, 1},
+                               {0, 0, 0, 0, 1}},
+                              {{1, 1, 1, 0, 0},
+                               {1, 1, 1, 0, 0},
+                               {1, 1, 1, 0, 0},
+                               {0, 0, 0, 0, 0},
+                               {0, 0, 0, 0, 0}},
+                              {{0, 0, 1, 1, 1},
+                               {0, 0, 1, 1, 1},
+                               {0, 0, 1, 1, 1},
+                               {0, 0, 0, 0, 0},
+                               {0, 0, 0, 0, 0}},
+                              {{0, 0, 0, 0, 0},
+                               {0, 0, 0, 0, 0},
+                               {0, 0, 1, 1, 1},
+                               {0, 0, 1, 1, 1},
+                               {0, 0, 1, 1, 1}},
+                              {{0, 0, 0, 0, 0},
+                               {0, 0, 0, 0, 0},
+                               {1, 1, 1, 0, 0},
+                               {1, 1, 1, 0, 0},
+                               {1, 1, 1, 0, 0}}};
+
+        memcpy(CPmasks, masks, sizeof(masks));
     }
 
     void loadNeighbors()
@@ -185,23 +219,6 @@ public:
             }
             xDiff = xDiff + 2;
         }
-
-        for (int i = 0; i < totalCols; ++i)
-        {
-
-            for (int j = 0; j < totalRows; ++j)
-            {
-                if (frameSize == 1)
-                {
-                    cout << mirror3by3Ary[i][j] << " ";
-                }
-                else
-                {
-                    cout << mirror5by5Ary[i][j] << " ";
-                }
-            }
-            cout << endl;
-        }
     }
     void computeAvg()
     {
@@ -267,6 +284,7 @@ public:
     }
     void computeCPfilter()
     {
+        loadCPmasks();
         newMin = 9999;
         newMax = 0;
         CPAry = new int *[numRows + 4];
@@ -294,6 +312,53 @@ public:
             r++;
         }
     }
+
+    int CP5x5(int i, int j)
+    {
+        int r = i - 2;
+
+        for (int k = 0; k < 5; k++)
+        {
+            int c = j - 2;
+            for (int l = 0; l < 5; l++)
+            {
+                neighbor5x5[k][l] = mirror5by5Ary[r][c];
+                c++;
+            }
+            r++;
+        }
+
+        int gaussianAvg;
+        int leastDiff = 999;
+        for (int k = 0; k < 8; k++)
+        {
+            int convAvg = convolution(CPmasks[k]);
+            int diff = abs(mirror5by5Ary[i][j] - convAvg);
+            if (diff < leastDiff)
+            {
+                leastDiff = diff;
+                gaussianAvg = convAvg;
+            }
+        }
+        return gaussianAvg;
+    }
+
+    int convolution(int n[][5])
+    {
+        int totalWeight = 0;
+        int sumOfProducts = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                sumOfProducts += n[i][j] * neighbor5x5[i][j];
+                totalWeight += n[i][j];
+            }
+        }
+        int result = sumOfProducts / totalWeight;
+        return result;
+    }
+
     void sort(int *neighborAry)
     {
         int temp;
@@ -309,11 +374,6 @@ public:
                 }
             }
         }
-        // for (int i = 0; i < 9; i++)
-        // {
-        //     cout << neighborAry[i] << " ";
-        // }
-        // cout << endl;
     }
     int avg3x3(int i, int j)
     {
@@ -332,7 +392,6 @@ public:
                 {
                     if (c >= 0 && c < numCols + frameSize)
                     {
-                        cout << mirror3by3Ary[r][c] << endl;
                         sum += mirror3by3Ary[r][c];
                     }
                     c++;
@@ -376,14 +435,6 @@ public:
         return median;
     }
 
-    int CP5x5(int i, int j)
-    {
-        return 0;
-    }
-    int convolution()
-    {
-        return 0;
-    }
     void aryToFile(int **ary, ofstream &outFile, int frameSize)
     {
         imgReformat(ary, outFile, frameSize);
@@ -471,21 +522,32 @@ int main(int argc, const char *argv[])
         if (rfImg.is_open() && AvgOutImg.is_open() && AvgThrImg.is_open() && AvgPrettyPrint.is_open() && MedianOutImg.is_open() && MedianThrImg.is_open() && MedianPrettyPrint.is_open() && CPOutImg.is_open() && CPThrImg.is_open() && CPPrettyPrint.is_open())
         {
             ImageProcessing imgProcessing;
+
             imgProcessing.thrVal = thrVal;
+
             input >> imgProcessing.numRows >> imgProcessing.numCols >> imgProcessing.minVal >> imgProcessing.maxVal;
+
             imgProcessing.newMin = imgProcessing.minVal;
+
             imgProcessing.newMax = imgProcessing.maxVal;
+
             imgProcessing.loadImage(input);
+
             imgProcessing.mirrorFraming(imgProcessing.mirror3by3Ary, 1);
+
             imgProcessing.imgReformat(imgProcessing.mirror3by3Ary, rfImg, 1);
+
             imgProcessing.computeAvg();
+
             imgProcessing.imgReformat(imgProcessing.avgAry, AvgOutImg, 1);
+
             int **thrAry;
             thrAry = new int *[imgProcessing.numRows + 2];
             for (int i = 0; i < imgProcessing.numRows + 2; ++i)
             {
                 thrAry[i] = new int[imgProcessing.numCols + 2]();
             }
+
             imgProcessing.threshold(imgProcessing.avgAry, thrAry, 1);
 
             imgProcessing.aryToFile(thrAry, AvgThrImg, 1);
