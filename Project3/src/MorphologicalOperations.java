@@ -19,14 +19,27 @@ public class MorphologicalOperations {
     int extraRows;
     int extraCols;
 
+    int [] [] zeroFramedAry;
+    int [] [] morphAry;
+    int [] [] tempAry;
+    int [] [] structAry;
+
     void setFrameSize(){
         rowFrameSize=numStructRows/2;
         colFrameSize=numStructCols/2;
     }
 
+
     void setExtraFrame(){
         extraRows  =rowFrameSize*2;
         extraCols  =colFrameSize*2;
+    }
+
+    void allocateArrays(){
+        zeroFramedAry=new int [numImgRows+extraRows][numImgCols+extraCols];
+        morphAry=new int [numImgRows+extraRows][numImgCols+extraCols];
+        tempAry=new int [numImgRows+extraRows][numImgCols+extraCols];
+        structAry=new int [numStructRows][numStructCols];
     }
 
     public static void main(String[] args) throws IOException {
@@ -102,8 +115,10 @@ public class MorphologicalOperations {
             morpOperations.setFrameSize();
             morpOperations.setExtraFrame();
 
+            morpOperations.allocateArrays();
 
-            System.out.println(morpOperations.extraCols);
+
+
         } finally {
             if (imgFile != null) imgFile.close();
             if(structFile!=null) structFile.close();
