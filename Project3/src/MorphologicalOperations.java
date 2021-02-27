@@ -35,11 +35,118 @@ public class MorphologicalOperations {
         extraCols  =colFrameSize*2;
     }
 
+
+
     void allocateArrays(){
         zeroFramedAry=new int [numImgRows+extraRows][numImgCols+extraCols];
         morphAry=new int [numImgRows+extraRows][numImgCols+extraCols];
         tempAry=new int [numImgRows+extraRows][numImgCols+extraCols];
         structAry=new int [numStructRows][numStructCols];
+    }
+
+    void zero2DAry(int [][] zeroFramedAry, int numImgRows, int numImgCols){
+        for (int i=0;i<numImgRows;i++){
+            for(int j=0;j<numImgCols;j++){
+                zeroFramedAry[i][j]=0;
+            }
+        }
+    }
+
+    void loadImg(Scanner imgFile, int [][] zeroFramedAry){
+       for (int i=rowFrameSize;i<numImgRows+rowFrameSize;i++) {
+           System.out.print("\n");
+           for (int j = colFrameSize; j < numImgCols + colFrameSize; j++) {
+               zeroFramedAry[i][j] = imgFile.nextInt();
+               System.out.print(zeroFramedAry[i][j]);
+           }
+       }
+        System.out.print("\n");
+        System.out.print("\n");
+    }
+
+    void loadStruct(Scanner structFile, int [][] structArray){
+        for (int i=0;i<numStructRows;i++){
+            for(int j=0;j<numStructCols;j++){
+                structArray[i][j]=structFile.nextInt();
+            }
+        }
+    }
+
+
+    void dilation(int i, int j, int [][] inAry, int [][] outAry){
+
+    }
+
+    void erosion(int i, int j , int [][] inAry, int [][]outAry){
+
+    }
+
+    void computeDilation(int [][]inAry, int [][] outAry){
+        int i=rowFrameSize;
+        int j=colFrameSize;
+        while(i<(numImgRows+rowFrameSize)){
+            while(j<(numImgCols+colFrameSize)) {
+                if (inAry[i][j] > 0) {
+                    dilation(i, j, inAry, outAry);
+                }
+                j++;
+            }
+            i++;
+        }
+    }
+
+    void computeErosion(int [][]inAry, int [][] outAry){
+        int i=rowFrameSize;
+        int j=colFrameSize;
+        while(i<(numImgRows+rowFrameSize)){
+            while(j<(numImgCols+colFrameSize)) {
+                if (inAry[i][j] > 0) {
+                    erosion(i, j, inAry, outAry);
+                }
+                j++;
+            }
+            i++;
+        }
+    }
+
+    void computeClosing(int [][] zeroFramedAry, int [][] morphAry, int [][]tempAry){
+        computeDilation(zeroFramedAry, tempAry);
+        computeErosion(tempAry,morphAry);
+    }
+
+    void computeOpening(int [][] zeroFramedAry, int [][] morphAry, int [][]tempAry){
+        computeErosion(zeroFramedAry, tempAry);
+        computeDilation(tempAry, morphAry);
+    }
+
+
+    void print2DAry(int [][] zeroFramedAry, int numImgRows, int numImgCols){
+        System.out.println("No of extra rows and columns"+extraRows +" Cols:"+extraCols);
+        for (int i=0;i<numImgRows;i++){
+            System.out.print("\n");
+            for(int j=0;j<numImgCols;j++){
+                System.out.print(zeroFramedAry[i][j]);
+            }
+        }
+    }
+
+//    int [][] removeFrame(int [][]arrayWithFrame){
+//
+//    }
+
+
+    void prettyPrint(int [][] ary,BufferedWriter outFile ) throws IOException {
+        for (int i=0;i<ary.length;i++){
+            for(int j=0;j< ary[0].length;j++){
+                if(ary[i][j]==0){
+                    outFile.write(". ");
+                }
+                else{
+                    outFile.write(Integer.toString(ary[i][j])+" ");
+                }
+            }
+            outFile.write("\n");
+        }
     }
 
     public static void main(String[] args) throws IOException {
@@ -116,6 +223,28 @@ public class MorphologicalOperations {
             morpOperations.setExtraFrame();
 
             morpOperations.allocateArrays();
+
+            morpOperations.zero2DAry(morpOperations.zeroFramedAry,morpOperations.numImgRows+morpOperations.extraRows,morpOperations.numImgCols+ morpOperations.extraCols);
+
+            morpOperations.loadImg(imgFile,morpOperations.zeroFramedAry);
+
+            prettyPrintFile.write("Original Image\n");
+
+            prettyPrintFile.write(morpOperations.numImgRows+" "+ morpOperations.numImgCols+" "+morpOperations.imgMin+" "+morpOperations.imgMax+"\n");
+
+            morpOperations.prettyPrint(morpOperations.zeroFramedAry,prettyPrintFile);
+
+            morpOperations.zero2DAry(morpOperations.structAry,morpOperations.numStructRows, morpOperations.numStructCols);
+
+            morpOperations.loadStruct(structFile, morpOperations.structAry);
+
+            prettyPrintFile.write("\nStructuring Element\n");
+
+            prettyPrintFile.write(morpOperations.numStructRows+" "+morpOperations.numStructCols+" "+morpOperations.structMin+" "+morpOperations.structMax+"\n");
+
+            morpOperations.prettyPrint(morpOperations.structAry,prettyPrintFile);
+
+            morpOperations.zero2DAry(morpOperations.morphAry,morpOperations.numImgRows+morpOperations.extraRows,morpOperations.numImgCols+ morpOperations.extraCols );
 
 
 
