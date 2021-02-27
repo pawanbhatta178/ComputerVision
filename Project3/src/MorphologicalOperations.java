@@ -74,7 +74,14 @@ public class MorphologicalOperations {
 
 
     void dilation(int i, int j, int [][] inAry, int [][] outAry){
-
+        outAry[i][j]=inAry[i][j];
+       for(int k=0;k<numStructRows;k++){
+       for(int l=0;l<numStructCols;l++){
+           if(structAry[k][l]==1){
+               outAry[i][j]=1;
+           }
+       }
+   }
     }
 
     void erosion(int i, int j , int [][] inAry, int [][]outAry){
