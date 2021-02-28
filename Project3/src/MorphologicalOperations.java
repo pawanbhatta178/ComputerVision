@@ -283,6 +283,7 @@ public class MorphologicalOperations {
             //pretty printing Structural element
             prettyPrintFile.write("\nStructuring Element\n");
             prettyPrintFile.write(morpOperations.numStructRows+" "+morpOperations.numStructCols+" "+morpOperations.structMin+" "+morpOperations.structMax+"\n");
+            prettyPrintFile.write(morpOperations.rowOrigin+" "+morpOperations.colOrigin+"\n");
             morpOperations.prettyPrint(morpOperations.structAry,prettyPrintFile);
 
             //Dilation
