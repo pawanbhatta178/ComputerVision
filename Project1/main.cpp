@@ -43,6 +43,7 @@ public:
         }
     }
 
+    
     void printHist(ofstream &output)
     {
         output << this->numRows << " " << this->numCols << " " << this->minVal << " " << this->maxVal << endl;
