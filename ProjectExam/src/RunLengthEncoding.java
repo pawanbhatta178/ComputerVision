@@ -98,9 +98,78 @@ public class RunLengthEncoding {
         }
     }
 
-    void noZeroNoWrap(BufferedWriter outFile){
+    void noZeroNoWrap(BufferedWriter outFile) throws IOException {
         for(int i=0;i<inputNumRows;i++){
-            for(int j=0;j<inputNumCols)
+           int  length=1;
+            for(int j=0;j<inputNumCols;j++){
+                //getting current value
+                int currVal=inputImageBody[i][j];
+
+                //skipping if zero is current value
+                if(currVal==0){
+                    length=1;
+                    continue;
+                }
+
+                //if length has just begun, write the length starting position
+                if(length==1){
+                    outFile.write(i+" "+j+" ");
+                }
+
+                //getting next value
+                int nextVal=-1;
+                if(j<inputNumCols-1){
+                    nextVal=inputImageBody[i][j+1];
+                }
+                else{
+                    if(i<inputNumRows-1){
+                        nextVal=inputImageBody[i+1][j];
+                    }
+                }
+
+                //comparing current and next value
+                if(currVal==nextVal){
+                    length++;
+                }
+                else{//new value is seen therefore a new run will start
+                    outFile.write(currVal+" "+length+"\n");
+                    length=1;
+                }
+
+            }
+        }
+    }
+
+    void noZeroWrap(BufferedWriter outFile) throws IOException {
+        int length=1;
+        for(int i=0;i<inputNumRows;i++){
+            for(int j=0;j<inputNumCols;j++){
+                int currVal=inputImageBody[i][j];
+                if(currVal==0){
+                    length=1;
+                    continue;
+                }
+                if(length==1){
+                    outFile.write(i+" "+j+" ");
+                }
+                int nextVal=-1;
+                if(j<inputNumCols-1){
+                    nextVal=inputImageBody[i][j+1];
+                }
+                else{
+                    if(i<inputNumRows-1){
+                        nextVal=inputImageBody[i+1][0];
+                    }
+                }
+
+                if(currVal==nextVal){
+                    length++;
+                }
+                else{//end of a run
+                    outFile.write(currVal+" "+length+"\n");
+                    length=1;
+                }
+            }
         }
     }
 
@@ -127,7 +196,10 @@ public class RunLengthEncoding {
             r.readBody(inputFile);
             r.printBody();
 //            r.encodeZeroNoWrap(outFile);
-            r.encodeZeroWrap(outFile);
+//            r.encodeZeroWrap(outFile);
+//              r.noZeroNoWrap(outFile);
+            r.noZeroWrap(outFile);
+
         }
         finally{
             if(inputFile!=null){
