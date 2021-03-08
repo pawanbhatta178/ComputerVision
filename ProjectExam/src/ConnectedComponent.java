@@ -63,6 +63,16 @@ public class ConnectedComponent {
          return minVal;
     }
 
+    int [] listRemoveMinAndZero(int []ary, int min){
+         int [] returnVal;
+
+         for(int value:ary){
+             if(value!=min || value!=0){
+//                 returnVal.
+             }
+         }
+    }
+
      void readBody(Scanner inputFile){
          inputImageBody=new int [inputNumRows][inputNumCols];
 
@@ -143,6 +153,7 @@ public class ConnectedComponent {
              //third case
               else{
                  connectedArray[i][j]= minExcludeZero(a,b,c,d);
+                 int [] toUpdate=listAllExceptMinAndZero(a,b,c ,d);
               }
           }
          }
