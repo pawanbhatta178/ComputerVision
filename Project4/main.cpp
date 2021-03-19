@@ -26,6 +26,10 @@ public:
     int maxVal;
     int newMin;
     int newMax;
+    int rowFrameSize;
+    int colFrameSize;
+    int extraRows;
+    int extraCols;
     int newLabel;  // initialize to 0
     int trueNumCC; // the true number of connected components in the image
     // It will be determined in manageEQAry method.
@@ -37,6 +41,78 @@ public:
     // dynamically allocate at run time
     // and initialize to its index, i.e., EQAry[i] = i.
     Property *CCproperty;
+
+    CClabel(ifstream &input)
+    {
+        loadHeader(input);
+        rowFrameSize = 1;
+        colFrameSize = 1;
+        extraRows = 2 * rowFrameSize;
+        extraCols = 2 * colFrameSize;
+        //dynamic allocation of zeroframeArray
+        zeroFramedAry = new int *[numRows + extraRows];
+        for (int i = 0; i < numRows + extraRows; i++)
+        {
+            zeroFramedAry[i] = new int[numCols + extraCols];
+        }
+        zero2D(zeroFramedAry, numRows + extraRows, numCols + extraCols);
+    }
+
+    void loadHeader(ifstream &input)
+    {
+        input >> numRows >> numCols >> minVal >> maxVal;
+    }
+
+    void loadImage(ifstream &input)
+    {
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                input >> zeroFramedAry[i][j];
+            }
+        }
+        print2DArray(zeroFramedAry, numRows + extraRows, numCols + extraCols);
+    }
+
+    void zero2D(int **ary, int numOfRows, int numOfCols)
+    {
+        for (int i = 0; i < numOfRows; i++)
+        {
+            for (int j = 0; j < numOfCols; j++)
+            {
+                ary[i][j] = 0;
+            }
+        }
+    }
+
+    void minus1D(int *ary, int arrayLength)
+    {
+        for (int i = 0; i < arrayLength; i++)
+        {
+            ary[i] = -1;
+        }
+    }
+
+    void print2DArray(int **ary, int numOfRows, int numOfCols)
+    {
+        cout << numRows << " " << numCols << " " << minVal << " " << maxVal << endl;
+        for (int i = 0; i < numOfRows; i++)
+        {
+            for (int j = 0; j < numOfCols; j++)
+            {
+                cout << ary[i][j];
+            }
+            cout << endl;
+        }
+    }
+
+    ~CClabel()
+    {
+        cout << "Destructor called" << endl;
+        delete[] EQAry;
+        delete[] CCproperty;
+    }
 };
 
 int main(int argc, const char *argv[])
@@ -59,7 +135,14 @@ int main(int argc, const char *argv[])
     {
         if (rfPrettyPrint.is_open() && labelFile.is_open() && propertyFile.is_open())
         {
-            labelFile << "HEY";
+            CClabel cc(input);
+            cc.loadImage(input);
+            if (connectedness == 4)
+            {
+            }
+            if (connectedness == 8)
+            {
+            }
         }
         else
         {
