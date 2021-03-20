@@ -278,6 +278,39 @@ public:
 
     void connect8Pass2()
     {
+
+        for (int i = numRows + rowFrameSize - 1; i >= rowFrameSize; i--)
+        {
+            for (int j = numCols + colFrameSize - 1; j >= colFrameSize; j--)
+            {
+                if (zeroFramedAry[i][j] > 0)
+                {
+                    int e = zeroFramedAry[i][j + 1];
+                    int f = zeroFramedAry[i + 1][j - 1];
+                    int g = zeroFramedAry[i + 1][j];
+                    int h = zeroFramedAry[i + 1][j + 1];
+
+                    //Case 1
+                    if (e == 0 && f == 0 && g == 0 && h == 0)
+                    {
+                        //do nothing
+                    }
+
+                    //Case 2
+                    else if (isSameValExZero(e, f, g, h, zeroFramedAry[i][j]) != 0)
+                    {
+                        //do nothing
+                    }
+
+                    //Case 3
+                    else
+                    {
+                        zeroFramedAry[i][j] = getMinVal(e, f, g, h, zeroFramedAry[i][j]);
+                    }
+                }
+            }
+        }
+        print2DArray(zeroFramedAry, numRows + extraRows, numCols + extraCols);
     }
 
     void connect4Pass2()
@@ -357,6 +390,8 @@ int main(int argc, const char *argv[])
             if (connectedness == 8)
             {
                 cc.connect8Pass1();
+                cout << endl;
+                cc.connect8Pass2();
             }
         }
         else
