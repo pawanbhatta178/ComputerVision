@@ -36,7 +36,19 @@ T getMinVal(T a)
 template <class T>
 T getMinVal(T a, T b)
 {
-    if (a < b && a != 0)
+    if (a == 0 && b == 0)
+    {
+        return 0;
+    }
+    if (a == 0)
+    {
+        return b;
+    }
+    if (b == 0)
+    {
+        return a;
+    }
+    if (a < b)
     {
         return a;
     }
@@ -46,7 +58,19 @@ T getMinVal(T a, T b)
 template <class T, class... Args>
 T getMinVal(T a, T b, Args... args)
 {
-    if (a < b && a != 0)
+    if (a == 0 && b == 0)
+    {
+        return getMinVal(args...);
+    }
+    if (a == 0)
+    {
+        return getMinVal(b, args...);
+    }
+    if (b == 0)
+    {
+        return getMinVal(a, args...);
+    }
+    if (a < b)
     {
         return getMinVal(a, args...);
     }
@@ -54,35 +78,31 @@ T getMinVal(T a, T b, Args... args)
 }
 
 template <class T>
-T isSameValExZero(T a)
+bool isSameValExZero(T a)
 {
-    return a;
+    return true;
 }
 
 template <class T>
-T isSameValExZero(T a, T b)
+bool isSameValExZero(T a, T b)
 {
 
-    if (a == 0)
+    if (b == 0 || a == 0)
     {
-        return b;
-    }
-    if (b == 0)
-    {
-        return a;
-    }
-    if (a != b)
-    {
-        return 0;
+        return true;
     }
     if (a == b)
     {
-        return a;
+        return true;
+    }
+    if (a != b)
+    {
+        return false;
     }
 }
 
 template <class T, class... Args>
-T isSameValExZero(T a, T b, Args... args)
+bool isSameValExZero(T a, T b, Args... args)
 {
     if (a == 0 && b == 0)
     {
@@ -102,10 +122,34 @@ T isSameValExZero(T a, T b, Args... args)
     }
     else
     {
-        return 0;
+        return false;
     }
 }
 
+template <class T, class... Args>
+bool hasDifferentValExZero(T a, T b, Args... args)
+{
+    if (a == 0 && b == 0)
+    {
+        return hasDifferentValExZero(args...);
+    }
+    else if (a == 0)
+    {
+        return hasDifferentValExZero(b, args...);
+    }
+    else if (b == 0)
+    {
+        return hasDifferentValExZero(a, args...);
+    }
+    else if (a == b)
+    {
+        return hasDifferentValExZero(b, args...);
+    }
+    else
+    {
+        return true;
+    }
+}
 struct Property
 {
     int label;     // The component label
@@ -179,7 +223,6 @@ public:
 
     void connect8Pass1()
     {
-
         newLabel = 0;
         //allocating EQTable
         int EQSize = (numRows * numCols) / 4;
@@ -188,6 +231,9 @@ public:
         {
             EQAry[i] = i;
         }
+
+        newMax = 0;
+        newMin = 9999;
 
         for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
         {
@@ -208,7 +254,7 @@ public:
                     }
 
                     //Case 2
-                    else if (isSameValExZero(a, b, c, d) != 0)
+                    else if (isSameValExZero(a, b, c, d))
                     {
                         zeroFramedAry[i][j] = getNonZero(a, b, c, d);
                     }
@@ -218,10 +264,19 @@ public:
                     {
                         zeroFramedAry[i][j] = getMinVal(a, b, c, d);
                     }
+
+                    //Updating newMax and newMin
+                    if (zeroFramedAry[i][j] < newMin)
+                    {
+                        newMin = zeroFramedAry[i][j];
+                    }
+                    if (zeroFramedAry[i][j] > newMax)
+                    {
+                        newMax = zeroFramedAry[i][j];
+                    }
                 }
             }
         }
-        print2DArray(zeroFramedAry, numRows + extraRows, numCols + extraCols);
     }
 
     void connect4Pass1()
@@ -234,6 +289,9 @@ public:
         {
             EQAry[i] = i;
         }
+
+        newMax = 0;
+        newMin = 9999;
 
         for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
         {
@@ -270,19 +328,30 @@ public:
                         }
                         zeroFramedAry[i][j] = getMinVal(a, b);
                     }
+
+                    //Updating newMax and newMin
+                    if (zeroFramedAry[i][j] < newMin)
+                    {
+                        newMin = zeroFramedAry[i][j];
+                    }
+                    if (zeroFramedAry[i][j] > newMax)
+                    {
+                        newMax = zeroFramedAry[i][j];
+                    }
                 }
             }
         }
-        print2DArray(zeroFramedAry, numRows + extraRows, numCols + extraCols);
     }
 
     void connect8Pass2()
     {
-
+        newMax = 0;
+        newMin = 9999;
         for (int i = numRows + rowFrameSize - 1; i >= rowFrameSize; i--)
         {
             for (int j = numCols + colFrameSize - 1; j >= colFrameSize; j--)
             {
+
                 if (zeroFramedAry[i][j] > 0)
                 {
                     int e = zeroFramedAry[i][j + 1];
@@ -297,7 +366,7 @@ public:
                     }
 
                     //Case 2
-                    else if (isSameValExZero(e, f, g, h, zeroFramedAry[i][j]) != 0)
+                    else if (isSameValExZero(e, f, g, h, zeroFramedAry[i][j]))
                     {
                         //do nothing
                     }
@@ -307,14 +376,64 @@ public:
                     {
                         zeroFramedAry[i][j] = getMinVal(e, f, g, h, zeroFramedAry[i][j]);
                     }
+
+                    //Updating newMax and newMin
+                    if (zeroFramedAry[i][j] < newMin)
+                    {
+                        newMin = zeroFramedAry[i][j];
+                    }
+                    if (zeroFramedAry[i][j] > newMax)
+                    {
+                        newMax = zeroFramedAry[i][j];
+                    }
                 }
             }
         }
-        print2DArray(zeroFramedAry, numRows + extraRows, numCols + extraCols);
     }
 
     void connect4Pass2()
     {
+        newMax = 0;
+        newMin = 9999;
+        for (int i = numRows + rowFrameSize - 1; i >= rowFrameSize; i--)
+        {
+            for (int j = numCols + colFrameSize - 1; j >= colFrameSize; j--)
+            {
+                if (zeroFramedAry[i][j] > 0)
+                {
+                    int c = zeroFramedAry[i][j + 1];
+                    int d = zeroFramedAry[i + 1][j];
+
+                    //Case 1
+                    if (c == 0 && d == 0)
+                    {
+                        //do nothing
+                    }
+
+                    //Case 2
+                    else if (isSameValExZero(c, d, zeroFramedAry[i][j]) != 0)
+                    {
+                        //do nothing
+                    }
+
+                    //Case 3
+                    else
+                    {
+                        zeroFramedAry[i][j] = getMinVal(c, d, zeroFramedAry[i][j]);
+                    }
+
+                    //Updating newMax and newMin
+                    if (zeroFramedAry[i][j] < newMin)
+                    {
+                        newMin = zeroFramedAry[i][j];
+                    }
+                    if (zeroFramedAry[i][j] > newMax)
+                    {
+                        newMax = zeroFramedAry[i][j];
+                    }
+                }
+            }
+        }
     }
 
     void connectPass3()
@@ -353,6 +472,36 @@ public:
         }
     }
 
+    void imgReformat(ofstream &outFile)
+    {
+        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        string str = to_string(newMax);
+        int width = str.length();
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                outFile << zeroFramedAry[i][j] << " ";
+                str = to_string(zeroFramedAry[i][j]);
+                int ww = str.length();
+                while (ww < width)
+                {
+                    outFile << " ";
+                    ww++;
+                }
+            }
+            outFile << endl;
+        }
+    }
+
+    void printEQAry(ofstream &outFile)
+    {
+        for (int i = 1; i <= newLabel; i++)
+        {
+            outFile << i << " " << EQAry[i] << endl;
+        }
+    }
+
     ~CClabel()
     {
         cout << "Destructor called" << endl;
@@ -385,13 +534,35 @@ int main(int argc, const char *argv[])
             cc.loadImage(input);
             if (connectedness == 4)
             {
-                // cc.connect4Pass1();
+                cc.connect4Pass1();
+                rfPrettyPrint << "Pass 1" << endl;
+                cc.imgReformat(rfPrettyPrint);
+                rfPrettyPrint << endl
+                              << "Equivalency Array after: Pass 1" << endl;
+                cc.printEQAry(rfPrettyPrint);
+                cc.connect4Pass2();
+                rfPrettyPrint << endl
+                              << "Pass 2" << endl;
+                cc.imgReformat(rfPrettyPrint);
+                rfPrettyPrint << endl
+                              << "Equivalency Array after: Pass 2" << endl;
+                cc.printEQAry(rfPrettyPrint);
             }
             if (connectedness == 8)
             {
                 cc.connect8Pass1();
-                cout << endl;
+                rfPrettyPrint << "Pass 1" << endl;
+                cc.imgReformat(rfPrettyPrint);
+                rfPrettyPrint << endl
+                              << "Equivalency Array after: Pass 1" << endl;
+                cc.printEQAry(rfPrettyPrint);
                 cc.connect8Pass2();
+                rfPrettyPrint << endl
+                              << "Pass 2" << endl;
+                cc.imgReformat(rfPrettyPrint);
+                rfPrettyPrint << endl
+                              << "Equivalency Array after: Pass 2" << endl;
+                cc.printEQAry(rfPrettyPrint);
             }
         }
         else
