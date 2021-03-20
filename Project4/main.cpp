@@ -1,7 +1,110 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdarg>
 using namespace std;
+
+template <class T>
+T getNonZero(T n)
+{
+    if (n != 0)
+    {
+        return n;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+template <class T, class... Args>
+T getNonZero(T n, Args... args)
+{
+    if (n != 0)
+    {
+        return n;
+    }
+    return getNonZero(args...);
+}
+
+template <class T>
+T getMinVal(T a)
+{
+    return a;
+}
+
+template <class T>
+T getMinVal(T a, T b)
+{
+    if (a < b && a != 0)
+    {
+        return a;
+    }
+    return b;
+}
+
+template <class T, class... Args>
+T getMinVal(T a, T b, Args... args)
+{
+    if (a < b && a != 0)
+    {
+        return getMinVal(a, args...);
+    }
+    return getMinVal(b, args...);
+}
+
+template <class T>
+T isSameValExZero(T a)
+{
+    return a;
+}
+
+template <class T>
+T isSameValExZero(T a, T b)
+{
+
+    if (a == 0)
+    {
+        return b;
+    }
+    if (b == 0)
+    {
+        return a;
+    }
+    if (a != b)
+    {
+        return 0;
+    }
+    if (a == b)
+    {
+        return a;
+    }
+}
+
+template <class T, class... Args>
+T isSameValExZero(T a, T b, Args... args)
+{
+    if (a == 0 && b == 0)
+    {
+        return isSameValExZero(args...);
+    }
+    else if (a == 0)
+    {
+        return isSameValExZero(b, args...);
+    }
+    else if (b == 0)
+    {
+        return isSameValExZero(a, args...);
+    }
+    else if (a == b)
+    {
+        return isSameValExZero(b, args...);
+    }
+    else
+    {
+        return 0;
+    }
+}
 
 struct Property
 {
@@ -72,7 +175,117 @@ public:
                 input >> zeroFramedAry[i][j];
             }
         }
+    }
+
+    void connect8Pass1()
+    {
+
+        newLabel = 0;
+        //allocating EQTable
+        int EQSize = (numRows * numCols) / 4;
+        EQAry = new int[EQSize];
+        for (int i = 0; i < EQSize; i++)
+        {
+            EQAry[i] = i;
+        }
+
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                if (zeroFramedAry[i][j] > 0)
+                {
+                    int a = zeroFramedAry[i - 1][j - 1];
+                    int b = zeroFramedAry[i - 1][j];
+                    int c = zeroFramedAry[i - 1][j + 1];
+                    int d = zeroFramedAry[i][j - 1];
+
+                    //Case 1
+                    if (a == 0 && b == 0 && c == 0 && d == 0)
+                    {
+                        newLabel++;
+                        zeroFramedAry[i][j] = newLabel;
+                    }
+
+                    //Case 2
+                    else if (isSameValExZero(a, b, c, d) != 0)
+                    {
+                        zeroFramedAry[i][j] = getNonZero(a, b, c, d);
+                    }
+
+                    //Case 3
+                    else
+                    {
+                        zeroFramedAry[i][j] = getMinVal(a, b, c, d);
+                    }
+                }
+            }
+        }
         print2DArray(zeroFramedAry, numRows + extraRows, numCols + extraCols);
+    }
+
+    void connect4Pass1()
+    {
+        newLabel = 0;
+        //allocating EQTable
+        int EQSize = (numRows * numCols) / 4;
+        EQAry = new int[EQSize];
+        for (int i = 0; i < EQSize; i++)
+        {
+            EQAry[i] = i;
+        }
+
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                if (zeroFramedAry[i][j] > 0)
+                {
+                    int a = zeroFramedAry[i - 1][j];
+                    int b = zeroFramedAry[i][j - 1];
+
+                    //Case 1
+                    if (a == 0 && b == 0)
+                    {
+                        newLabel++;
+                        zeroFramedAry[i][j] = newLabel;
+                    }
+
+                    //Case 2
+                    else if (a == b || a == 0 || b == 0)
+                    {
+                        zeroFramedAry[i][j] = getNonZero(a, b);
+                    }
+
+                    //Case 3
+                    else
+                    {
+                        if (a == 0)
+                        {
+                            zeroFramedAry[i][j] = b;
+                        }
+                        if (b == 0)
+                        {
+                            zeroFramedAry[i][j] = a;
+                        }
+                        zeroFramedAry[i][j] = getMinVal(a, b);
+                    }
+                }
+            }
+        }
+        print2DArray(zeroFramedAry, numRows + extraRows, numCols + extraCols);
+    }
+
+    void connect8Pass2()
+    {
+    }
+
+    void connect4Pass2()
+    {
+    }
+
+    void connectPass3()
+    {
     }
 
     void zero2D(int **ary, int numOfRows, int numOfCols)
@@ -101,7 +314,7 @@ public:
         {
             for (int j = 0; j < numOfCols; j++)
             {
-                cout << ary[i][j];
+                cout << ary[i][j] << " ";
             }
             cout << endl;
         }
@@ -139,9 +352,11 @@ int main(int argc, const char *argv[])
             cc.loadImage(input);
             if (connectedness == 4)
             {
+                // cc.connect4Pass1();
             }
             if (connectedness == 8)
             {
+                cc.connect8Pass1();
             }
         }
         else
