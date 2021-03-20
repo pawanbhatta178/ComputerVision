@@ -126,30 +126,6 @@ bool isSameValExZero(T a, T b, Args... args)
     }
 }
 
-template <class T, class... Args>
-bool hasDifferentValExZero(T a, T b, Args... args)
-{
-    if (a == 0 && b == 0)
-    {
-        return hasDifferentValExZero(args...);
-    }
-    else if (a == 0)
-    {
-        return hasDifferentValExZero(b, args...);
-    }
-    else if (b == 0)
-    {
-        return hasDifferentValExZero(a, args...);
-    }
-    else if (a == b)
-    {
-        return hasDifferentValExZero(b, args...);
-    }
-    else
-    {
-        return true;
-    }
-}
 struct Property
 {
     int label;     // The component label
@@ -162,6 +138,16 @@ struct Property
     //represented by two points: upper-left corner and the lower -right
     //corner of the box. Here, the two points:(minR minC) and(maxR maxC)
     //represents the smallest rectangular box that the cc can fit inside the box.
+
+    Property()
+    {
+        label = -1;
+        numPixels = 0;
+        minC = 9999;
+        minR = 9999;
+        maxC = 0;
+        maxR = 0;
+    }
 };
 
 class CClabel
@@ -251,6 +237,9 @@ public:
                     {
                         newLabel++;
                         zeroFramedAry[i][j] = newLabel;
+
+                        //updating EQ table
+                        EQAry[newLabel] = newLabel;
                     }
 
                     //Case 2
@@ -262,7 +251,14 @@ public:
                     //Case 3
                     else
                     {
-                        zeroFramedAry[i][j] = getMinVal(a, b, c, d);
+                        int minVal = getMinVal(a, b, c, d);
+                        zeroFramedAry[i][j] = minVal;
+
+                        //updating EQ Table
+                        EQAry[a] = minVal;
+                        EQAry[b] = minVal;
+                        EQAry[c] = minVal;
+                        EQAry[d] = minVal;
                     }
 
                     //Updating newMax and newMin
@@ -374,7 +370,14 @@ public:
                     //Case 3
                     else
                     {
-                        zeroFramedAry[i][j] = getMinVal(e, f, g, h, zeroFramedAry[i][j]);
+                        int minLabel = getMinVal(e, f, g, h, zeroFramedAry[i][j]);
+                        zeroFramedAry[i][j] = minLabel;
+
+                        //Updating EQ Table
+                        if (zeroFramedAry[i][j] > minLabel)
+                        {
+                            EQAry[zeroFramedAry[i][j]] = minLabel;
+                        }
                     }
 
                     //Updating newMax and newMin
@@ -438,6 +441,65 @@ public:
 
     void connectPass3()
     {
+        newMax = 0;
+        newMin = 9999;
+        CCproperty = new Property[trueNumCC + 1]();
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                if (zeroFramedAry[i][j] > 0)
+                {
+                    zeroFramedAry[i][j] = EQAry[zeroFramedAry[i][j]];
+                    Property *p = &CCproperty[zeroFramedAry[i][j]];
+                    p->label = zeroFramedAry[i][j];
+                    p->numPixels = p->numPixels + 1;
+                    if (p->minR > i)
+                    {
+                        p->minR = i - rowFrameSize;
+                    }
+                    if (p->minC > j)
+                    {
+                        p->minC = j - colFrameSize;
+                    }
+                    if (p->maxR < i)
+                    {
+                        p->maxR = i - rowFrameSize;
+                    }
+                    if (p->maxC < j)
+                    {
+                        p->maxC = j - colFrameSize;
+                    }
+                }
+                //Updating newMax and newMin
+                if (zeroFramedAry[i][j] < newMin)
+                {
+                    newMin = zeroFramedAry[i][j];
+                }
+                if (zeroFramedAry[i][j] > newMax)
+                {
+                    newMax = zeroFramedAry[i][j];
+                }
+            }
+        }
+    }
+
+    void manageEQAry()
+    {
+        int readLabel = 0;
+        for (int i = 1; i <= newLabel; i++)
+        {
+            if (i != EQAry[i])
+            {
+                EQAry[i] = EQAry[EQAry[i]];
+            }
+            else
+            {
+                readLabel++;
+                EQAry[i] = readLabel;
+            }
+        }
+        trueNumCC = readLabel;
     }
 
     void zero2D(int **ary, int numOfRows, int numOfCols)
@@ -499,6 +561,59 @@ public:
         for (int i = 1; i <= newLabel; i++)
         {
             outFile << i << " " << EQAry[i] << endl;
+        }
+    }
+
+    void printCCproperty(ofstream &outFile)
+    {
+        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        outFile << trueNumCC << endl;
+        outFile << "---" << endl;
+        for (int i = 1; i < trueNumCC + 1; i++)
+        {
+            Property *p = &CCproperty[i];
+            outFile << p->label << endl;
+            outFile << p->numPixels << endl;
+            outFile << p->minR << " " << p->minC << endl;
+            outFile << p->maxR << " " << p->maxC << endl;
+            outFile << "---" << endl;
+        }
+    }
+
+    void drawBoxes()
+    {
+        int minRow, minCol, maxRow, maxCol, label;
+        for (int i = 1; i < trueNumCC + 1; i++)
+        {
+            label = CCproperty[i].label;
+            minRow = CCproperty[i].minR + 1;
+            minCol = CCproperty[i].minC + 1;
+            maxRow = CCproperty[i].maxR + 1;
+            maxCol = CCproperty[i].maxC + 1;
+
+            //drawing horizontal top line
+            for (int j = minCol; j < maxCol; j++)
+            {
+                zeroFramedAry[minRow][j] = label;
+            }
+
+            //drawing horizontal bottom line
+            for (int j = minCol; j < maxCol; j++)
+            {
+                zeroFramedAry[maxRow][j] = label;
+            }
+
+            //drawing vertical left line
+            for (int i = minRow; i < maxRow; i++)
+            {
+                zeroFramedAry[i][minCol] = label;
+            }
+
+            //drawing vertical right line
+            for (int i = minRow; i < maxRow; i++)
+            {
+                zeroFramedAry[i][maxCol] = label;
+            }
         }
     }
 
@@ -564,6 +679,32 @@ int main(int argc, const char *argv[])
                               << "Equivalency Array after: Pass 2" << endl;
                 cc.printEQAry(rfPrettyPrint);
             }
+            //Managing EQ table
+            cc.manageEQAry();
+            rfPrettyPrint << endl
+                          << "Equivalency Array after: EQ Management" << endl;
+            cc.printEQAry(rfPrettyPrint);
+
+            //Third Pass
+            cc.connectPass3();
+            rfPrettyPrint << endl
+                          << "Pass 3" << endl;
+            cc.imgReformat(rfPrettyPrint);
+            rfPrettyPrint << endl
+                          << "Equivalency Array after: Pass 3" << endl;
+            cc.printEQAry(rfPrettyPrint);
+
+            //Printing final product of pass 3
+            cc.imgReformat(labelFile);
+
+            //Printing into CC Property File
+            cc.printCCproperty(propertyFile);
+
+            //drawing bounding box for each components
+            cc.drawBoxes();
+            rfPrettyPrint << endl
+                          << "Drawing Boxes" << endl;
+            cc.imgReformat(rfPrettyPrint);
         }
         else
         {
