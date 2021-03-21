@@ -378,6 +378,10 @@ public:
                         {
                             EQAry[zeroFramedAry[i][j]] = minLabel;
                         }
+                        EQAry[e] = minLabel;
+                        EQAry[f] = minLabel;
+                        EQAry[g] = minLabel;
+                        EQAry[h] = minLabel;
                     }
 
                     //Updating newMax and newMin
@@ -430,6 +434,9 @@ public:
                         {
                             EQAry[zeroFramedAry[i][j]] = minLabel;
                         }
+
+                        EQAry[c] = minLabel;
+                        EQAry[d] = minLabel;
                     }
 
                     //Updating newMax and newMin
