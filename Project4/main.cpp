@@ -303,10 +303,13 @@ public:
                     {
                         newLabel++;
                         zeroFramedAry[i][j] = newLabel;
+
+                        //updating EQ table
+                        EQAry[newLabel] = newLabel;
                     }
 
                     //Case 2
-                    else if (a == b || a == 0 || b == 0)
+                    else if (isSameValExZero(a, b))
                     {
                         zeroFramedAry[i][j] = getNonZero(a, b);
                     }
@@ -314,15 +317,12 @@ public:
                     //Case 3
                     else
                     {
-                        if (a == 0)
-                        {
-                            zeroFramedAry[i][j] = b;
-                        }
-                        if (b == 0)
-                        {
-                            zeroFramedAry[i][j] = a;
-                        }
-                        zeroFramedAry[i][j] = getMinVal(a, b);
+                        int minVal = getMinVal(a, b);
+                        zeroFramedAry[i][j] = minVal;
+
+                        //updating EQ Table
+                        EQAry[a] = minVal;
+                        EQAry[b] = minVal;
                     }
 
                     //Updating newMax and newMin
@@ -414,7 +414,7 @@ public:
                     }
 
                     //Case 2
-                    else if (isSameValExZero(c, d, zeroFramedAry[i][j]) != 0)
+                    else if (isSameValExZero(c, d, zeroFramedAry[i][j]))
                     {
                         //do nothing
                     }
@@ -422,7 +422,14 @@ public:
                     //Case 3
                     else
                     {
-                        zeroFramedAry[i][j] = getMinVal(c, d, zeroFramedAry[i][j]);
+                        int minLabel = getMinVal(c, d, zeroFramedAry[i][j]);
+                        zeroFramedAry[i][j] = minLabel;
+
+                        //Updating EQ Table
+                        if (zeroFramedAry[i][j] > minLabel)
+                        {
+                            EQAry[zeroFramedAry[i][j]] = minLabel;
+                        }
                     }
 
                     //Updating newMax and newMin
@@ -454,19 +461,20 @@ public:
                     Property *p = &CCproperty[zeroFramedAry[i][j]];
                     p->label = zeroFramedAry[i][j];
                     p->numPixels = p->numPixels + 1;
-                    if (p->minR > i)
+
+                    if (p->minR - 1 > i)
                     {
                         p->minR = i - rowFrameSize;
                     }
-                    if (p->minC > j)
+                    if (p->minC - 1 > j)
                     {
                         p->minC = j - colFrameSize;
                     }
-                    if (p->maxR < i)
+                    if (p->maxR - 1 < i)
                     {
                         p->maxR = i - rowFrameSize;
                     }
-                    if (p->maxC < j)
+                    if (p->maxC - 1 < j)
                     {
                         p->maxC = j - colFrameSize;
                     }
@@ -543,6 +551,37 @@ public:
         {
             for (int j = colFrameSize; j < numCols + colFrameSize; j++)
             {
+                if (zeroFramedAry[i][j] == 0)
+                {
+                    outFile << "."
+                            << " ";
+                }
+                else
+                {
+                    outFile << zeroFramedAry[i][j] << " ";
+                }
+                str = to_string(zeroFramedAry[i][j]);
+                int ww = str.length();
+                while (ww < width)
+                {
+                    outFile << " ";
+                    ww++;
+                }
+            }
+            outFile << endl;
+        }
+    }
+
+    void printImg(ofstream &outFile)
+    {
+        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        string str = to_string(newMax);
+        int width = str.length();
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+
                 outFile << zeroFramedAry[i][j] << " ";
                 str = to_string(zeroFramedAry[i][j]);
                 int ww = str.length();
@@ -695,7 +734,7 @@ int main(int argc, const char *argv[])
             cc.printEQAry(rfPrettyPrint);
 
             //Printing final product of pass 3
-            cc.imgReformat(labelFile);
+            cc.printImg(labelFile);
 
             //Printing into CC Property File
             cc.printCCproperty(propertyFile);
