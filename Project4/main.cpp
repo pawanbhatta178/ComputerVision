@@ -629,25 +629,25 @@ public:
             maxCol = CCproperty[i].maxC + 1;
 
             //drawing horizontal top line
-            for (int j = minCol; j < maxCol; j++)
+            for (int j = minCol; j <= maxCol; j++)
             {
                 zeroFramedAry[minRow][j] = label;
             }
 
             //drawing horizontal bottom line
-            for (int j = minCol; j < maxCol; j++)
+            for (int j = minCol; j <= maxCol; j++)
             {
                 zeroFramedAry[maxRow][j] = label;
             }
 
             //drawing vertical left line
-            for (int i = minRow; i < maxRow; i++)
+            for (int i = minRow; i <= maxRow; i++)
             {
                 zeroFramedAry[i][minCol] = label;
             }
 
             //drawing vertical right line
-            for (int i = minRow; i < maxRow; i++)
+            for (int i = minRow; i <= maxRow; i++)
             {
                 zeroFramedAry[i][maxCol] = label;
             }
