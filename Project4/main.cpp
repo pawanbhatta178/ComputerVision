@@ -134,10 +134,6 @@ struct Property
     int minC;
     int maxR;
     int maxC;
-    // In the Cartesian coordinate system, any rectangular box can be
-    //represented by two points: upper-left corner and the lower -right
-    //corner of the box. Here, the two points:(minR minC) and(maxR maxC)
-    //represents the smallest rectangular box that the cc can fit inside the box.
 
     Property()
     {
@@ -163,16 +159,11 @@ public:
     int colFrameSize;
     int extraRows;
     int extraCols;
-    int newLabel;  // initialize to 0
+    int newLabel;
     int trueNumCC; // the true number of connected components in the image
-    // It will be determined in manageEQAry method.
-    int **zeroFramedAry;       // a 2D array, need to dynamically allocate
-    int NonZeroNeighborAry[5]; // 5 is the max number of neighbors you have to check.
-    // For easy programming, you may consider using this 1-D array
-    // to store pixel (i, j)’s non-zero neighbors during pass 1 and pass2.
+    int **zeroFramedAry;
+    int NonZeroNeighborAry[5];
     int *EQAry; // an 1-D array, of size (numRows * numCols) / 4
-    // dynamically allocate at run time
-    // and initialize to its index, i.e., EQAry[i] = i.
     Property *CCproperty;
 
     CClabel(ifstream &input)
@@ -469,21 +460,21 @@ public:
                     p->label = zeroFramedAry[i][j];
                     p->numPixels = p->numPixels + 1;
 
-                    if (p->minR - 1 > i)
+                    if (p->minR > i - 1)
                     {
-                        p->minR = i - rowFrameSize;
+                        p->minR = i - 1;
                     }
-                    if (p->minC - 1 > j)
+                    if (p->maxR < i - 1)
                     {
-                        p->minC = j - colFrameSize;
+                        p->maxR = i - 1;
                     }
-                    if (p->maxR - 1 < i)
+                    if (p->minC > j - 1)
                     {
-                        p->maxR = i - rowFrameSize;
+                        p->minC = j - 1;
                     }
-                    if (p->maxC - 1 < j)
+                    if (p->maxC < j - 1)
                     {
-                        p->maxC = j - colFrameSize;
+                        p->maxC = j - 1;
                     }
                 }
                 //Updating newMax and newMin
