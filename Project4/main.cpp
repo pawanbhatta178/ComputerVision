@@ -4,6 +4,7 @@
 #include <cstdarg>
 using namespace std;
 
+//helper functions that returns first non zero value seen in a given list of params
 template <class T>
 T getNonZero(T n)
 {
@@ -27,6 +28,7 @@ T getNonZero(T n, Args... args)
     return getNonZero(args...);
 }
 
+//helper functions that returns minimum value ignoring zero
 template <class T>
 T getMinVal(T a)
 {
@@ -77,6 +79,7 @@ T getMinVal(T a, T b, Args... args)
     return getMinVal(b, args...);
 }
 
+//helper function that returns true if list of parameters includes all same values ignoring zero else returns false
 template <class T>
 bool isSameValExZero(T a)
 {
@@ -95,10 +98,8 @@ bool isSameValExZero(T a, T b)
     {
         return true;
     }
-    if (a != b)
-    {
-        return false;
-    }
+
+    return false;
 }
 
 template <class T, class... Args>
@@ -656,9 +657,14 @@ public:
 
     ~CClabel()
     {
-        cout << "Destructor called" << endl;
+        //Cleaning up
         delete[] EQAry;
         delete[] CCproperty;
+
+        for (int i = 0; i < numRows + extraRows; i++)
+        {
+            delete[] zeroFramedAry[i];
+        }
     }
 };
 
