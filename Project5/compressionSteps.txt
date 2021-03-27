@@ -1,4 +1,4 @@
-Pass One: 8 connectness Distance Transform
+Result of: Pass One 8 connectness Distance Transform
 30 40 0 10
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  1  1  1  1  1  1  1  1  1  1  .  .  .  .  .  .  .  .  
 .  .  .  .  .  .  .  .  .  .  1  .  .  .  .  .  .  .  .  .  .  .  1  2  2  2  2  2  2  2  2  1  .  .  .  .  .  .  .  .  
@@ -31,7 +31,7 @@ Pass One: 8 connectness Distance Transform
 .  .  .  .  .  .  1  2  3  4  5  6  7  8  9  10 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
 .  .  .  .  .  .  .  1  2  3  4  5  6  7  8  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
 
-Pass Two: 8 connectness Distance Transform
+Result of: Pass Two 8 connectness Distance Transform
 30 40 0 7
 . . . . . . . . . . . . . . . . . . . . . . 1 1 1 1 1 1 1 1 1 1 . . . . . . . . 
 . . . . . . . . . . 1 . . . . . . . . . . . 1 2 2 2 2 2 2 2 2 1 . . . . . . . . 
@@ -64,7 +64,7 @@ Pass Two: 8 connectness Distance Transform
 . . . . . . 1 1 2 2 2 2 2 2 1 1 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . 1 1 1 1 1 1 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . 
 
-Result of Local Maxima Operation
+Result of: Local Maxima Operation
 30 40 0 7
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
