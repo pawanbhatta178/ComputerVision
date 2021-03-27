@@ -15,12 +15,14 @@ class DistanceTransformCompression {
     int[][] zeroFramedAry;
     int[][] skeletonAry;
 
+
+
     DistanceTransformCompression(Scanner imgFile){
         setTotalFrameSize();
         setFrameSize();
         loadHeader(imgFile);
         initializeArrays();
-        loadImg(imgFile);
+
     }
 
     void initializeArrays(){
@@ -52,6 +54,24 @@ class DistanceTransformCompression {
                 zeroFramedAry[i][j] = imgFile.nextInt();
             }
         }
+    }
+
+    void loadTriplets(Scanner compressedImg){
+        int count=-1;
+       while(compressedImg.hasNextLine()){
+           count++;
+           String line=compressedImg.nextLine();
+           if(count==0){
+               continue;
+           }
+
+           String[] splitStr = line.trim().split("\\s+");
+           System.out.println("Hey"+splitStr[0]);
+
+           int i=Integer.parseInt(splitStr[0]);
+           int j=Integer.parseInt(splitStr[1]);
+           zeroFramedAry[i+rowFrameSize][j+colFrameSize]=Integer.parseInt(splitStr[2]);
+       }
     }
 
     void writeHeader(BufferedWriter outFile) throws IOException {
@@ -139,7 +159,7 @@ class DistanceTransformCompression {
     }
 
     int findMax(int ...array){
-        int maxVal=-1;
+        int maxVal=0;
         for (int i:array){
             if(i>maxVal){
                 maxVal=i;
@@ -256,35 +276,99 @@ class DistanceTransformCompression {
         newMax=0;
         for(int i=rowFrameSize;i<numImgRows+rowFrameSize;i++){
             for(int j=colFrameSize;j<numImgCols+colFrameSize;j++){
-               int pixelValue=skeletonAry[i][j];
 
-               if(pixelValue==0){
-                   int a=skeletonAry[i-1][j-1];
-                   int b=skeletonAry[i-1][j];
-                   int c=skeletonAry[i-1][j+1];
-                   int d=skeletonAry[i][j-1];
-                   int e=skeletonAry[i][j+1];
-                   int f=skeletonAry[i+1][j-1];
-                   int g=skeletonAry[i+1][j];
-                   int h=skeletonAry[i+1][j+1];
+               if(zeroFramedAry[i][j]==0){
+                   int a=zeroFramedAry[i-1][j-1];
+                   int b=zeroFramedAry[i-1][j];
+                   int c=zeroFramedAry[i-1][j+1];
+                   int d=zeroFramedAry[i][j-1];
+                   int e=zeroFramedAry[i][j+1];
+                   int f=zeroFramedAry[i+1][j-1];
+                   int g=zeroFramedAry[i+1][j];
+                   int h=zeroFramedAry[i+1][j+1];
 
                    int max=findMax(a, b, c, d, e,f,g,h)-1;
 
-                 if(skeletonAry[i][j]<max){
-                     skeletonAry[i][j]=max;
+                 if(zeroFramedAry[i][j]<max){
+                     zeroFramedAry[i][j]=max;
                  }
                }
                 //Updating newMin and newMax
-                if(skeletonAry[i][j]>newMax){
+                if(zeroFramedAry[i][j]>newMax){
                     newMax=zeroFramedAry[i][j];
                 }
-                if(skeletonAry[i][j]<newMin){
+                if(zeroFramedAry[i][j]<newMin){
                     newMin=zeroFramedAry[i][j];
                 }
             }
         }
     }
 
+    void expansionPassTwo(){
+        newMin=9999;
+        newMax=0;
+        for(int i=numImgRows+rowFrameSize-1;i>=rowFrameSize;i--){
+            for(int j=numImgCols+colFrameSize-1;j>=colFrameSize;j--){
+
+
+                    int a=zeroFramedAry[i-1][j-1];
+                    int b=zeroFramedAry[i-1][j];
+                    int c=zeroFramedAry[i-1][j+1];
+                    int d=zeroFramedAry[i][j-1];
+                    int e=zeroFramedAry[i][j+1];
+                    int f=zeroFramedAry[i+1][j-1];
+                    int g=zeroFramedAry[i+1][j];
+                    int h=zeroFramedAry[i+1][j+1];
+
+                    int max=findMax(a, b, c, d, e,f,g,h, zeroFramedAry[i][j]);
+
+                    if(zeroFramedAry[i][j]<max){
+                        zeroFramedAry[i][j]=max-1;
+                    }
+
+                //Updating newMin and newMax
+                if(zeroFramedAry[i][j]>newMax){
+                    newMax=zeroFramedAry[i][j];
+                }
+                if(zeroFramedAry[i][j]<newMin){
+                    newMin=zeroFramedAry[i][j];
+                }
+            }
+        }
+    }
+
+    void threshold(int thrVal,BufferedWriter outFile) throws IOException {
+        newMin=9999;
+        newMax=0;
+        outFile.write(numImgRows+" "+numImgCols+" "+0+" "+1+"\n");
+        for(int i=rowFrameSize;i<numImgRows+rowFrameSize;i++){
+            for(int j=colFrameSize;j<numImgCols+colFrameSize;j++){
+
+                if(zeroFramedAry[i][j]>=thrVal){
+                   outFile.write(1+" ");
+                }
+                else{
+                    outFile.write(0+" ");
+                }
+                //Updating newMin and newMax
+                if(zeroFramedAry[i][j]>newMax){
+                    newMax=zeroFramedAry[i][j];
+                }
+                if(zeroFramedAry[i][j]<newMin){
+                    newMin=zeroFramedAry[i][j];
+                }
+            }
+            outFile.write("\n");
+
+        }
+    }
+
+   static String splitAndAddExtension(String originalString, String extension)
+    {
+        String[] parts = originalString.split("\\.");
+     String returnVal=parts[0]+"_"+extension+"."+parts[1];
+     return returnVal;
+    }
 
 
     public static void main(String[] args) throws IOException {
@@ -297,13 +381,17 @@ class DistanceTransformCompression {
         FileWriter outputWriter1 = null;
         BufferedWriter prettyPrintFile = null;
 
-        String outputName2 = "CompressedImg.txt";
+        String outputName2 = splitAndAddExtension(inputName1,"skeleton");
         FileWriter outputWriter2 = null;
         BufferedWriter compressedImg = null;
 
-        String outputName3 = "ExpandedImg.txt";
+        String outputName3 = splitAndAddExtension(inputName1,"decompressed");
         FileWriter outputWriter3 = null;
         BufferedWriter expandedImg = null;
+
+        String outputName4 = args[2];
+        FileWriter outputWriter4 = null;
+        BufferedWriter expansionPrettyPrint = null;
 
 
 
@@ -322,8 +410,12 @@ class DistanceTransformCompression {
             outputWriter3 = new FileWriter(outputName3);
             expandedImg = new BufferedWriter(outputWriter3);
 
-           //Compression steps begins
+            outputWriter4 = new FileWriter(outputName4);
+            expansionPrettyPrint = new BufferedWriter(outputWriter4);
+
+            //Compression steps begins
             DistanceTransformCompression d= new DistanceTransformCompression(imgFile);
+            d.loadImg(imgFile);
             d.passOne8Connectedness();
             prettyPrintFile.write("Pass One: 8 connectness Distance Transform\n");
             d.prettyPrint(prettyPrintFile);
@@ -338,19 +430,39 @@ class DistanceTransformCompression {
 
             d.skeletonImgCompression(compressedImg);
 
-            //Decompression Steps Begins
-            d.expansionPassOne();
-            d.prettyPrint();
+            if (compressedImg != null)
+                compressedImg.close();
 
+            //Decompression Steps Begins
+           FileReader inputReader2 = new FileReader(outputName2);
+           BufferedReader buffInReader2 = new BufferedReader(inputReader2);
+           Scanner compressedInputFile = new Scanner(buffInReader2);
+
+           //Reinitializing everything
+            DistanceTransformCompression d2= new DistanceTransformCompression(compressedInputFile);
+            d2.loadTriplets(compressedInputFile);
+            d2.expansionPassOne();
+            expansionPrettyPrint.write("\nResult of: Expansion Pass 1\n");
+            d2.prettyPrint(expansionPrettyPrint);
+            d2.expansionPassTwo();
+            expansionPrettyPrint.write("\nResult of: Expansion Pass 2\n");
+            d2.prettyPrint(expansionPrettyPrint);
+            d2.print2DArray(d2.zeroFramedAry);
+
+            d2.threshold(1, expandedImg);
+
+            if(compressedInputFile!=null){
+                compressedInputFile.close();
+            }
         } finally {
             if (imgFile != null)
                 imgFile.close();
             if (prettyPrintFile != null)
                 prettyPrintFile.close();
-            if (compressedImg != null)
-                compressedImg.close();
             if (expandedImg != null)
                 expandedImg.close();
+             if( expansionPrettyPrint!=null)
+                 expansionPrettyPrint.close();
 
         }
     }
