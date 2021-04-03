@@ -31,11 +31,15 @@ public:
         extraCols = 2 * colFrameSize;
         //dynamic allocation of zeroframeArray
         aryOne = new int *[numRows + extraRows];
+        aryTwo = new int *[numRows + extraRows];
+
         for (int i = 0; i < numRows + extraRows; i++)
         {
             aryOne[i] = new int[numCols + extraCols];
+            aryTwo[i] = new int[numCols + extraCols];
         }
         zero2D(aryOne, numRows + extraRows, numCols + extraCols);
+        zero2D(aryTwo, numRows + extraRows, numCols + extraCols);
     }
 
     void loadHeader(ifstream &input)
@@ -78,64 +82,140 @@ public:
         }
     }
 
-    // void imgReformat(ofstream &outFile)
-    // {
-    //     outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
-    //     string str = to_string(newMax);
-    //     int width = str.length();
-    //     for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
-    //     {
-    //         for (int j = colFrameSize; j < numCols + colFrameSize; j++)
-    //         {
-    //             if (zeroFramedAry[i][j] == 0)
-    //             {
-    //                 outFile << "."
-    //                         << " ";
-    //             }
-    //             else
-    //             {
-    //                 outFile << zeroFramedAry[i][j] << " ";
-    //             }
-    //             str = to_string(zeroFramedAry[i][j]);
-    //             int ww = str.length();
-    //             while (ww < width)
-    //             {
-    //                 outFile << " ";
-    //                 ww++;
-    //             }
-    //         }
-    //         outFile << endl;
-    //     }
-    // }
+    void imgReformat(ofstream &outFile, int **ary)
+    {
+        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        string str = to_string(newMax);
+        int width = str.length();
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                if (ary[i][j] == 0)
+                {
+                    outFile << "."
+                            << " ";
+                }
+                else
+                {
+                    outFile << ary[i][j] << " ";
+                }
+                str = to_string(ary[i][j]);
+                int ww = str.length();
+                while (ww < width)
+                {
+                    outFile << " ";
+                    ww++;
+                }
+            }
+            outFile << endl;
+        }
+    }
 
-    // void printImg(ofstream &outFile)
-    // {
-    //     outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
-    //     string str = to_string(newMax);
-    //     int width = str.length();
-    //     for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
-    //     {
-    //         for (int j = colFrameSize; j < numCols + colFrameSize; j++)
-    //         {
+    void printImg(ofstream &outFile)
+    {
+        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        string str = to_string(newMax);
+        int width = str.length();
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                outFile << aryOne[i][j] << " ";
+                str = to_string(aryOne[i][j]);
+                int ww = str.length();
+                while (ww < width)
+                {
+                    outFile << " ";
+                    ww++;
+                }
+            }
+            outFile << endl;
+        }
+    }
 
-    //             outFile << zeroFramedAry[i][j] << " ";
-    //             str = to_string(zeroFramedAry[i][j]);
-    //             int ww = str.length();
-    //             while (ww < width)
-    //             {
-    //                 outFile << " ";
-    //                 ww++;
-    //             }
-    //         }
-    //         outFile << endl;
-    //     }
-    // }
+    void copyArys(int **arr1, int **arr2)
+    {
+        for (int i = 0; i < numRows + extraRows; i++)
+        {
+            for (int j = 0; j < numCols + extraCols; j++)
+            {
+                arr1[i][j] = arr2[i][j];
+            }
+        }
+    }
+
+    bool hasXNeighbors(int i, int j, int numOfObjectNeighbors)
+    {
+        int a = aryOne[i - 1][j - 1];
+        int b = aryOne[i - 1][j];
+        int c = aryOne[i - 1][j + 1];
+        int d = aryOne[i][j - 1];
+        int e = aryOne[i][j + 1];
+        int f = aryOne[i + 1][j - 1];
+        int g = aryOne[i + 1][j];
+        int h = aryOne[i + 1][j + 1];
+        int neighbors[8] = {a, b, c, d, e, f, g, h};
+        int counter = 0;
+        for (int i = 0; i < 8; i++)
+        {
+            if (neighbors[i] == 1)
+            {
+                counter++;
+            }
+        }
+
+        if (counter >= numOfObjectNeighbors)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    bool isConnector(int i, int j)
+    {
+        return false;
+    }
+
+    void NorthThinning(int **arr1, int **arr2)
+    {
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                if (arr1[i][j] > 0)
+                {
+                    arr2[i][j] = 1;
+
+                    //Must follow all 3 conditions to flip this pixel
+                    //FIRST CONDITION= North neighbout is 0
+                    if (arr1[i - 1][j] == 0 && hasXNeighbors(i, j, 4) && !isConnector(i, j))
+                    {
+                        arr2[i][j] = 0;
+                    }
+                }
+            }
+        }
+    }
+
+    void SouthThinning(int **arr1, int **arr2)
+    {
+    }
+
+    void EastThinning(int **arr1, int **arr2)
+    {
+    }
+
+    void WestThinning(int **arr1, int **arr2)
+    {
+    }
 
     ~Thinning()
     {
         for (int i = 0; i < numRows + extraRows; i++)
         {
             delete[] aryOne[i];
+            delete[] aryTwo[i];
         }
     }
 };
@@ -160,6 +240,25 @@ int main(int argc, const char *argv[])
         {
             Thinning t(input);
             t.loadImage(input);
+            t.cycleCount = 0;
+            rfPrettyPrint << "Original Image" << endl;
+            t.imgReformat(rfPrettyPrint, t.aryOne);
+            t.changeFlag = 1;
+            while (t.changeFlag > 0)
+            {
+                t.changeFlag = 0;
+                t.NorthThinning(t.aryOne, t.aryTwo);
+                t.copyArys(t.aryOne, t.aryTwo);
+                t.SouthThinning(t.aryOne, t.aryTwo);
+                t.copyArys(t.aryOne, t.aryTwo);
+                t.WestThinning(t.aryOne, t.aryTwo);
+                t.copyArys(t.aryOne, t.aryTwo);
+                t.EastThinning(t.aryOne, t.aryTwo);
+                t.cycleCount++;
+                rfPrettyPrint << "Result of Thinning : Cycle - " << t.cycleCount << endl;
+                t.imgReformat(rfPrettyPrint, t.aryOne);
+            }
+            t.printImg(thinningOutput);
         }
         else
         {
