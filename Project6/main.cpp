@@ -40,6 +40,8 @@ public:
         }
         zero2D(aryOne, numRows + extraRows, numCols + extraCols);
         zero2D(aryTwo, numRows + extraRows, numCols + extraCols);
+
+        changeFlag = 1;
     }
 
     void loadHeader(ifstream &input)
@@ -84,7 +86,7 @@ public:
 
     void imgReformat(ofstream &outFile, int **ary)
     {
-        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        outFile << numRows << " " << numCols << " " << minVal << " " << maxVal << endl;
         string str = to_string(newMax);
         int width = str.length();
         for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
@@ -114,7 +116,7 @@ public:
 
     void printImg(ofstream &outFile)
     {
-        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        outFile << numRows << " " << numCols << " " << minVal << " " << maxVal << endl;
         string str = to_string(newMax);
         int width = str.length();
         for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
@@ -155,17 +157,9 @@ public:
         int f = aryOne[i + 1][j - 1];
         int g = aryOne[i + 1][j];
         int h = aryOne[i + 1][j + 1];
-        int neighbors[8] = {a, b, c, d, e, f, g, h};
-        int counter = 0;
-        for (int i = 0; i < 8; i++)
-        {
-            if (neighbors[i] == 1)
-            {
-                counter++;
-            }
-        }
+        int sum = a + b + c + d + e + f + g + h;
 
-        if (counter >= numOfObjectNeighbors)
+        if (sum > numOfObjectNeighbors)
         {
             return true;
         }
@@ -174,6 +168,46 @@ public:
 
     bool isConnector(int i, int j)
     {
+        int a = aryOne[i - 1][j - 1];
+        int b = aryOne[i - 1][j];
+        int c = aryOne[i - 1][j + 1];
+        int d = aryOne[i][j - 1];
+        int e = aryOne[i][j + 1];
+        int f = aryOne[i + 1][j - 1];
+        int g = aryOne[i + 1][j];
+        int h = aryOne[i + 1][j + 1];
+
+        //case 1
+        if (d == 0 && e == 0 && (a == 1 || b == 1 || c == 1) && (f == 1 || g == 1 || h == 1))
+        {
+            return true;
+        }
+        //case 2
+        if (b == 0 && g == 0 && (a == 1 || d == 1 || f == 1) && (c == 1 || e == 1 || h == 1))
+        {
+            return true;
+        }
+        //case Alpha
+        if (b == 0 && d == 0 && a == 1)
+        {
+            return true;
+        }
+        //case Beta
+        if (d == 0 && g == 0 && f == 1)
+        {
+            return true;
+        }
+        //case Gamma
+        if (b == 0 && e == 0 && c == 1)
+        {
+            return true;
+        }
+
+        //case delta
+        if (g == 0 && e == 0 && h == 1)
+        {
+            return true;
+        }
         return false;
     }
 
@@ -188,10 +222,11 @@ public:
                     arr2[i][j] = 1;
 
                     //Must follow all 3 conditions to flip this pixel
-                    //FIRST CONDITION= North neighbout is 0
+                    //FIRST CONDITION= North neighbour is 0
                     if (arr1[i - 1][j] == 0 && hasXNeighbors(i, j, 4) && !isConnector(i, j))
                     {
                         arr2[i][j] = 0;
+                        changeFlag++;
                     }
                 }
             }
@@ -200,14 +235,71 @@ public:
 
     void SouthThinning(int **arr1, int **arr2)
     {
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                if (arr1[i][j] > 0)
+                {
+                    arr2[i][j] = 1;
+
+                    //Must follow all 3 conditions to flip this pixel
+                    //FIRST CONDITION= South neighbour is 0
+                    if (arr1[i + 1][j] == 0 && hasXNeighbors(i, j, 4) && !isConnector(i, j))
+                    {
+
+                        arr2[i][j] = 0;
+                        changeFlag++;
+                    }
+                }
+            }
+        }
     }
 
     void EastThinning(int **arr1, int **arr2)
     {
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                if (arr1[i][j] > 0)
+                {
+                    arr2[i][j] = 1;
+
+                    //Must follow all 3 conditions to flip this pixel
+                    //FIRST CONDITION= East neighbour is 0
+                    if (arr1[i][j + 1] == 0 && hasXNeighbors(i, j, 3) && !isConnector(i, j))
+                    {
+
+                        arr2[i][j] = 0;
+                        changeFlag++;
+                    }
+                }
+            }
+        }
     }
 
     void WestThinning(int **arr1, int **arr2)
     {
+        for (int i = rowFrameSize; i < numRows + rowFrameSize; i++)
+        {
+            for (int j = colFrameSize; j < numCols + colFrameSize; j++)
+            {
+                if (arr1[i][j] > 0)
+                {
+                    arr2[i][j] = 1;
+
+                    //Must follow all 3 conditions to flip this pixel
+                    //FIRST CONDITION= West neighbour is 0
+                    if (arr1[i][j - 1] == 0 && hasXNeighbors(i, j, 3) && !isConnector(i, j))
+                    {
+
+                        arr2[i][j] = 0;
+                        changeFlag++;
+                    }
+                }
+            }
+        }
     }
 
     ~Thinning()
@@ -243,7 +335,7 @@ int main(int argc, const char *argv[])
             t.cycleCount = 0;
             rfPrettyPrint << "Original Image" << endl;
             t.imgReformat(rfPrettyPrint, t.aryOne);
-            t.changeFlag = 1;
+
             while (t.changeFlag > 0)
             {
                 t.changeFlag = 0;
@@ -254,8 +346,9 @@ int main(int argc, const char *argv[])
                 t.WestThinning(t.aryOne, t.aryTwo);
                 t.copyArys(t.aryOne, t.aryTwo);
                 t.EastThinning(t.aryOne, t.aryTwo);
+                t.copyArys(t.aryOne, t.aryTwo);
                 t.cycleCount++;
-                rfPrettyPrint << "Result of Thinning : Cycle - " << t.cycleCount << endl;
+                rfPrettyPrint << "\nResult of Thinning : Cycle - " << t.cycleCount << endl;
                 t.imgReformat(rfPrettyPrint, t.aryOne);
             }
             t.printImg(thinningOutput);
