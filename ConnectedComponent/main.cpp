@@ -16,8 +16,8 @@ struct Property
     {
         label = -1;
         numPixels = 0;
-        minC = 9999;
-        minR = 9999;
+        minC = 999;
+        minR = 999;
         maxC = 0;
         maxR = 0;
     }
@@ -231,6 +231,126 @@ public:
         }
     }
 
+    void connect8Pass1()
+    {
+        newMax = 0;
+        newMin = 9999;
+        newLabel = 0;
+        int EQsize = (numRows * numCols) / 4;
+        EQary = new int[EQsize];
+        for (int i = 0; i < EQsize; i++)
+        {
+            EQary[i] = i;
+        }
+
+        for (int i = 1; i < numRows + 1; i++)
+        {
+            for (int j = 1; j < numCols + 1; j++)
+            {
+                if (zeroFramedAry[i][j] > 0)
+                {
+                    nonZeroNeighborAry[0] = zeroFramedAry[i - 1][j - 1];
+                    nonZeroNeighborAry[1] = zeroFramedAry[i - 1][j];
+                    nonZeroNeighborAry[2] = zeroFramedAry[i - 1][j + 1];
+                    nonZeroNeighborAry[3] = zeroFramedAry[i][j - 1];
+                    //case 1
+                    if (nonZeroNeighborAry[0] == 0 && nonZeroNeighborAry[1] == 0 && nonZeroNeighborAry[2] == 0 && nonZeroNeighborAry[3] == 0)
+                    {
+                        newLabel++;
+                        zeroFramedAry[i][j] = newLabel;
+                        EQary[newLabel] = newLabel;
+                    }
+
+                    //case 2
+                    else if (hasSameLabel(nonZeroNeighborAry, 4))
+                    {
+                        zeroFramedAry[i][j] = minLabel(nonZeroNeighborAry, 4);
+                    }
+
+                    //case 3
+                    else
+                    {
+                        int minVal = minLabel(nonZeroNeighborAry, 4);
+                        zeroFramedAry[i][j] = minVal;
+
+                        EQary[nonZeroNeighborAry[0]] = minVal;
+                        EQary[nonZeroNeighborAry[1]] = minVal;
+                        EQary[nonZeroNeighborAry[2]] = minVal;
+                        EQary[nonZeroNeighborAry[3]] = minVal;
+                    }
+                    if (zeroFramedAry[i][j] < newMin)
+                    {
+                        newMin = zeroFramedAry[i][j];
+                    }
+                    if (zeroFramedAry[i][j] > newMax)
+                    {
+                        newMax = zeroFramedAry[i][j];
+                    }
+                }
+            }
+        }
+    }
+
+    void connect8Pass2()
+    {
+        newMin = 999;
+        newMax = 0;
+        for (int i = numRows; i >= 1; i--)
+        {
+            for (int j = numCols; j >= 1; j--)
+            {
+                if (zeroFramedAry[i][j] > 0)
+                {
+                    nonZeroNeighborAry[0] = zeroFramedAry[i][j + 1];
+                    nonZeroNeighborAry[1] = zeroFramedAry[i + 1][j - 1];
+                    nonZeroNeighborAry[2] = zeroFramedAry[i + 1][j];
+                    nonZeroNeighborAry[3] = zeroFramedAry[i + 1][j + 1];
+                    nonZeroNeighborAry[4] = zeroFramedAry[i][j];
+
+                    //Case 1
+                    if (nonZeroNeighborAry[0] == 0 && nonZeroNeighborAry[1] == 0 && nonZeroNeighborAry[2] == 0 && nonZeroNeighborAry[3] == 0)
+                    {
+                        //do nothing
+                    }
+
+                    //Case 2
+                    else if (hasSameLabel(nonZeroNeighborAry, 5))
+                    {
+                        //do nothing
+                    }
+
+                    //Case 3
+                    else
+                    {
+                        int minValue = minLabel(nonZeroNeighborAry, 5);
+                        zeroFramedAry[i][j] = minValue;
+
+                        //Updating EQ Table
+                        if (zeroFramedAry[i][j] > minValue)
+                        {
+                            EQary[zeroFramedAry[i][j]] = minValue;
+                        }
+
+                        EQary[nonZeroNeighborAry[0]] = minValue;
+                        EQary[nonZeroNeighborAry[1]] = minValue;
+                        EQary[nonZeroNeighborAry[2]] = minValue;
+                        EQary[nonZeroNeighborAry[3]] = minValue;
+                        EQary[nonZeroNeighborAry[4]] = minValue;
+                    }
+
+                    if (zeroFramedAry[i][j] < newMin)
+                    {
+                        newMin = zeroFramedAry[i][j];
+                    }
+                    if (zeroFramedAry[i][j] > newMax)
+                    {
+                        newMax = zeroFramedAry[i][j];
+                    }
+                }
+            }
+        }
+    }
+
     void connectPass3()
     {
         CCproperty = new Property[trueNumCC + 1]();
@@ -390,6 +510,42 @@ public:
             outFile << endl;
         }
     }
+    void drawBoxes()
+    {
+        int minR, minC, maxR, maxC, label;
+        for (int i = 1; i < trueNumCC + 1; i++)
+        {
+            minR = CCproperty[i].minR + 1;
+            minC = CCproperty[i].minC + 1;
+            maxR = CCproperty[i].maxR + 1;
+            maxC = CCproperty[i].maxC + 1;
+            label = CCproperty[i].label;
+
+            // top line
+            for (int j = minC; j <= maxC; j++)
+            {
+                zeroFramedAry[minR][j] = label;
+            }
+
+            //bottom line
+            for (int j = minC; j <= maxC; j++)
+            {
+                zeroFramedAry[maxR][j] = label;
+            }
+
+            //right line
+            for (int i = minR; i <= maxR; i++)
+            {
+                zeroFramedAry[i][maxC] = label;
+            }
+
+            // left line
+            for (int i = minR; i <= maxR; i++)
+            {
+                zeroFramedAry[i][minC] = label;
+            }
+        }
+    }
 };
 
 int main(int argc, const char *argv[])
@@ -423,7 +579,14 @@ int main(int argc, const char *argv[])
         }
         if (connectedness == 8)
         {
+            cc.connect8Pass1();
+            cc.imgReformat(prettyPrintFile);
+            cc.printEQAry(prettyPrintFile);
+            cc.connect8Pass2();
+            cc.imgReformat(prettyPrintFile);
+            cc.printEQAry(prettyPrintFile);
         }
+
         cc.manageEQAry();
         prettyPrintFile << "After EQ management:" << endl;
         cc.printEQAry(prettyPrintFile);
@@ -431,6 +594,8 @@ int main(int argc, const char *argv[])
         cc.imgReformat(prettyPrintFile);
         cc.printImg(labelFile);
         cc.printCCproperty(propertyFile);
+        cc.drawBoxes();
+        cc.imgReformat(prettyPrintFile);
     }
     else
     {
