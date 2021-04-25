@@ -2,14 +2,65 @@ import java.io.*;
 import java.util.Scanner;
 
 class Image {
+int numRows, numCols, minVal,maxVal;
+int [][]imageAry;
+int [][]boundaryAry;
+int [][]CCAry;
 
 }
 
 class CCproperty{
+int numCC,label,numPixels,minRow,minCol,maxRow, maxCol;
+
+CCproperty(){
 
 }
 
+void clearCCAry(){}
+
+void loadCCAry(){
+
+}
+
+}
+
+class Point{
+    int row, col;
+}
+
 class ChainCode {
+   Point [] neighborCoord;
+   int [] zeroTable;
+   Point startP;
+   Point currentP;// current none zero border pixel
+   Point nextP;// next none-zero border pixel
+   int lastQ; // Range from 0 to 7; it is the direction of the last zero scanned from currentP
+   int nextDir;// the next scanning direction of currentP's neighbors
+   int pChainDir; // chain code direction from currentP to nextP
+
+    ChainCode(){
+
+    }
+
+    void getChainCode(){
+
+    }
+
+    // Given currentP's row and col, the method determines and stores the row and col of each of currentP's
+    // 8 neighbors (0 to 7 w.r.t the chain-code direction) in neighborCoord[] array.
+    void loadNeigborsCoord(Point currentP){
+
+    }
+
+    int findNextP(Point currentP, Point nextQ, Point nextP){
+
+        return 0;
+    }
+
+    // Give the chainCode file, create an image contains only the boundary of objects in the labelled file
+    void constructBoundary(){
+
+    }
 
     public static void main(String[] args) throws IOException {
         String labelFileName = args[0]+".txt";
