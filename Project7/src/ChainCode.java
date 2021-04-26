@@ -81,20 +81,20 @@ class CCproperty {
         maxCol = propImg.nextInt();
 
         // Initializing CCAry according to the current CC label
-        CCAry = new int[maxRow - minRow + 1][maxCol - minCol + 1];
+        CCAry = new int[maxRow - minRow + 1+2][maxCol - minCol + 1+2];
         clearCCAry();
 
         // Copying all the pixel values of a given CC by using bounding box's values
-        for (int i = 0; i < maxRow - minRow + 1; i++) {
-            for (int j = 0; j < maxCol - minCol + 1; j++) {
-                CCAry[i][j] = imgAry[i + minRow + 1][j + minCol + 1];
+        for (int i = 1; i < maxRow - minRow + 1+1; i++) {
+            for (int j = 1; j < maxCol - minCol + 1+1; j++) {
+                CCAry[i][j] = imgAry[i + minRow ][j + minCol ];
             }
         }
     }
 
     void prettyPrint(BufferedWriter outFile) throws IOException {
-        for (int i = 0; i < maxRow - minRow + 1; i++) {
-            for (int j = 0; j < maxCol - minCol + 1; j++) {
+        for (int i = 1; i < maxRow - minRow + 1+1; i++) {
+            for (int j = 1; j < maxCol - minCol + 1+1; j++) {
                 if (CCAry[i][j] == 0) {
                     outFile.write(". ");
                 } else {
@@ -109,6 +109,11 @@ class CCproperty {
 
 class Point {
     int row, col;
+    Point(int i, int j){
+        row=i;
+        col=j;
+    }
+
 }
 
 class ChainCode {
@@ -120,12 +125,58 @@ class ChainCode {
     int lastQ; // Range from 0 to 7; it is the direction of the last zero scanned from currentP
     int nextDir;// the next scanning direction of currentP's neighbors
     int pChainDir; // chain code direction from currentP to nextP
+    CCproperty ccProp;
 
     ChainCode() {
+    zeroTable=new int []{6,0,0,2,2,4,4,6};
 
     }
 
-    void getChainCode() {
+
+    void getChainCode(CCproperty cc, BufferedWriter chainCodeFile) throws IOException {
+        ccProp=cc;
+        startP=new Point(1,1);
+        currentP=new Point(1,1);
+        lastQ=4;
+        outerloop:
+         for(int i=1;i<cc.maxRow-cc.minRow+1+1;i++){
+             for(int j=1;j<cc.maxCol-cc.minCol+1+1;j++){
+              if(cc.CCAry[i][j]==cc.label){
+                  startP.row=i;
+                  startP.col=j;
+                  currentP=startP;
+                  lastQ=4;
+                  chainCodeFile.write(cc.label+" "+(cc.minRow+i)+" "+" "+(cc.minCol+j)+" ");
+                  break outerloop;
+                }
+             }
+         }
+
+         //at this point we will get our startingPoint
+
+        int count =0;
+         while(count==0 || currentP!=startP){
+             count++;
+             loadNeigborsCoord(currentP);
+             nextDir=++lastQ%8;
+             pChainDir=findNextP(nextDir,currentP);
+             nextP=neighborCoord[pChainDir];
+             ccProp.CCAry[nextP.row][nextP.col]=(-1)*ccProp.CCAry[nextP.row][nextP.col];
+
+
+             chainCodeFile.write(pChainDir+" ");
+
+             if(pChainDir==0){
+                 lastQ=zeroTable[7];
+             }
+             else{
+                 lastQ=zeroTable[pChainDir-1];
+             }
+             currentP=nextP;
+
+         }
+
+
 
     }
 
@@ -133,12 +184,55 @@ class ChainCode {
     // col of each of currentP's
     // 8 neighbors (0 to 7 w.r.t the chain-code direction) in neighborCoord[] array.
     void loadNeigborsCoord(Point currentP) {
-
+        neighborCoord=new Point[8];
+        neighborCoord[0]=new Point(currentP.row, currentP.col+1);
+        neighborCoord[1]=new Point(currentP.row-1, currentP.col+1);
+        neighborCoord[2]=new Point(currentP.row-1, currentP.col);
+        neighborCoord[3]=new Point(currentP.row-1, currentP.col-1);
+        neighborCoord[4]=new Point(currentP.row, currentP.col-1);
+        neighborCoord[5]=new Point(currentP.row+1, currentP.col-1);
+        neighborCoord[6]=new Point(currentP.row+1, currentP.col);
+        neighborCoord[7]=new Point(currentP.row+1, currentP.col+1);
     }
 
-    int findNextP(Point currentP, Point nextQ, Point nextP) {
+    int findNextP(int direction,Point p) {
+    int i=p.row;
+    int j=p.col;
 
-        return 0;
+     int loop=0;
+     while(loop<8){
+         switch(direction){
+             case 0:
+                 if(ccProp.CCAry[i][j+1]>0) return 0;
+                 break;
+             case 1:
+                 if(ccProp.CCAry[i-1][j+1]>0) return 1;
+                 break;
+             case 2:
+                 if(ccProp.CCAry[i-1][j]>0) return 2;
+                 break;
+             case 3:
+                 if(ccProp.CCAry[i-1][j-1]>0) return 3;
+                 break;
+             case 4:
+                 if(ccProp.CCAry[i][j-1]>0) return 4;
+                 break;
+             case 5:
+                 if(ccProp.CCAry[i+1][j-1]>0) return 5;
+                 break;
+             case 6:
+                 if(ccProp.CCAry[i+1][j]>0) return 6;
+                 break;
+             case 7:
+                 if(ccProp.CCAry[i+1][j+1]>0) return 7;
+                 break;
+             default:
+                 break;
+         }
+         direction=++direction%8;
+         loop++;
+     }
+       return 0;
     }
 
     // Give the chainCode file, create an image contains only the boundary of
@@ -189,6 +283,8 @@ class ChainCode {
             for (int i = 0; i < ccProp.numCC; i++) {
                 ccProp.loadCCAry(propFile, img.imageAry);
                 ccProp.prettyPrint(chainCodeFile);
+                ChainCode chainCode=new ChainCode();
+                chainCode.getChainCode(ccProp,chainCodeFile);
             }
 
         } finally {
