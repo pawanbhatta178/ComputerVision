@@ -50,6 +50,96 @@ class Image {
         }
     }
 
+    void printBoundaryAry(BufferedWriter outFile) throws IOException {
+        writeHeader(outFile);
+        for (int i = 0; i < numRows ; i++) {
+            for (int j = 0; j < numCols ; j++) {
+                    outFile.write(Integer.toString(boundaryAry[i][j]) + " ");
+            }
+            outFile.write("\n");
+        }
+    }
+
+    void prettyPrintBoundaryAry(BufferedWriter outFile) throws IOException {
+        writeHeader(outFile);
+        for (int i = 0; i < numRows ; i++) {
+            for (int j = 0; j < numCols ; j++) {
+                if (boundaryAry[i][j] == 0) {
+                    outFile.write(". ");
+                } else {
+                    outFile.write(Integer.toString(boundaryAry[i][j]) + " ");
+                }            }
+            outFile.write("\n");
+        }
+    }
+
+    // Give the chainCode file, create an image contains only the boundary of
+    // objects in the labelled file
+    void constructBoundary(Scanner chainCodeFile) {
+       numRows=chainCodeFile.nextInt();
+       numCols=chainCodeFile.nextInt();
+       minVal=chainCodeFile.nextInt();
+       maxVal=chainCodeFile.nextInt();
+
+       boundaryAry=new int [numRows][numCols];
+
+       //initializing whole array to zero
+       for(int i=0;i<numRows;i++){
+           for(int j=0;j<numCols;j++){
+               boundaryAry[i][j]=0;
+           }
+       }
+
+       //reading the chain Code to put pixel values
+        while(chainCodeFile.hasNextInt()){
+            int pixelVal=chainCodeFile.nextInt();
+            Point startP=new Point(chainCodeFile.nextInt(),chainCodeFile.nextInt());
+            boundaryAry[startP.row][startP.col]=pixelVal;
+            Point currentP= getNextP(startP, chainCodeFile.nextInt());
+           while(!currentP.equals(startP)){
+               boundaryAry[currentP.row][currentP.col]=pixelVal;
+               currentP=getNextP(currentP,chainCodeFile.nextInt());
+           }
+        }
+
+
+    }
+
+    Point getNextP(Point currentP, int direction){
+        Point returnVal=new Point (0,0);
+        switch(direction){
+            case 0:
+                returnVal.update(currentP.row,currentP.col+1);
+                break;
+            case 1:
+                returnVal.update(currentP.row-1, currentP.col+1);
+                break;
+            case 2:
+                returnVal.update(currentP.row-1, currentP.col);
+                break;
+            case 3:
+                returnVal.update(currentP.row-1, currentP.col-1);
+                break;
+            case 4:
+                returnVal.update(currentP.row, currentP.col-1);
+                break;
+            case 5:
+                returnVal.update(currentP.row+1, currentP.col-1);
+                break;
+            case 6:
+                returnVal.update(currentP.row+1,currentP.col);
+                break;
+            case 7:
+                returnVal.update(currentP.row+1, currentP.col+1);
+                break;
+            default:
+                break;
+        }
+
+        return returnVal;
+    }
+
+
 }
 
 class CCproperty {
@@ -115,6 +205,12 @@ class Point {
         col=j;
     }
 
+    void update(int i, int j){
+        row=i;
+        col=j;
+    }
+
+
    @Override
    public boolean equals(Object obj)
     {
@@ -164,7 +260,7 @@ class ChainCode {
                   currentP.row=startP.row;
                   currentP.col=startP.col;
                   lastQ=4;
-                  chainCodeFile.write(cc.label+" "+(cc.minRow+i)+" "+(cc.minCol+j)+" ");
+                  chainCodeFile.write(cc.label+" "+(cc.minRow+i-1)+" "+(cc.minCol+j-1)+" ");
                   break outerloop;
                 }
              }
@@ -195,6 +291,7 @@ class ChainCode {
 
 
     }
+
 
     // Given currentP's row and col, the method determines and stores the row and
     // col of each of currentP's
@@ -251,11 +348,7 @@ class ChainCode {
        return 0;
     }
 
-    // Give the chainCode file, create an image contains only the boundary of
-    // objects in the labelled file
-    void constructBoundary() {
 
-    }
 
     public static void main(String[] args) throws IOException {
         String labelFileName = args[0] + ".txt";
@@ -276,6 +369,11 @@ class ChainCode {
         FileWriter boundaryFileWriter = null;
         BufferedWriter boundaryFile = null;
 
+        String chainCodeInputFileName = args[0] + "_chainCode.txt";
+        FileReader chainCodeInputReader = null;
+        BufferedReader chainCodeInputBuffReader = null;
+        Scanner chainCodeInput = null;
+
         try {
             labelFileReader = new FileReader(labelFileName);
             labelFileBuffReader = new BufferedReader(labelFileReader);
@@ -291,6 +389,8 @@ class ChainCode {
             boundaryFileWriter = new FileWriter(boundaryFileName);
             boundaryFile = new BufferedWriter(boundaryFileWriter);
 
+
+
             Image img = new Image(labelFile);
 //            img.prettyPrint(chainCodeFile);
 
@@ -298,20 +398,36 @@ class ChainCode {
 
             img.writeHeader(chainCodeFile);
 
+
             for (int i = 0; i < ccProp.numCC; i++) {
                 ccProp.loadCCAry(propFile, img.imageAry);
-//                ccProp.prettyPrint(chainCodeFile);
                 ChainCode chainCode=new ChainCode();
+//                ccProp.prettyPrint(chainCodeFile);
                 chainCode.getChainCode(ccProp,chainCodeFile);
             }
 
+            //Closing chain Code file
+            if (chainCodeFile != null)
+                chainCodeFile.close();
+
+            //Reopening the Chain Code file
+            chainCodeInputReader = new FileReader(chainCodeInputFileName);
+            chainCodeInputBuffReader = new BufferedReader(chainCodeInputReader);
+            chainCodeInput = new Scanner(chainCodeInputBuffReader);
+
+
+           img.constructBoundary(chainCodeInput);
+           img.printBoundaryAry(boundaryFile);
+           img.prettyPrintBoundaryAry(boundaryFile);
+            if(chainCodeInput!=null){
+                chainCodeInput.close();
+            }
         } finally {
             if (labelFile != null)
                 labelFile.close();
             if (propFile != null)
                 propFile.close();
-            if (chainCodeFile != null)
-                chainCodeFile.close();
+
             if (boundaryFile != null)
                 boundaryFile.close();
 
