@@ -93,6 +93,7 @@ class CCproperty {
     }
 
     void prettyPrint(BufferedWriter outFile) throws IOException {
+        outFile.write("\n");
         for (int i = 1; i < maxRow - minRow + 1+1; i++) {
             for (int j = 1; j < maxCol - minCol + 1+1; j++) {
                 if (CCAry[i][j] == 0) {
@@ -125,6 +126,11 @@ class Point {
    	Point p = (Point)obj;
     return (row == p.row) && (col==p.col);
     }
+
+    @Override
+    public String toString() {
+        return "("+row+","+col+")";
+    }
 }
 
 class ChainCode {
@@ -140,11 +146,11 @@ class ChainCode {
 
     ChainCode() {
     zeroTable=new int []{6,0,0,2,2,4,4,6};
-
     }
 
 
     void getChainCode(CCproperty cc, BufferedWriter chainCodeFile) throws IOException {
+        chainCodeFile.write("\n");
         ccProp=cc;
         startP=new Point(1,1);
         currentP=new Point(1,1);
@@ -155,9 +161,10 @@ class ChainCode {
               if(cc.CCAry[i][j]==cc.label){
                   startP.row=i;
                   startP.col=j;
-                  currentP=startP;
+                  currentP.row=startP.row;
+                  currentP.col=startP.col;
                   lastQ=4;
-                  chainCodeFile.write(cc.label+" "+(cc.minRow+i)+" "+" "+(cc.minCol+j)+" ");
+                  chainCodeFile.write(cc.label+" "+(cc.minRow+i)+" "+(cc.minCol+j)+" ");
                   break outerloop;
                 }
              }
@@ -166,6 +173,7 @@ class ChainCode {
          //at this point we will get our startingPoint
 
         int count =0;
+
          while(count==0 || !currentP.equals(startP)){
              count++;
              loadNeigborsCoord(currentP);
@@ -173,7 +181,6 @@ class ChainCode {
              pChainDir=findNextP(nextDir,currentP);
              nextP=new Point(neighborCoord[pChainDir].row, neighborCoord[pChainDir].col);
              ccProp.CCAry[nextP.row][nextP.col]=(-1)*ccProp.CCAry[nextP.row][nextP.col];
-
              chainCodeFile.write(pChainDir+" ");
              if(pChainDir==0){
                  lastQ=zeroTable[7];
@@ -181,8 +188,8 @@ class ChainCode {
              else{
                  lastQ=zeroTable[pChainDir-1];
              }
-             currentP=nextP;
-
+             currentP.row=nextP.row;
+             currentP.col=nextP.col;
          }
 
 
@@ -212,28 +219,28 @@ class ChainCode {
      while(loop<8){
          switch(direction){
              case 0:
-                 if(ccProp.CCAry[i][j+1]>0) return 0;
+                 if(ccProp.CCAry[i][j+1]>0 || ccProp.CCAry[i][j+1]==-1) return 0;
                  break;
              case 1:
-                 if(ccProp.CCAry[i-1][j+1]>0) return 1;
+                 if(ccProp.CCAry[i-1][j+1]>0 || ccProp.CCAry[i-1][j+1]==-1 ) return 1;
                  break;
              case 2:
-                 if(ccProp.CCAry[i-1][j]>0) return 2;
+                 if(ccProp.CCAry[i-1][j]>0 || ccProp.CCAry[i-1][j]==-1) return 2;
                  break;
              case 3:
-                 if(ccProp.CCAry[i-1][j-1]>0) return 3;
+                 if(ccProp.CCAry[i-1][j-1]>0 || ccProp.CCAry[i-1][j-1]==-1) return 3;
                  break;
              case 4:
-                 if(ccProp.CCAry[i][j-1]>0) return 4;
+                 if(ccProp.CCAry[i][j-1]>0 || ccProp.CCAry[i][j-1]==-1) return 4;
                  break;
              case 5:
-                 if(ccProp.CCAry[i+1][j-1]>0) return 5;
+                 if(ccProp.CCAry[i+1][j-1]>0 || ccProp.CCAry[i+1][j-1]==-1) return 5;
                  break;
              case 6:
-                 if(ccProp.CCAry[i+1][j]>0) return 6;
+                 if(ccProp.CCAry[i+1][j]>0 || ccProp.CCAry[i+1][j]==-1) return 6;
                  break;
              case 7:
-                 if(ccProp.CCAry[i+1][j+1]>0) return 7;
+                 if(ccProp.CCAry[i+1][j+1]>0 || ccProp.CCAry[i+1][j+1]==-1) return 7;
                  break;
              default:
                  break;
@@ -285,13 +292,15 @@ class ChainCode {
             boundaryFile = new BufferedWriter(boundaryFileWriter);
 
             Image img = new Image(labelFile);
-            img.prettyPrint(chainCodeFile);
+//            img.prettyPrint(chainCodeFile);
 
             CCproperty ccProp = new CCproperty(propFile);
 
+            img.writeHeader(chainCodeFile);
+
             for (int i = 0; i < ccProp.numCC; i++) {
                 ccProp.loadCCAry(propFile, img.imageAry);
-                ccProp.prettyPrint(chainCodeFile);
+//                ccProp.prettyPrint(chainCodeFile);
                 ChainCode chainCode=new ChainCode();
                 chainCode.getChainCode(ccProp,chainCodeFile);
             }
