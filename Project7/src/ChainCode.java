@@ -114,6 +114,17 @@ class Point {
         col=j;
     }
 
+   @Override
+   public boolean equals(Object obj)
+    {
+        if(this == obj)
+      			return true;
+    	if((obj == null) || (obj.getClass() != this.getClass()))
+   		return false;
+     // object must be Point at this point
+   	Point p = (Point)obj;
+    return (row == p.row) && (col==p.col);
+    }
 }
 
 class ChainCode {
@@ -155,17 +166,15 @@ class ChainCode {
          //at this point we will get our startingPoint
 
         int count =0;
-         while(count==0 || currentP!=startP){
+         while(count==0 || !currentP.equals(startP)){
              count++;
              loadNeigborsCoord(currentP);
              nextDir=++lastQ%8;
              pChainDir=findNextP(nextDir,currentP);
-             nextP=neighborCoord[pChainDir];
+             nextP=new Point(neighborCoord[pChainDir].row, neighborCoord[pChainDir].col);
              ccProp.CCAry[nextP.row][nextP.col]=(-1)*ccProp.CCAry[nextP.row][nextP.col];
 
-
              chainCodeFile.write(pChainDir+" ");
-
              if(pChainDir==0){
                  lastQ=zeroTable[7];
              }
