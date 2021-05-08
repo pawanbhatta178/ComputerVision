@@ -6,14 +6,21 @@ using namespace std;
 
 class Image
 {
+public:
     int numRows;
     int numCols;
     int minVal;
     int maxVal;
     int **imgAry; // a 2D array for display, initially set to 0
 
-    Image()
+    Image(ifstream &inFile)
     {
+        inFile >> numRows >> numCols >> minVal >> maxVal;
+        imgAry = new int *[numRows];
+        for (int i = 0; i < numRows; i++)
+        {
+            imgAry[i] = new int[numCols];
+        }
     }
 
     void plotPt2Img()
@@ -22,6 +29,14 @@ class Image
 
     void reformatPrettyPrint()
     {
+    }
+
+    ~Image()
+    {
+        for (int i = 0; i < numRows; i++)
+        {
+            delete[] imgAry[i];
+        }
     }
 };
 
@@ -36,6 +51,7 @@ public:
 
 class kCurvature
 {
+public:
     int K;
     int numPts;        //number of boundary Points
     int Q;             //an index of the array, initially set to 0
@@ -50,16 +66,53 @@ class kCurvature
     {
     }
 
-    void init()
+    void init(ifstream &inFile, string inputFileName)
     {
+        countPts(inFile);
+        //initializing boundaryPts array
+        PtAry = new BoundaryPt[numPts];
+
+        inFile.close();
+        inFile.open(inputFileName);
+        int a;
+        //skipping image header and label
+        inFile >> a >> a >> a >> a >> a;
+
+        //Storing each points in the array
+        for (int i = 0; i < numPts; i++)
+        {
+            int x, y;
+            inFile >> x >> y;
+            storePt(x, y, i);
+        }
     }
 
-    void cornerDetection()
+    void cornerDetection(ofstream &debugFile)
     {
+        Q = 0;
+        P = K;
+        R = 2 * K;
+        for (int i = 0; i < numPts; i++)
+        {
+            double curvature = (double)computeCurvature(Q, P, R);
+            PtAry[i].curvature = curvature;
+            debugFile << endl
+                      << PtAry[i].x << " " << PtAry[i].y << " " << PtAry[i].curvature << " " << Q << " " << P << " " << R << " " << endl;
+            Q = (Q + 1) % numPts;
+            P = (P + 1) % numPts;
+            R = (R + 1) % numPts;
+        }
     }
 
-    void countPts()
+    void countPts(ifstream &inFile)
     {
+        int x, y;
+        int count = 0;
+        while (inFile >> x && inFile >> y)
+        {
+            count++;
+        }
+        numPts = count;
     }
 
     void storePt(int x, int y, int index)
@@ -68,8 +121,19 @@ class kCurvature
         PtAry[index].y = y;
     }
 
-    void computeCurvature()
+    double computeCurvature(int p, int q, int r)
     {
+        double qx = PtAry[q].x;
+        double qy = PtAry[q].y;
+        double px = PtAry[p].x;
+        double py = PtAry[p].y;
+        double rx = PtAry[r].x;
+        double ry = PtAry[r].y;
+
+        double curvature;
+        curvature = ((qy - py) / (qx - px)) - ((py - ry) / (px - rx));
+        cout << curvature << endl;
+        return curvature;
     }
 
     void computeLocalMaxima()
@@ -98,45 +162,68 @@ class kCurvature
     {
     }
 
-    void printPtAry() // For debugging, print the content of the entire PtAry to outFile3
+    void printPtAry(ofstream &outFile) // For debugging, print the content of the entire PtAry to outFile3
     {
+        for (int i = 0; i < numPts; i++)
+        {
+            outFile << PtAry[i].x << " " << PtAry[i].y << endl;
+        }
+    }
+
+    ~kCurvature()
+    {
+        delete[] PtAry;
     }
 };
 
 int main(int argc, const char *argv[])
 {
-    //READ
+
+    // READ
     string inputName = argv[1];
-    cout << inputName;
-    // ifstream input;
-    // input.open(inputName);
+    ifstream input;
+    input.open(inputName);
 
-    // //WRITES
-    // string outFile1Name = argv[2], outFile2Name = argv[3], outFile3Name = argv[4];
-    // ofstream outFile1, outFile2, outFile3;
-    // outFile1.open(outFile1Name);
-    // outFile2.open(outFile2Name);
-    // outFile3.open(outFile3Name);
+    //WRITES
+    string outFile1Name = argv[2],
+           outFile2Name = argv[3], outFile3Name = argv[4];
+    ofstream outFile1, outFile2, outFile3;
+    outFile1.open(outFile1Name);
+    outFile2.open(outFile2Name);
+    outFile3.open(outFile3Name);
 
-    // //Checking if IO operations succeeds
-    // if (input.is_open())
-    // {
-    //     if (outFile1.is_open() && outFile2.is_open() && outFile3.is_open())
-    //     {
-    //     }
-    //     else
-    //     {
-    //         cout << "ERROR: Some output files is missing or couldnt be opened." << endl;
-    //     }
-    // }
-    // else
-    // {
-    //     cout << "ERROR: The input file with following name does not exists or there was problem reading it: " << inputName << endl;
-    // }
+    //Input for K
+    int K;
+    cout << "Enter the value of K: ";
+    cin >> K;
 
-    // input.close();
-    // outFile1.close();
-    // outFile2.close();
-    // outFile3.close();
+    //Checking if IO operations succeeds
+    if (input.is_open())
+    {
+        if (outFile1.is_open() && outFile2.is_open() && outFile3.is_open())
+        {
+            Image img(input);
+            int label;
+            input >> label;
+            kCurvature k;
+            k.K = K;
+            k.init(input, inputName);
+            k.printPtAry(outFile3);
+            k.cornerDetection(outFile3);
+        }
+        else
+        {
+            cout << "ERROR: Some output files is missing or couldnt be opened." << endl;
+        }
+    }
+    else
+    {
+        cout << "ERROR: The input file with following name does not exists or there was problem reading it: " << inputName << endl;
+    }
+
+    input.close();
+    outFile1.close();
+    outFile2.close();
+    outFile3.close();
     return 0;
 };
