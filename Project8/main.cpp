@@ -107,32 +107,36 @@ int main(int argc, const char *argv[])
 {
     //READ
     string inputName = argv[1];
-    ifstream input;
-    input.open(inputName);
+    cout << inputName;
+    // ifstream input;
+    // input.open(inputName);
 
-    //WRITES
-    string outFile1Name = argv[2], outFile2Name = argv[3], outFile3Name = argv[4];
-    ofstream outFile1, outFile2, outFile3;
+    // //WRITES
+    // string outFile1Name = argv[2], outFile2Name = argv[3], outFile3Name = argv[4];
+    // ofstream outFile1, outFile2, outFile3;
+    // outFile1.open(outFile1Name);
+    // outFile2.open(outFile2Name);
+    // outFile3.open(outFile3Name);
 
-    //Checking if IO operations succeeds
-    if (input.is_open())
-    {
-        if (outFile1.is_open() && outFile2.is_open() && outFile3.is_open())
-        {
-        }
-        else
-        {
-            cout << "ERROR: Some output files is missing or couldnt be opened." << endl;
-        }
-    }
-    else
-    {
-        cout << "ERROR: The input file with following name does not exists or there was problem reading it: " << inputName << endl;
-    }
+    // //Checking if IO operations succeeds
+    // if (input.is_open())
+    // {
+    //     if (outFile1.is_open() && outFile2.is_open() && outFile3.is_open())
+    //     {
+    //     }
+    //     else
+    //     {
+    //         cout << "ERROR: Some output files is missing or couldnt be opened." << endl;
+    //     }
+    // }
+    // else
+    // {
+    //     cout << "ERROR: The input file with following name does not exists or there was problem reading it: " << inputName << endl;
+    // }
 
-    input.close();
-    outFile1.close();
-    outFile2.close();
-    outFile3.close();
+    // input.close();
+    // outFile1.close();
+    // outFile2.close();
+    // outFile3.close();
     return 0;
-}
+};
