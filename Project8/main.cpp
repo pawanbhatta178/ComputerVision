@@ -92,12 +92,15 @@ public:
         Q = 0;
         P = K;
         R = 2 * K;
+        cout << "K" << K << endl;
         for (int i = 0; i < numPts; i++)
         {
+            //index for P in the array
+            int index = (i + K) % numPts;
             double curvature = (double)computeCurvature(Q, P, R);
-            PtAry[i].curvature = curvature;
+            PtAry[index].curvature = curvature;
             debugFile << endl
-                      << PtAry[i].x << " " << PtAry[i].y << " " << PtAry[i].curvature << " " << Q << " " << P << " " << R << " " << endl;
+                      << PtAry[index].x << " " << PtAry[index].y << " " << PtAry[index].curvature << " " << Q << " " << P << " " << R << " " << endl;
             Q = (Q + 1) % numPts;
             P = (P + 1) % numPts;
             R = (R + 1) % numPts;
