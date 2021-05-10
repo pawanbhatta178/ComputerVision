@@ -1,194 +1,294 @@
-6 6 0 Curvature: 0
-7 6 0 Curvature: 0
-8 6 0 Curvature: 0
-9 6 0 Curvature: 0
-10 6 0 Curvature: 0
-11 6 0 Curvature: 0
-12 6 0 Curvature: 0
-13 6 0 Curvature: 0
-14 6 0 Curvature: 0
-15 6 0 Curvature: 0
-16 6 0 Curvature: 0
-17 6 0 Curvature: 0
-18 6 0 Curvature: 0
-19 6 0 Curvature: 0
-20 6 0 Curvature: 0
-21 6 0 Curvature: 0
-22 6 0 Curvature: 0
-23 6 0 Curvature: 0
-24 6 0 Curvature: 0
-25 6 0 Curvature: 0
-25 7 0 Curvature: 0
-25 8 0 Curvature: 0
-25 9 0 Curvature: 0
-25 10 0 Curvature: 0
-25 11 0 Curvature: 0
-25 12 0 Curvature: 0
-25 13 0 Curvature: 0
-25 14 0 Curvature: 0
-25 15 0 Curvature: 0
-25 16 0 Curvature: 0
-25 17 0 Curvature: 0
-25 18 0 Curvature: 0
-25 19 0 Curvature: 0
-25 20 0 Curvature: 0
-25 21 0 Curvature: 0
-25 22 0 Curvature: 0
-25 23 0 Curvature: 0
-25 24 0 Curvature: 0
-25 25 0 Curvature: 0
-25 26 0 Curvature: 0
-25 27 0 Curvature: 0
-25 28 0 Curvature: 0
-25 29 0 Curvature: 0
-25 30 0 Curvature: 0
-25 31 0 Curvature: 0
-25 32 0 Curvature: 0
-25 33 0 Curvature: 0
-25 34 0 Curvature: 0
-25 35 0 Curvature: 0
-24 35 0 Curvature: 0
-23 35 0 Curvature: 0
-22 35 0 Curvature: 0
-21 35 0 Curvature: 0
-20 35 0 Curvature: 0
-19 35 0 Curvature: 0
-18 35 0 Curvature: 0
-17 35 0 Curvature: 0
-16 35 0 Curvature: 0
-15 35 0 Curvature: 0
-14 35 0 Curvature: 0
-13 35 0 Curvature: 0
-12 35 0 Curvature: 0
-11 35 0 Curvature: 0
-10 35 0 Curvature: 0
-9 35 0 Curvature: 0
-8 35 0 Curvature: 0
-7 35 0 Curvature: 0
-6 35 0 Curvature: 0
-6 34 0 Curvature: 0
-6 33 0 Curvature: 0
-6 32 0 Curvature: 0
-6 31 0 Curvature: 0
-6 30 0 Curvature: 0
-6 29 0 Curvature: 0
-6 28 0 Curvature: 0
-6 27 0 Curvature: 0
-6 26 0 Curvature: 0
-6 25 0 Curvature: 0
-6 24 0 Curvature: 0
-6 23 0 Curvature: 0
-6 22 0 Curvature: 0
-6 21 0 Curvature: 0
-6 20 0 Curvature: 0
-6 19 0 Curvature: 0
-6 18 0 Curvature: 0
-6 17 0 Curvature: 0
-6 16 0 Curvature: 0
-6 15 0 Curvature: 0
-6 14 0 Curvature: 0
-6 13 0 Curvature: 0
-6 12 0 Curvature: 0
-6 11 0 Curvature: 0
-6 10 0 Curvature: 0
-6 9 0 Curvature: 0
-6 8 0 Curvature: 0
-6 7 0 Curvature: 0
 
+Before applying k curvature corner detection algorithm:
+r: 6 c: 6  Curvature: 0 Corner: 0
+r: 7 c: 6  Curvature: 0 Corner: 0
+r: 8 c: 6  Curvature: 0 Corner: 0
+r: 9 c: 6  Curvature: 0 Corner: 0
+r: 10 c: 6  Curvature: 0 Corner: 0
+r: 11 c: 6  Curvature: 0 Corner: 0
+r: 12 c: 6  Curvature: 0 Corner: 0
+r: 13 c: 6  Curvature: 0 Corner: 0
+r: 14 c: 6  Curvature: 0 Corner: 0
+r: 15 c: 6  Curvature: 0 Corner: 0
+r: 16 c: 6  Curvature: 0 Corner: 0
+r: 17 c: 6  Curvature: 0 Corner: 0
+r: 18 c: 6  Curvature: 0 Corner: 0
+r: 19 c: 6  Curvature: 0 Corner: 0
+r: 20 c: 6  Curvature: 0 Corner: 0
+r: 21 c: 6  Curvature: 0 Corner: 0
+r: 22 c: 6  Curvature: 0 Corner: 0
+r: 23 c: 6  Curvature: 0 Corner: 0
+r: 24 c: 6  Curvature: 0 Corner: 0
+r: 25 c: 6  Curvature: 0 Corner: 0
+r: 25 c: 7  Curvature: 0 Corner: 0
+r: 25 c: 8  Curvature: 0 Corner: 0
+r: 25 c: 9  Curvature: 0 Corner: 0
+r: 25 c: 10  Curvature: 0 Corner: 0
+r: 25 c: 11  Curvature: 0 Corner: 0
+r: 25 c: 12  Curvature: 0 Corner: 0
+r: 25 c: 13  Curvature: 0 Corner: 0
+r: 25 c: 14  Curvature: 0 Corner: 0
+r: 25 c: 15  Curvature: 0 Corner: 0
+r: 25 c: 16  Curvature: 0 Corner: 0
+r: 25 c: 17  Curvature: 0 Corner: 0
+r: 25 c: 18  Curvature: 0 Corner: 0
+r: 25 c: 19  Curvature: 0 Corner: 0
+r: 25 c: 20  Curvature: 0 Corner: 0
+r: 25 c: 21  Curvature: 0 Corner: 0
+r: 25 c: 22  Curvature: 0 Corner: 0
+r: 25 c: 23  Curvature: 0 Corner: 0
+r: 25 c: 24  Curvature: 0 Corner: 0
+r: 25 c: 25  Curvature: 0 Corner: 0
+r: 25 c: 26  Curvature: 0 Corner: 0
+r: 25 c: 27  Curvature: 0 Corner: 0
+r: 25 c: 28  Curvature: 0 Corner: 0
+r: 25 c: 29  Curvature: 0 Corner: 0
+r: 25 c: 30  Curvature: 0 Corner: 0
+r: 25 c: 31  Curvature: 0 Corner: 0
+r: 25 c: 32  Curvature: 0 Corner: 0
+r: 25 c: 33  Curvature: 0 Corner: 0
+r: 25 c: 34  Curvature: 0 Corner: 0
+r: 25 c: 35  Curvature: 0 Corner: 0
+r: 24 c: 35  Curvature: 0 Corner: 0
+r: 23 c: 35  Curvature: 0 Corner: 0
+r: 22 c: 35  Curvature: 0 Corner: 0
+r: 21 c: 35  Curvature: 0 Corner: 0
+r: 20 c: 35  Curvature: 0 Corner: 0
+r: 19 c: 35  Curvature: 0 Corner: 0
+r: 18 c: 35  Curvature: 0 Corner: 0
+r: 17 c: 35  Curvature: 0 Corner: 0
+r: 16 c: 35  Curvature: 0 Corner: 0
+r: 15 c: 35  Curvature: 0 Corner: 0
+r: 14 c: 35  Curvature: 0 Corner: 0
+r: 13 c: 35  Curvature: 0 Corner: 0
+r: 12 c: 35  Curvature: 0 Corner: 0
+r: 11 c: 35  Curvature: 0 Corner: 0
+r: 10 c: 35  Curvature: 0 Corner: 0
+r: 9 c: 35  Curvature: 0 Corner: 0
+r: 8 c: 35  Curvature: 0 Corner: 0
+r: 7 c: 35  Curvature: 0 Corner: 0
+r: 6 c: 35  Curvature: 0 Corner: 0
+r: 6 c: 34  Curvature: 0 Corner: 0
+r: 6 c: 33  Curvature: 0 Corner: 0
+r: 6 c: 32  Curvature: 0 Corner: 0
+r: 6 c: 31  Curvature: 0 Corner: 0
+r: 6 c: 30  Curvature: 0 Corner: 0
+r: 6 c: 29  Curvature: 0 Corner: 0
+r: 6 c: 28  Curvature: 0 Corner: 0
+r: 6 c: 27  Curvature: 0 Corner: 0
+r: 6 c: 26  Curvature: 0 Corner: 0
+r: 6 c: 25  Curvature: 0 Corner: 0
+r: 6 c: 24  Curvature: 0 Corner: 0
+r: 6 c: 23  Curvature: 0 Corner: 0
+r: 6 c: 22  Curvature: 0 Corner: 0
+r: 6 c: 21  Curvature: 0 Corner: 0
+r: 6 c: 20  Curvature: 0 Corner: 0
+r: 6 c: 19  Curvature: 0 Corner: 0
+r: 6 c: 18  Curvature: 0 Corner: 0
+r: 6 c: 17  Curvature: 0 Corner: 0
+r: 6 c: 16  Curvature: 0 Corner: 0
+r: 6 c: 15  Curvature: 0 Corner: 0
+r: 6 c: 14  Curvature: 0 Corner: 0
+r: 6 c: 13  Curvature: 0 Corner: 0
+r: 6 c: 12  Curvature: 0 Corner: 0
+r: 6 c: 11  Curvature: 0 Corner: 0
+r: 6 c: 10  Curvature: 0 Corner: 0
+r: 6 c: 9  Curvature: 0 Corner: 0
+r: 6 c: 8  Curvature: 0 Corner: 0
+r: 6 c: 7  Curvature: 0 Corner: 0
 
-6 6 0 Curvature: 80
-7 6 0 Curvature: -7
-8 6 0 Curvature: -3
-9 6 0 Curvature: -1.66667
-10 6 0 Curvature: -1
-11 6 0 Curvature: -0.6
-12 6 0 Curvature: -0.333333
-13 6 0 Curvature: -0.142857
-14 6 1 Curvature: 0
-15 6 1 Curvature: 0
-16 6 1 Curvature: 0
-17 6 1 Curvature: 0
-18 6 0 Curvature: -0.142857
-19 6 0 Curvature: -0.333333
-20 6 0 Curvature: -0.6
-21 6 0 Curvature: -1
-22 6 0 Curvature: -1.66667
-23 6 0 Curvature: -3
-24 6 0 Curvature: -7
-25 6 0 Curvature: -40
-25 7 0 Curvature: -39.8529
-25 8 0 Curvature: -39.6552
-25 9 0 Curvature: -39.375
-25 10 0 Curvature: -38.9474
-25 11 0 Curvature: -38.2143
-25 12 0 Curvature: -36.6667
-25 13 1 Curvature: -31.25
-25 14 0 Curvature: -160
-25 15 0 Curvature: -160
-25 16 1 Curvature: -160
-25 17 1 Curvature: -160
-25 18 1 Curvature: -160
-25 19 1 Curvature: -160
-25 20 1 Curvature: -160
-25 21 1 Curvature: -160
-25 22 1 Curvature: -160
-25 23 1 Curvature: -160
-25 24 1 Curvature: -160
-25 25 1 Curvature: -160
-25 26 0 Curvature: -160
-25 27 0 Curvature: -160
-25 28 1 Curvature: -72.2222
-25 29 0 Curvature: -76.8421
-25 30 0 Curvature: -78.2759
-25 31 0 Curvature: -78.9744
-25 32 0 Curvature: -79.3878
-25 33 0 Curvature: -79.661
-25 34 0 Curvature: -79.8551
-25 35 0 Curvature: -80
-24 35 0 Curvature: -7
-23 35 0 Curvature: -3
-22 35 0 Curvature: -1.66667
-21 35 0 Curvature: -1
-20 35 0 Curvature: -0.6
-19 35 0 Curvature: -0.333333
-18 35 0 Curvature: -0.142857
-17 35 1 Curvature: 0
-16 35 1 Curvature: 0
-15 35 1 Curvature: 0
-14 35 1 Curvature: 0
-13 35 0 Curvature: -0.142857
-12 35 0 Curvature: -0.333333
-11 35 0 Curvature: -0.6
-10 35 0 Curvature: -1
-9 35 0 Curvature: -1.66667
-8 35 0 Curvature: -3
-7 35 0 Curvature: -7
-6 35 0 Curvature: 40
-6 34 0 Curvature: 40.1389
-6 33 0 Curvature: 40.3226
-6 32 0 Curvature: 40.5769
-6 31 0 Curvature: 40.9524
-6 30 0 Curvature: 41.5625
-6 29 0 Curvature: 42.7273
-6 28 0 Curvature: 45.8333
-6 27 1 Curvature: 160
-6 26 1 Curvature: 160
-6 25 1 Curvature: 160
-6 24 1 Curvature: 160
-6 23 1 Curvature: 160
-6 22 1 Curvature: 160
-6 21 1 Curvature: 160
-6 20 1 Curvature: 160
-6 19 1 Curvature: 160
-6 18 1 Curvature: 160
-6 17 1 Curvature: 160
-6 16 1 Curvature: 160
-6 15 1 Curvature: 160
-6 14 1 Curvature: 160
-6 13 0 Curvature: 86.3636
-6 12 0 Curvature: 82.8571
-6 11 0 Curvature: 81.6129
-6 10 0 Curvature: 80.9756
-6 9 0 Curvature: 80.5882
-6 8 0 Curvature: 80.3279
-6 7 0 Curvature: 80.1408
+After applying k curvature corner detection algorithm:
+r: 6 c: 6  Curvature: -10 Corner: 0
+r: 7 c: 6  Curvature: 0 Corner: 0
+r: 8 c: 6  Curvature: 0 Corner: 0
+r: 9 c: 6  Curvature: 0 Corner: 0
+r: 10 c: 6  Curvature: 0 Corner: 0
+r: 11 c: 6  Curvature: 0 Corner: 0
+r: 12 c: 6  Curvature: 0 Corner: 0
+r: 13 c: 6  Curvature: 0 Corner: 0
+r: 14 c: 6  Curvature: 0 Corner: 0
+r: 15 c: 6  Curvature: 0 Corner: 0
+r: 16 c: 6  Curvature: 0 Corner: 0
+r: 17 c: 6  Curvature: 0 Corner: 0
+r: 18 c: 6  Curvature: 0 Corner: 0
+r: 19 c: 6  Curvature: 0 Corner: 0
+r: 20 c: 6  Curvature: 0 Corner: 0
+r: 21 c: 6  Curvature: 0 Corner: 0
+r: 22 c: 6  Curvature: 0 Corner: 0
+r: 23 c: 6  Curvature: 0 Corner: 0
+r: 24 c: 6  Curvature: 0 Corner: 0
+r: 25 c: 6  Curvature: 10 Corner: 0
+r: 25 c: 7  Curvature: 20 Corner: 0
+r: 25 c: 8  Curvature: 20 Corner: 0
+r: 25 c: 9  Curvature: 20 Corner: 0
+r: 25 c: 10  Curvature: 20 Corner: 0
+r: 25 c: 11  Curvature: 20 Corner: 0
+r: 25 c: 12  Curvature: 20 Corner: 0
+r: 25 c: 13  Curvature: 20 Corner: 0
+r: 25 c: 14  Curvature: 20 Corner: 0
+r: 25 c: 15  Curvature: 20 Corner: 0
+r: 25 c: 16  Curvature: 20 Corner: 0
+r: 25 c: 17  Curvature: 20 Corner: 0
+r: 25 c: 18  Curvature: 20 Corner: 0
+r: 25 c: 19  Curvature: 20 Corner: 0
+r: 25 c: 20  Curvature: 20 Corner: 0
+r: 25 c: 21  Curvature: 20 Corner: 0
+r: 25 c: 22  Curvature: 20 Corner: 0
+r: 25 c: 23  Curvature: 20 Corner: 0
+r: 25 c: 24  Curvature: 20 Corner: 0
+r: 25 c: 25  Curvature: 20 Corner: 0
+r: 25 c: 26  Curvature: 20 Corner: 0
+r: 25 c: 27  Curvature: 20 Corner: 0
+r: 25 c: 28  Curvature: 20 Corner: 0
+r: 25 c: 29  Curvature: 20 Corner: 0
+r: 25 c: 30  Curvature: 20 Corner: 0
+r: 25 c: 31  Curvature: 20 Corner: 0
+r: 25 c: 32  Curvature: 20 Corner: 0
+r: 25 c: 33  Curvature: 20 Corner: 0
+r: 25 c: 34  Curvature: 20 Corner: 0
+r: 25 c: 35  Curvature: 10 Corner: 0
+r: 24 c: 35  Curvature: 0 Corner: 0
+r: 23 c: 35  Curvature: 0 Corner: 0
+r: 22 c: 35  Curvature: 0 Corner: 0
+r: 21 c: 35  Curvature: 0 Corner: 0
+r: 20 c: 35  Curvature: 0 Corner: 0
+r: 19 c: 35  Curvature: 0 Corner: 0
+r: 18 c: 35  Curvature: 0 Corner: 0
+r: 17 c: 35  Curvature: 0 Corner: 0
+r: 16 c: 35  Curvature: 0 Corner: 0
+r: 15 c: 35  Curvature: 0 Corner: 0
+r: 14 c: 35  Curvature: 0 Corner: 0
+r: 13 c: 35  Curvature: 0 Corner: 0
+r: 12 c: 35  Curvature: 0 Corner: 0
+r: 11 c: 35  Curvature: 0 Corner: 0
+r: 10 c: 35  Curvature: 0 Corner: 0
+r: 9 c: 35  Curvature: 0 Corner: 0
+r: 8 c: 35  Curvature: 0 Corner: 0
+r: 7 c: 35  Curvature: 0 Corner: 0
+r: 6 c: 35  Curvature: -10 Corner: 0
+r: 6 c: 34  Curvature: -20 Corner: 0
+r: 6 c: 33  Curvature: -20 Corner: 0
+r: 6 c: 32  Curvature: -20 Corner: 0
+r: 6 c: 31  Curvature: -20 Corner: 0
+r: 6 c: 30  Curvature: -20 Corner: 0
+r: 6 c: 29  Curvature: -20 Corner: 0
+r: 6 c: 28  Curvature: -20 Corner: 0
+r: 6 c: 27  Curvature: -20 Corner: 0
+r: 6 c: 26  Curvature: -20 Corner: 0
+r: 6 c: 25  Curvature: -20 Corner: 0
+r: 6 c: 24  Curvature: -20 Corner: 0
+r: 6 c: 23  Curvature: -20 Corner: 0
+r: 6 c: 22  Curvature: -20 Corner: 0
+r: 6 c: 21  Curvature: -20 Corner: 0
+r: 6 c: 20  Curvature: -20 Corner: 0
+r: 6 c: 19  Curvature: -20 Corner: 0
+r: 6 c: 18  Curvature: -20 Corner: 0
+r: 6 c: 17  Curvature: -20 Corner: 0
+r: 6 c: 16  Curvature: -20 Corner: 0
+r: 6 c: 15  Curvature: -20 Corner: 0
+r: 6 c: 14  Curvature: -20 Corner: 0
+r: 6 c: 13  Curvature: -20 Corner: 0
+r: 6 c: 12  Curvature: -20 Corner: 0
+r: 6 c: 11  Curvature: -20 Corner: 0
+r: 6 c: 10  Curvature: -20 Corner: 0
+r: 6 c: 9  Curvature: -20 Corner: 0
+r: 6 c: 8  Curvature: -20 Corner: 0
+r: 6 c: 7  Curvature: -20 Corner: 0
+
+After marking corners:
+r: 6 c: 6  Curvature: -10 Corner: 9
+r: 7 c: 6  Curvature: 0 Corner: 1
+r: 8 c: 6  Curvature: 0 Corner: 1
+r: 9 c: 6  Curvature: 0 Corner: 1
+r: 10 c: 6  Curvature: 0 Corner: 1
+r: 11 c: 6  Curvature: 0 Corner: 1
+r: 12 c: 6  Curvature: 0 Corner: 1
+r: 13 c: 6  Curvature: 0 Corner: 1
+r: 14 c: 6  Curvature: 0 Corner: 1
+r: 15 c: 6  Curvature: 0 Corner: 1
+r: 16 c: 6  Curvature: 0 Corner: 1
+r: 17 c: 6  Curvature: 0 Corner: 1
+r: 18 c: 6  Curvature: 0 Corner: 1
+r: 19 c: 6  Curvature: 0 Corner: 1
+r: 20 c: 6  Curvature: 0 Corner: 1
+r: 21 c: 6  Curvature: 0 Corner: 1
+r: 22 c: 6  Curvature: 0 Corner: 1
+r: 23 c: 6  Curvature: 0 Corner: 1
+r: 24 c: 6  Curvature: 0 Corner: 1
+r: 25 c: 6  Curvature: 10 Corner: 9
+r: 25 c: 7  Curvature: 20 Corner: 1
+r: 25 c: 8  Curvature: 20 Corner: 1
+r: 25 c: 9  Curvature: 20 Corner: 1
+r: 25 c: 10  Curvature: 20 Corner: 1
+r: 25 c: 11  Curvature: 20 Corner: 1
+r: 25 c: 12  Curvature: 20 Corner: 1
+r: 25 c: 13  Curvature: 20 Corner: 1
+r: 25 c: 14  Curvature: 20 Corner: 1
+r: 25 c: 15  Curvature: 20 Corner: 1
+r: 25 c: 16  Curvature: 20 Corner: 1
+r: 25 c: 17  Curvature: 20 Corner: 1
+r: 25 c: 18  Curvature: 20 Corner: 1
+r: 25 c: 19  Curvature: 20 Corner: 1
+r: 25 c: 20  Curvature: 20 Corner: 1
+r: 25 c: 21  Curvature: 20 Corner: 1
+r: 25 c: 22  Curvature: 20 Corner: 1
+r: 25 c: 23  Curvature: 20 Corner: 1
+r: 25 c: 24  Curvature: 20 Corner: 1
+r: 25 c: 25  Curvature: 20 Corner: 1
+r: 25 c: 26  Curvature: 20 Corner: 1
+r: 25 c: 27  Curvature: 20 Corner: 1
+r: 25 c: 28  Curvature: 20 Corner: 1
+r: 25 c: 29  Curvature: 20 Corner: 1
+r: 25 c: 30  Curvature: 20 Corner: 1
+r: 25 c: 31  Curvature: 20 Corner: 1
+r: 25 c: 32  Curvature: 20 Corner: 1
+r: 25 c: 33  Curvature: 20 Corner: 1
+r: 25 c: 34  Curvature: 20 Corner: 1
+r: 25 c: 35  Curvature: 10 Corner: 9
+r: 24 c: 35  Curvature: 0 Corner: 1
+r: 23 c: 35  Curvature: 0 Corner: 1
+r: 22 c: 35  Curvature: 0 Corner: 1
+r: 21 c: 35  Curvature: 0 Corner: 1
+r: 20 c: 35  Curvature: 0 Corner: 1
+r: 19 c: 35  Curvature: 0 Corner: 1
+r: 18 c: 35  Curvature: 0 Corner: 1
+r: 17 c: 35  Curvature: 0 Corner: 1
+r: 16 c: 35  Curvature: 0 Corner: 1
+r: 15 c: 35  Curvature: 0 Corner: 1
+r: 14 c: 35  Curvature: 0 Corner: 1
+r: 13 c: 35  Curvature: 0 Corner: 1
+r: 12 c: 35  Curvature: 0 Corner: 1
+r: 11 c: 35  Curvature: 0 Corner: 1
+r: 10 c: 35  Curvature: 0 Corner: 1
+r: 9 c: 35  Curvature: 0 Corner: 1
+r: 8 c: 35  Curvature: 0 Corner: 1
+r: 7 c: 35  Curvature: 0 Corner: 1
+r: 6 c: 35  Curvature: -10 Corner: 9
+r: 6 c: 34  Curvature: -20 Corner: 1
+r: 6 c: 33  Curvature: -20 Corner: 1
+r: 6 c: 32  Curvature: -20 Corner: 1
+r: 6 c: 31  Curvature: -20 Corner: 1
+r: 6 c: 30  Curvature: -20 Corner: 1
+r: 6 c: 29  Curvature: -20 Corner: 1
+r: 6 c: 28  Curvature: -20 Corner: 1
+r: 6 c: 27  Curvature: -20 Corner: 1
+r: 6 c: 26  Curvature: -20 Corner: 1
+r: 6 c: 25  Curvature: -20 Corner: 1
+r: 6 c: 24  Curvature: -20 Corner: 1
+r: 6 c: 23  Curvature: -20 Corner: 1
+r: 6 c: 22  Curvature: -20 Corner: 1
+r: 6 c: 21  Curvature: -20 Corner: 1
+r: 6 c: 20  Curvature: -20 Corner: 1
+r: 6 c: 19  Curvature: -20 Corner: 1
+r: 6 c: 18  Curvature: -20 Corner: 1
+r: 6 c: 17  Curvature: -20 Corner: 1
+r: 6 c: 16  Curvature: -20 Corner: 1
+r: 6 c: 15  Curvature: -20 Corner: 1
+r: 6 c: 14  Curvature: -20 Corner: 1
+r: 6 c: 13  Curvature: -20 Corner: 1
+r: 6 c: 12  Curvature: -20 Corner: 1
+r: 6 c: 11  Curvature: -20 Corner: 1
+r: 6 c: 10  Curvature: -20 Corner: 1
+r: 6 c: 9  Curvature: -20 Corner: 1
+r: 6 c: 8  Curvature: -20 Corner: 1
+r: 6 c: 7  Curvature: -20 Corner: 1

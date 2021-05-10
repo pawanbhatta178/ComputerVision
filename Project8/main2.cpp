@@ -137,12 +137,12 @@ public:
         //Math error cases
         if (r1 == r2)
         {
-            r2 = r2 - 0.1;
+            r2 = r2 + 0.1;
             cout << " Math Error";
         }
         if (r2 == r3)
         {
-            r2 = r2 - 0.2;
+            r2 = r2 + 0.1;
             cout << " Maths error";
         }
 
@@ -180,11 +180,25 @@ public:
 
     void markCorner()
     {
-        // go thru the entire PtAry, i = 0 to numPts -1
-        // set PtAry[i]-> corner to 9
-        //if a) PtAry [i] is a local maxima &&
-        //   b) in its 1X5 neighborhood, only PtAry [i-1] or PtAry [i+1] can be a local maxima
-        // otherwise, set PtAry[i]-> corner to 1
+
+        const int t = 2; //t is threshold value of change in curvature. We ignore change in curvature that is smaller than t.
+
+        //Corner pixel has maximum change in curvature
+        for (int i = K; i < numPts + K; i++)
+        {
+            int pCurvature = PtAry[i % numPts].curvature;
+            int qCurvature = PtAry[(i - 1) % numPts].curvature;
+            int rCurvature = PtAry[(i + 1) % numPts].curvature;
+
+            if (abs(pCurvature - qCurvature) > t && abs(pCurvature - rCurvature) > t)
+            {
+                PtAry[i % numPts].corner = 9;
+            }
+            else
+            {
+                PtAry[i % numPts].corner = 1;
+            }
+        }
     }
 
     void printBoundary()
@@ -200,7 +214,8 @@ public:
     {
         for (int i = 0; i < numPts; i++)
         {
-            outFile << PtAry[i].x << " " << PtAry[i].y << " " << PtAry[i].localMax << " Curvature: " << PtAry[i].curvature << endl;
+            outFile << "r: " << PtAry[i].x << " c: " << PtAry[i].y << " "
+                    << " Curvature: " << PtAry[i].curvature << " Corner: " << PtAry[i].corner << endl;
         }
     }
 
@@ -242,9 +257,17 @@ int main(int argc, const char *argv[])
             kCurvature k;
             k.K = K;
             k.init(input, inputName);
+            outFile3 << endl
+                     << "Before applying k curvature corner detection algorithm:" << endl;
             k.printPtAry(outFile3);
             k.cornerDetection(outFile3);
+            outFile3 << endl
+                     << "After applying k curvature corner detection algorithm:" << endl;
+            k.printPtAry(outFile3);
             k.computeLocalMaxima();
+            k.markCorner();
+            outFile3 << endl
+                     << "After marking corners:" << endl;
             k.printPtAry(outFile3);
         }
         else
