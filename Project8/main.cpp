@@ -4,6 +4,15 @@
 #include <cstdarg>
 using namespace std;
 
+class BoundaryPt
+{
+public:
+    int x, y;
+    double curvature;
+    int localMax;
+    int corner; // 1 means it is not a corner or 9 means it is a corner
+};
+
 class Image
 {
 public:
@@ -11,6 +20,8 @@ public:
     int numCols;
     int minVal;
     int maxVal;
+    int newMin;
+    int newMax;
     int **imgAry; // a 2D array for display, initially set to 0
 
     Image(ifstream &inFile)
@@ -19,16 +30,46 @@ public:
         imgAry = new int *[numRows];
         for (int i = 0; i < numRows; i++)
         {
-            imgAry[i] = new int[numCols];
+            imgAry[i] = new int[numCols]();
         }
     }
 
-    void plotPt2Img()
-    {
-    }
+    // void plotPt2Img(kCurvature &kC)
+    // {
+    //     newMin = 0;
+    //     newMax = 0;
+    //     for (int i = 0; i < kC.numPts; i++)
+    //     {
+    //         int x = kC.PtAry[i].x;
+    //         int y = kC.PtAry[i].y;
+    //         imgAry[x][y] = kC.PtAry[i].corner;
 
-    void reformatPrettyPrint()
+    //         //Updating newMax
+    //         if (kC.PtAry[i].corner > newMax)
+    //         {
+    //             newMax = kC.PtAry[i].corner;
+    //         }
+    //     }
+    // }
+
+    void reformatPrettyPrint(ofstream &outFile)
     {
+        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
+        for (int i = 0; i < numRows; i++)
+        {
+            for (int j = 0; j < numCols; j++)
+            {
+                if (imgAry[i][j] > 0)
+                {
+                    outFile << imgAry[i][j] << " ";
+                }
+                else
+                {
+                    outFile << ". ";
+                }
+            }
+            outFile << endl;
+        }
     }
 
     ~Image()
@@ -38,15 +79,6 @@ public:
             delete[] imgAry[i];
         }
     }
-};
-
-class BoundaryPt
-{
-public:
-    int x, y;
-    double curvature;
-    int localMax;
-    int corner; // 1 means it is not a corner or 9 means it is a corner
 };
 
 class kCurvature
@@ -61,10 +93,7 @@ public:
     // need to dynamically allocate.
     // use mod function to compute the curvature for the beginning of
     // the K points without extending the tail of the array,
-
-    kCurvature()
-    {
-    }
+    int label;
 
     void init(ifstream &inFile, string inputFileName)
     {
@@ -76,7 +105,7 @@ public:
         inFile.open(inputFileName);
         int a;
         //skipping image header and label
-        inFile >> a >> a >> a >> a >> a;
+        inFile >> a >> a >> a >> a >> label;
 
         //Storing each points in the array
         for (int i = 0; i < numPts; i++)
@@ -93,16 +122,14 @@ public:
         P = K;
         R = 2 * K;
         cout << "K" << K << endl;
+        cout << "Number of Pts: " << numPts << endl;
         for (int i = 0; i < numPts; i++)
         {
-            //index for P in the array
-            int index = (i + K) % numPts;
-            double curvature = (double)computeCurvature(P, Q, R);
-            PtAry[index].curvature = curvature;
-            debugFile << endl
-                      << PtAry[index].x << " " << PtAry[index].y << " " << PtAry[index].curvature << " " << Q << " " << P << " " << R << " " << endl;
-            Q = (Q + 1) % numPts;
+
+            double curvature = computeCurvature(Q, P, R);
+            PtAry[P].curvature = curvature;
             P = (P + 1) % numPts;
+            Q = (Q + 1) % numPts;
             R = (R + 1) % numPts;
         }
     }
@@ -124,28 +151,33 @@ public:
         PtAry[index].y = y;
     }
 
-    double computeCurvature(int p, int q, int r)
+    double computeCurvature(int q, int p, int r)
     {
-        double qx = PtAry[q].x;
-        double qy = PtAry[q].y;
-        double px = PtAry[p].x;
-        double py = PtAry[p].y;
-        double rx = PtAry[r].x;
-        double ry = PtAry[r].y;
+        cout << "Q: " << Q << " P: " << P << " R: " << R << " ";
+        cout << "P has " << PtAry[p].x << " " << PtAry[p].y << " ";
+        double r1 = (double)PtAry[q].x;
+        double c1 = (double)PtAry[q].y;
+        double r2 = (double)PtAry[p].x;
+        double c2 = (double)PtAry[p].y;
+        double r3 = (double)PtAry[r].x;
+        double c3 = (double)PtAry[r].y;
+        cout << "r1 c1 r2 c2 r3 c3: " << r1 << " " << c1 << " " << r2 << " " << c2 << " " << r3 << " " << c3 << " ";
 
-        //handling divide by zero errors
-        if (qx == px)
+        //Math error cases
+        if (r1 == r2)
         {
-            qx = qx - 1;
+            r2 = r2 + 0.1;
+            cout << " Math Error";
         }
-        if (px == rx)
+        if (r2 == r3)
         {
-            rx = rx - 1;
+            r2 = r2 + 0.1;
+            cout << " Maths error";
         }
 
-        double curvature;
-        curvature = ((qy - py) / (qx - px)) - ((py - ry) / (px - rx));
-        cout << curvature << endl;
+        double curvature = (c1 - c2) / (r1 - r2) - (c2 - c3) / (r2 - r3);
+
+        cout << " Curvature: " << curvature << endl;
         return curvature;
     }
 
@@ -177,27 +209,60 @@ public:
 
     void markCorner()
     {
-        // go thru the entire PtAry, i = 0 to numPts -1
-        // set PtAry[i]-> corner to 9
-        //if a) PtAry [i] is a local maxima &&
-        //   b) in its 1X5 neighborhood, only PtAry [i-1] or PtAry [i+1] can be a local maxima
-        // otherwise, set PtAry[i]-> corner to 1
+
+        const int t = 1; //t is threshold value of change in curvature. We ignore change in curvature that is smaller than t.
+
+        //Corner pixel has maximum change in curvature
+        for (int i = K; i < numPts + K; i++)
+        {
+            int pCurvature = PtAry[i % numPts].curvature;
+            int qCurvature = PtAry[(i - 1) % numPts].curvature;
+            int rCurvature = PtAry[(i + 1) % numPts].curvature;
+
+            if (abs(pCurvature - qCurvature) >= t && abs(pCurvature - rCurvature) >= t)
+            {
+                PtAry[i % numPts].corner = 9;
+            }
+            else
+            {
+                PtAry[i % numPts].corner = 1;
+            }
+        }
     }
 
-    void printBoundary()
+    void display(Image &img)
     {
-        // output only (x, y, corner) of the entire PtAry to outFile1 in format given in the above.
+        img.newMax = 0;
+        for (int i = 0; i < numPts; i++)
+        {
+            int x = PtAry[i].x;
+            int y = PtAry[i].y;
+            img.imgAry[x][y] = PtAry[i].corner;
+
+            //Updating newMax
+            if (PtAry[i].corner > img.newMax)
+            {
+                img.newMax = PtAry[i].corner;
+            }
+        }
     }
 
-    void display() // plot PtAry to imgAry
+    void printBoundary(ofstream &outFile)
     {
+        outFile << numPts << endl;
+        for (int i = 0; i < numPts; i++)
+        {
+            outFile << PtAry[i].x << " " << PtAry[i].y
+                    << " " << PtAry[i].corner << endl;
+        }
     }
 
     void printPtAry(ofstream &outFile) // For debugging, print the content of the entire PtAry to outFile3
     {
         for (int i = 0; i < numPts; i++)
         {
-            outFile << PtAry[i].x << " " << PtAry[i].y << " " << PtAry[i].localMax << endl;
+            outFile << "r: " << PtAry[i].x << " c: " << PtAry[i].y << " "
+                    << " Curvature: " << PtAry[i].curvature << " Corner: " << PtAry[i].corner << endl;
         }
     }
 
@@ -209,7 +274,6 @@ public:
 
 int main(int argc, const char *argv[])
 {
-
     // READ
     string inputName = argv[1];
     ifstream input;
@@ -239,10 +303,23 @@ int main(int argc, const char *argv[])
             kCurvature k;
             k.K = K;
             k.init(input, inputName);
+            outFile3 << endl
+                     << "Before applying k curvature corner detection algorithm:" << endl;
             k.printPtAry(outFile3);
             k.cornerDetection(outFile3);
-            k.computeLocalMaxima();
+            outFile3 << endl
+                     << "After applying k curvature corner detection algorithm:" << endl;
             k.printPtAry(outFile3);
+            k.computeLocalMaxima();
+            k.markCorner();
+            outFile3 << endl
+                     << "After marking corners:" << endl;
+            k.printPtAry(outFile3);
+            outFile1 << img.numRows << " " << img.numCols << " " << img.minVal << " " << img.maxVal << endl;
+            outFile1 << k.label << endl;
+            k.printBoundary(outFile1);
+            k.display(img);
+            img.reformatPrettyPrint(outFile2);
         }
         else
         {
