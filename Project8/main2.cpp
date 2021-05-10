@@ -93,16 +93,14 @@ public:
         P = K;
         R = 2 * K;
         cout << "K" << K << endl;
+        cout << "Number of Pts: " << numPts << endl;
         for (int i = 0; i < numPts; i++)
         {
-            //index for P in the array
-            int index = (i + K) % numPts;
-            double curvature = (double)computeCurvature(P, Q, R);
-            PtAry[index].curvature = curvature;
-            debugFile << endl
-                      << PtAry[index].x << " " << PtAry[index].y << " " << PtAry[index].curvature << " " << Q << " " << P << " " << R << " " << endl;
-            Q = (Q + 1) % numPts;
+
+            double curvature = computeCurvature(Q, P, R);
+            PtAry[P].curvature = curvature;
             P = (P + 1) % numPts;
+            Q = (Q + 1) % numPts;
             R = (R + 1) % numPts;
         }
     }
@@ -124,28 +122,33 @@ public:
         PtAry[index].y = y;
     }
 
-    double computeCurvature(int p, int q, int r)
+    double computeCurvature(int q, int p, int r)
     {
-        double qx = PtAry[q].x;
-        double qy = PtAry[q].y;
-        double px = PtAry[p].x;
-        double py = PtAry[p].y;
-        double rx = PtAry[r].x;
-        double ry = PtAry[r].y;
+        cout << "Q: " << Q << " P: " << P << " R: " << R << " ";
+        cout << "P has " << PtAry[p].x << " " << PtAry[p].y << " ";
+        double r1 = (double)PtAry[q].x;
+        double c1 = (double)PtAry[q].y;
+        double r2 = (double)PtAry[p].x;
+        double c2 = (double)PtAry[p].y;
+        double r3 = (double)PtAry[r].x;
+        double c3 = (double)PtAry[r].y;
+        cout << "r1 c1 r2 c2 r3 c3: " << r1 << " " << c1 << " " << r2 << " " << c2 << " " << r3 << " " << c3 << " ";
 
-        //handling divide by zero errors
-        if (qx == px)
+        //Math error cases
+        if (r1 == r2)
         {
-            qx = qx - 1;
+            r2 = r2 - 0.1;
+            cout << " Math Error";
         }
-        if (px == rx)
+        if (r2 == r3)
         {
-            rx = rx - 1;
+            r2 = r2 - 0.2;
+            cout << " Maths error";
         }
 
-        double curvature;
-        curvature = ((qy - py) / (qx - px)) - ((py - ry) / (px - rx));
-        cout << curvature << endl;
+        double curvature = (c1 - c2) / (r1 - r2) - (c2 - c3) / (r2 - r3);
+
+        cout << " Curvature: " << curvature << endl;
         return curvature;
     }
 
@@ -197,7 +200,7 @@ public:
     {
         for (int i = 0; i < numPts; i++)
         {
-            outFile << PtAry[i].x << " " << PtAry[i].y << " " << PtAry[i].localMax << endl;
+            outFile << PtAry[i].x << " " << PtAry[i].y << " " << PtAry[i].localMax << " Curvature: " << PtAry[i].curvature << endl;
         }
     }
 

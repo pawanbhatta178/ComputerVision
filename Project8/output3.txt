@@ -1,288 +1,194 @@
-6 6
-7 6
-8 6
-9 6
-10 6
-11 6
-12 6
-13 6
-14 6
-15 6
-16 6
-17 6
-18 6
-19 6
-20 6
-21 6
-22 6
-23 6
-24 6
-25 6
-25 7
-25 8
-25 9
-25 10
-25 11
-25 12
-25 13
-25 14
-25 15
-25 16
-25 17
-25 18
-25 19
-25 20
-25 21
-25 22
-25 23
-25 24
-25 25
-25 26
-25 27
-25 28
-25 29
-25 30
-25 31
-25 32
-25 33
-25 34
-25 35
-24 35
-23 35
-22 35
-21 35
-20 35
-19 35
-18 35
-17 35
-16 35
-15 35
-14 35
-13 35
-12 35
-11 35
-10 35
-9 35
-8 35
-7 35
-6 35
-6 34
-6 33
-6 32
-6 31
-6 30
-6 29
-6 28
-6 27
-6 26
-6 25
-6 24
-6 23
-6 22
-6 21
-6 20
-6 19
-6 18
-6 17
-6 16
-6 15
-6 14
-6 13
-6 12
-6 11
-6 10
-6 9
-6 8
-6 7
-
-14 6 0 0 8 16 
-
-15 6 0 1 9 17 
-
-16 6 0 2 10 18 
-
-17 6 0 3 11 19 
-
-18 6 -0.0666667 4 12 20 
-
-19 6 -0.142857 5 13 21 
-
-20 6 -0.230769 6 14 22 
-
-21 6 -0.333333 7 15 23 
-
-22 6 -0.454545 8 16 24 
-
-23 6 -0.6 9 17 25 
-
-24 6 -0.777778 10 18 26 
-
-25 6 -1 11 19 27 
-
-25 7 -1.14286 12 20 28 
-
-25 8 -1.33333 13 21 29 
-
-25 9 -1.6 14 22 30 
-
-25 10 -2 15 23 31 
-
-25 11 -2.66667 16 24 32 
-
-25 12 -4 17 25 33 
-
-25 13 -8 18 26 34 
-
-25 14 inf 19 27 35 
-
-25 15 inf 20 28 36 
-
-25 16 inf 21 29 37 
-
-25 17 inf 22 30 38 
-
-25 18 inf 23 31 39 
-
-25 19 inf 24 32 40 
-
-25 20 inf 25 33 41 
-
-25 21 inf 26 34 42 
-
-25 22 inf 27 35 43 
-
-25 23 inf 28 36 44 
-
-25 24 inf 29 37 45 
-
-25 25 inf 30 38 46 
-
-25 26 inf 31 39 47 
-
-25 27 inf 32 40 48 
-
-25 28 inf 33 41 49 
-
-25 29 inf 34 42 50 
-
-25 30 inf 35 43 51 
-
-25 31 inf 36 44 52 
-
-25 32 inf 37 45 53 
-
-25 33 inf 38 46 54 
-
-25 34 inf 39 47 55 
-
-25 35 inf 40 48 56 
-
-24 35 -6.22222 41 49 57 
-
-23 35 -2.4 42 50 58 
-
-22 35 -1.21212 43 51 59 
-
-21 35 -0.666667 44 52 60 
-
-20 35 -0.369231 45 53 61 
-
-19 35 -0.190476 46 54 62 
-
-18 35 -0.0761905 47 55 63 
-
-17 35 -0 48 56 64 
-
-16 35 -0 49 57 65 
-
-15 35 -0 50 58 66 
-
-14 35 -0 51 59 67 
-
-13 35 -0.0666667 52 60 68 
-
-12 35 -0.142857 53 61 69 
-
-11 35 -0.230769 54 62 70 
-
-10 35 -0.333333 55 63 71 
-
-9 35 -0.454545 56 64 72 
-
-8 35 -0.6 57 65 73 
-
-7 35 -0.777778 58 66 74 
-
-6 35 -1 59 67 75 
-
-6 34 -1.14286 60 68 76 
-
-6 33 -1.33333 61 69 77 
-
-6 32 -1.6 62 70 78 
-
-6 31 -2 63 71 79 
-
-6 30 -2.66667 64 72 80 
-
-6 29 -4 65 73 81 
-
-6 28 -8 66 74 82 
-
-6 27 -inf 67 75 83 
-
-6 26 -inf 68 76 84 
-
-6 25 -inf 69 77 85 
-
-6 24 -inf 70 78 86 
-
-6 23 -inf 71 79 87 
-
-6 22 -inf 72 80 88 
-
-6 21 -inf 73 81 89 
-
-6 20 -inf 74 82 90 
-
-6 19 -inf 75 83 91 
-
-6 18 -inf 76 84 92 
-
-6 17 -inf 77 85 93 
-
-6 16 -inf 78 86 94 
-
-6 15 -inf 79 87 95 
-
-6 14 -inf 80 88 0 
-
-6 13 -inf 81 89 1 
-
-6 12 -inf 82 90 2 
-
-6 11 -inf 83 91 3 
-
-6 10 -inf 84 92 4 
-
-6 9 -inf 85 93 5 
-
-6 8 -inf 86 94 6 
-
-6 7 -inf 87 95 7 
-
-6 6 -inf 88 0 8 
-
-7 6 -6.22222 89 1 9 
-
-8 6 -2.4 90 2 10 
-
-9 6 -1.21212 91 3 11 
-
-10 6 -0.666667 92 4 12 
-
-11 6 -0.369231 93 5 13 
-
-12 6 -0.190476 94 6 14 
-
-13 6 -0.0761905 95 7 15 
+6 6 0 Curvature: 0
+7 6 0 Curvature: 0
+8 6 0 Curvature: 0
+9 6 0 Curvature: 0
+10 6 0 Curvature: 0
+11 6 0 Curvature: 0
+12 6 0 Curvature: 0
+13 6 0 Curvature: 0
+14 6 0 Curvature: 0
+15 6 0 Curvature: 0
+16 6 0 Curvature: 0
+17 6 0 Curvature: 0
+18 6 0 Curvature: 0
+19 6 0 Curvature: 0
+20 6 0 Curvature: 0
+21 6 0 Curvature: 0
+22 6 0 Curvature: 0
+23 6 0 Curvature: 0
+24 6 0 Curvature: 0
+25 6 0 Curvature: 0
+25 7 0 Curvature: 0
+25 8 0 Curvature: 0
+25 9 0 Curvature: 0
+25 10 0 Curvature: 0
+25 11 0 Curvature: 0
+25 12 0 Curvature: 0
+25 13 0 Curvature: 0
+25 14 0 Curvature: 0
+25 15 0 Curvature: 0
+25 16 0 Curvature: 0
+25 17 0 Curvature: 0
+25 18 0 Curvature: 0
+25 19 0 Curvature: 0
+25 20 0 Curvature: 0
+25 21 0 Curvature: 0
+25 22 0 Curvature: 0
+25 23 0 Curvature: 0
+25 24 0 Curvature: 0
+25 25 0 Curvature: 0
+25 26 0 Curvature: 0
+25 27 0 Curvature: 0
+25 28 0 Curvature: 0
+25 29 0 Curvature: 0
+25 30 0 Curvature: 0
+25 31 0 Curvature: 0
+25 32 0 Curvature: 0
+25 33 0 Curvature: 0
+25 34 0 Curvature: 0
+25 35 0 Curvature: 0
+24 35 0 Curvature: 0
+23 35 0 Curvature: 0
+22 35 0 Curvature: 0
+21 35 0 Curvature: 0
+20 35 0 Curvature: 0
+19 35 0 Curvature: 0
+18 35 0 Curvature: 0
+17 35 0 Curvature: 0
+16 35 0 Curvature: 0
+15 35 0 Curvature: 0
+14 35 0 Curvature: 0
+13 35 0 Curvature: 0
+12 35 0 Curvature: 0
+11 35 0 Curvature: 0
+10 35 0 Curvature: 0
+9 35 0 Curvature: 0
+8 35 0 Curvature: 0
+7 35 0 Curvature: 0
+6 35 0 Curvature: 0
+6 34 0 Curvature: 0
+6 33 0 Curvature: 0
+6 32 0 Curvature: 0
+6 31 0 Curvature: 0
+6 30 0 Curvature: 0
+6 29 0 Curvature: 0
+6 28 0 Curvature: 0
+6 27 0 Curvature: 0
+6 26 0 Curvature: 0
+6 25 0 Curvature: 0
+6 24 0 Curvature: 0
+6 23 0 Curvature: 0
+6 22 0 Curvature: 0
+6 21 0 Curvature: 0
+6 20 0 Curvature: 0
+6 19 0 Curvature: 0
+6 18 0 Curvature: 0
+6 17 0 Curvature: 0
+6 16 0 Curvature: 0
+6 15 0 Curvature: 0
+6 14 0 Curvature: 0
+6 13 0 Curvature: 0
+6 12 0 Curvature: 0
+6 11 0 Curvature: 0
+6 10 0 Curvature: 0
+6 9 0 Curvature: 0
+6 8 0 Curvature: 0
+6 7 0 Curvature: 0
+
+
+6 6 0 Curvature: 80
+7 6 0 Curvature: -7
+8 6 0 Curvature: -3
+9 6 0 Curvature: -1.66667
+10 6 0 Curvature: -1
+11 6 0 Curvature: -0.6
+12 6 0 Curvature: -0.333333
+13 6 0 Curvature: -0.142857
+14 6 1 Curvature: 0
+15 6 1 Curvature: 0
+16 6 1 Curvature: 0
+17 6 1 Curvature: 0
+18 6 0 Curvature: -0.142857
+19 6 0 Curvature: -0.333333
+20 6 0 Curvature: -0.6
+21 6 0 Curvature: -1
+22 6 0 Curvature: -1.66667
+23 6 0 Curvature: -3
+24 6 0 Curvature: -7
+25 6 0 Curvature: -40
+25 7 0 Curvature: -39.8529
+25 8 0 Curvature: -39.6552
+25 9 0 Curvature: -39.375
+25 10 0 Curvature: -38.9474
+25 11 0 Curvature: -38.2143
+25 12 0 Curvature: -36.6667
+25 13 1 Curvature: -31.25
+25 14 0 Curvature: -160
+25 15 0 Curvature: -160
+25 16 1 Curvature: -160
+25 17 1 Curvature: -160
+25 18 1 Curvature: -160
+25 19 1 Curvature: -160
+25 20 1 Curvature: -160
+25 21 1 Curvature: -160
+25 22 1 Curvature: -160
+25 23 1 Curvature: -160
+25 24 1 Curvature: -160
+25 25 1 Curvature: -160
+25 26 0 Curvature: -160
+25 27 0 Curvature: -160
+25 28 1 Curvature: -72.2222
+25 29 0 Curvature: -76.8421
+25 30 0 Curvature: -78.2759
+25 31 0 Curvature: -78.9744
+25 32 0 Curvature: -79.3878
+25 33 0 Curvature: -79.661
+25 34 0 Curvature: -79.8551
+25 35 0 Curvature: -80
+24 35 0 Curvature: -7
+23 35 0 Curvature: -3
+22 35 0 Curvature: -1.66667
+21 35 0 Curvature: -1
+20 35 0 Curvature: -0.6
+19 35 0 Curvature: -0.333333
+18 35 0 Curvature: -0.142857
+17 35 1 Curvature: 0
+16 35 1 Curvature: 0
+15 35 1 Curvature: 0
+14 35 1 Curvature: 0
+13 35 0 Curvature: -0.142857
+12 35 0 Curvature: -0.333333
+11 35 0 Curvature: -0.6
+10 35 0 Curvature: -1
+9 35 0 Curvature: -1.66667
+8 35 0 Curvature: -3
+7 35 0 Curvature: -7
+6 35 0 Curvature: 40
+6 34 0 Curvature: 40.1389
+6 33 0 Curvature: 40.3226
+6 32 0 Curvature: 40.5769
+6 31 0 Curvature: 40.9524
+6 30 0 Curvature: 41.5625
+6 29 0 Curvature: 42.7273
+6 28 0 Curvature: 45.8333
+6 27 1 Curvature: 160
+6 26 1 Curvature: 160
+6 25 1 Curvature: 160
+6 24 1 Curvature: 160
+6 23 1 Curvature: 160
+6 22 1 Curvature: 160
+6 21 1 Curvature: 160
+6 20 1 Curvature: 160
+6 19 1 Curvature: 160
+6 18 1 Curvature: 160
+6 17 1 Curvature: 160
+6 16 1 Curvature: 160
+6 15 1 Curvature: 160
+6 14 1 Curvature: 160
+6 13 0 Curvature: 86.3636
+6 12 0 Curvature: 82.8571
+6 11 0 Curvature: 81.6129
+6 10 0 Curvature: 80.9756
+6 9 0 Curvature: 80.5882
+6 8 0 Curvature: 80.3279
+6 7 0 Curvature: 80.1408
