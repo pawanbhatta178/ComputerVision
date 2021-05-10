@@ -4,42 +4,6 @@
 #include <cstdarg>
 using namespace std;
 
-class Image
-{
-public:
-    int numRows;
-    int numCols;
-    int minVal;
-    int maxVal;
-    int **imgAry; // a 2D array for display, initially set to 0
-
-    Image(ifstream &inFile)
-    {
-        inFile >> numRows >> numCols >> minVal >> maxVal;
-        imgAry = new int *[numRows];
-        for (int i = 0; i < numRows; i++)
-        {
-            imgAry[i] = new int[numCols];
-        }
-    }
-
-    void plotPt2Img()
-    {
-    }
-
-    void reformatPrettyPrint()
-    {
-    }
-
-    ~Image()
-    {
-        for (int i = 0; i < numRows; i++)
-        {
-            delete[] imgAry[i];
-        }
-    }
-};
-
 class BoundaryPt
 {
 public:
@@ -201,9 +165,14 @@ public:
         }
     }
 
-    void printBoundary()
+    void printBoundary(ofstream &outFile)
     {
         // output only (x, y, corner) of the entire PtAry to outFile1 in format given in the above.
+        for (int i = 0; i < numPts; i++)
+        {
+            outFile << PtAry[i].x << " " << PtAry[i].y
+                    << " " << PtAry[i].corner << endl;
+        }
     }
 
     void display() // plot PtAry to imgAry
@@ -222,6 +191,56 @@ public:
     ~kCurvature()
     {
         delete[] PtAry;
+    }
+};
+
+class Image
+{
+public:
+    int numRows;
+    int numCols;
+    int minVal;
+    int maxVal;
+    int **imgAry; // a 2D array for display, initially set to 0
+
+    Image(ifstream &inFile)
+    {
+        inFile >> numRows >> numCols >> minVal >> maxVal;
+        imgAry = new int *[numRows];
+        for (int i = 0; i < numRows; i++)
+        {
+            imgAry[i] = new int[numCols]();
+        }
+    }
+
+    void plotPt2Img(kCurvature &kC)
+    {
+        for (int i = 0; i < kC.numPts; i++)
+        {
+            int x = kC.PtAry[i].x;
+            int y = kC.PtAry[i].y;
+            imgAry[x][y] = kC.PtAry[i].corner;
+        }
+    }
+
+    void reformatPrettyPrint(ofstream &outFile)
+    {
+        for (int i = 0; i < numRows; i++)
+        {
+            for (int j = 0; j < numCols; j++)
+            {
+                outFile << imgAry[i][j] << " ";
+            }
+            outFile << endl;
+        }
+    }
+
+    ~Image()
+    {
+        for (int i = 0; i < numRows; i++)
+        {
+            delete[] imgAry[i];
+        }
     }
 };
 
@@ -269,6 +288,7 @@ int main(int argc, const char *argv[])
             outFile3 << endl
                      << "After marking corners:" << endl;
             k.printPtAry(outFile3);
+            k.printBoundary(outFile1);
         }
         else
         {
