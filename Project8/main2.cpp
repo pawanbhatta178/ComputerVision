@@ -26,10 +26,6 @@ public:
     // use mod function to compute the curvature for the beginning of
     // the K points without extending the tail of the array,
 
-    kCurvature()
-    {
-    }
-
     void init(ifstream &inFile, string inputFileName)
     {
         countPts(inFile);
@@ -145,7 +141,7 @@ public:
     void markCorner()
     {
 
-        const int t = 2; //t is threshold value of change in curvature. We ignore change in curvature that is smaller than t.
+        const int t = 1; //t is threshold value of change in curvature. We ignore change in curvature that is smaller than t.
 
         //Corner pixel has maximum change in curvature
         for (int i = K; i < numPts + K; i++)
@@ -154,7 +150,7 @@ public:
             int qCurvature = PtAry[(i - 1) % numPts].curvature;
             int rCurvature = PtAry[(i + 1) % numPts].curvature;
 
-            if (abs(pCurvature - qCurvature) > t && abs(pCurvature - rCurvature) > t)
+            if (abs(pCurvature - qCurvature) >= t && abs(pCurvature - rCurvature) >= t)
             {
                 PtAry[i % numPts].corner = 9;
             }
@@ -173,10 +169,6 @@ public:
             outFile << PtAry[i].x << " " << PtAry[i].y
                     << " " << PtAry[i].corner << endl;
         }
-    }
-
-    void display() // plot PtAry to imgAry
-    {
     }
 
     void printPtAry(ofstream &outFile) // For debugging, print the content of the entire PtAry to outFile3
@@ -201,6 +193,8 @@ public:
     int numCols;
     int minVal;
     int maxVal;
+    int newMin;
+    int newMax;
     int **imgAry; // a 2D array for display, initially set to 0
 
     Image(ifstream &inFile)
@@ -215,21 +209,37 @@ public:
 
     void plotPt2Img(kCurvature &kC)
     {
+        newMin = 0;
+        newMax = 0;
         for (int i = 0; i < kC.numPts; i++)
         {
             int x = kC.PtAry[i].x;
             int y = kC.PtAry[i].y;
             imgAry[x][y] = kC.PtAry[i].corner;
+
+            //Updating newMax
+            if (kC.PtAry[i].corner > newMax)
+            {
+                newMax = kC.PtAry[i].corner;
+            }
         }
     }
 
     void reformatPrettyPrint(ofstream &outFile)
     {
+        outFile << numRows << " " << numCols << " " << newMin << " " << newMax << endl;
         for (int i = 0; i < numRows; i++)
         {
             for (int j = 0; j < numCols; j++)
             {
-                outFile << imgAry[i][j] << " ";
+                if (imgAry[i][j] > 0)
+                {
+                    outFile << imgAry[i][j] << " ";
+                }
+                else
+                {
+                    outFile << ". ";
+                }
             }
             outFile << endl;
         }
@@ -246,7 +256,6 @@ public:
 
 int main(int argc, const char *argv[])
 {
-
     // READ
     string inputName = argv[1];
     ifstream input;
@@ -289,6 +298,8 @@ int main(int argc, const char *argv[])
                      << "After marking corners:" << endl;
             k.printPtAry(outFile3);
             k.printBoundary(outFile1);
+            img.plotPt2Img(k);
+            img.reformatPrettyPrint(outFile2);
         }
         else
         {
