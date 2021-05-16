@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ChainCoding:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ChainCoding_jar</output-path>
+    <root id="archive" name="ChainCoding.jar">
+      <element id="module-output" name="ChainCoding" />
+    </root>
+  </artifact>
+</component>
