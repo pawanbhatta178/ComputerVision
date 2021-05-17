@@ -193,6 +193,19 @@ public:
 
     void markCorner()
     {
+        const int threshold = 4;
+
+        for (int i = 0; i < numPts; i++)
+        {
+            if (PtAry[i].vote > threshold)
+            {
+                PtAry[i].corner = 9;
+            }
+            else
+            {
+                PtAry[i].corner = 1;
+            }
+        }
     }
 
     void display(Image &img)
