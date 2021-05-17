@@ -183,14 +183,6 @@ public:
         PtAry[index].y = y;
     }
 
-    double computeCurvature(int q, int p, int r)
-    {
-    }
-
-    void computeLocalMaxima()
-    {
-    }
-
     void markCorner()
     {
         const int threshold = 4;
@@ -288,7 +280,6 @@ int main(int argc, const char *argv[])
             outFile3 << endl
                      << "After applying k curvature corner detection algorithm:" << endl;
             m.printPtAry(outFile3);
-            m.computeLocalMaxima();
             m.markCorner();
             outFile3 << endl
                      << "After marking corners:" << endl;
