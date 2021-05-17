@@ -1,0 +1,1254 @@
+
+Before applying max arc chord algorithm:
+r: 6 c: 6  Votes: 0 Corner: 0
+r: 7 c: 6  Votes: 0 Corner: 0
+r: 8 c: 6  Votes: 0 Corner: 0
+r: 9 c: 6  Votes: 0 Corner: 0
+r: 10 c: 6  Votes: 0 Corner: 0
+r: 11 c: 6  Votes: 0 Corner: 0
+r: 12 c: 6  Votes: 0 Corner: 0
+r: 13 c: 6  Votes: 0 Corner: 0
+r: 14 c: 6  Votes: 0 Corner: 0
+r: 15 c: 6  Votes: 0 Corner: 0
+r: 16 c: 6  Votes: 0 Corner: 0
+r: 17 c: 6  Votes: 0 Corner: 0
+r: 18 c: 6  Votes: 0 Corner: 0
+r: 19 c: 6  Votes: 0 Corner: 0
+r: 20 c: 6  Votes: 0 Corner: 0
+r: 21 c: 6  Votes: 0 Corner: 0
+r: 22 c: 6  Votes: 0 Corner: 0
+r: 23 c: 6  Votes: 0 Corner: 0
+r: 24 c: 6  Votes: 0 Corner: 0
+r: 25 c: 6  Votes: 0 Corner: 0
+r: 25 c: 7  Votes: 0 Corner: 0
+r: 25 c: 8  Votes: 0 Corner: 0
+r: 25 c: 9  Votes: 0 Corner: 0
+r: 25 c: 10  Votes: 0 Corner: 0
+r: 25 c: 11  Votes: 0 Corner: 0
+r: 25 c: 12  Votes: 0 Corner: 0
+r: 25 c: 13  Votes: 0 Corner: 0
+r: 25 c: 14  Votes: 0 Corner: 0
+r: 25 c: 15  Votes: 0 Corner: 0
+r: 25 c: 16  Votes: 0 Corner: 0
+r: 25 c: 17  Votes: 0 Corner: 0
+r: 25 c: 18  Votes: 0 Corner: 0
+r: 25 c: 19  Votes: 0 Corner: 0
+r: 25 c: 20  Votes: 0 Corner: 0
+r: 25 c: 21  Votes: 0 Corner: 0
+r: 25 c: 22  Votes: 0 Corner: 0
+r: 25 c: 23  Votes: 0 Corner: 0
+r: 25 c: 24  Votes: 0 Corner: 0
+r: 25 c: 25  Votes: 0 Corner: 0
+r: 25 c: 26  Votes: 0 Corner: 0
+r: 25 c: 27  Votes: 0 Corner: 0
+r: 25 c: 28  Votes: 0 Corner: 0
+r: 25 c: 29  Votes: 0 Corner: 0
+r: 25 c: 30  Votes: 0 Corner: 0
+r: 25 c: 31  Votes: 0 Corner: 0
+r: 25 c: 32  Votes: 0 Corner: 0
+r: 25 c: 33  Votes: 0 Corner: 0
+r: 25 c: 34  Votes: 0 Corner: 0
+r: 25 c: 35  Votes: 0 Corner: 0
+r: 24 c: 35  Votes: 0 Corner: 0
+r: 23 c: 35  Votes: 0 Corner: 0
+r: 22 c: 35  Votes: 0 Corner: 0
+r: 21 c: 35  Votes: 0 Corner: 0
+r: 20 c: 35  Votes: 0 Corner: 0
+r: 19 c: 35  Votes: 0 Corner: 0
+r: 18 c: 35  Votes: 0 Corner: 0
+r: 17 c: 35  Votes: 0 Corner: 0
+r: 16 c: 35  Votes: 0 Corner: 0
+r: 15 c: 35  Votes: 0 Corner: 0
+r: 14 c: 35  Votes: 0 Corner: 0
+r: 13 c: 35  Votes: 0 Corner: 0
+r: 12 c: 35  Votes: 0 Corner: 0
+r: 11 c: 35  Votes: 0 Corner: 0
+r: 10 c: 35  Votes: 0 Corner: 0
+r: 9 c: 35  Votes: 0 Corner: 0
+r: 8 c: 35  Votes: 0 Corner: 0
+r: 7 c: 35  Votes: 0 Corner: 0
+r: 6 c: 35  Votes: 0 Corner: 0
+r: 6 c: 34  Votes: 0 Corner: 0
+r: 6 c: 33  Votes: 0 Corner: 0
+r: 6 c: 32  Votes: 0 Corner: 0
+r: 6 c: 31  Votes: 0 Corner: 0
+r: 6 c: 30  Votes: 0 Corner: 0
+r: 6 c: 29  Votes: 0 Corner: 0
+r: 6 c: 28  Votes: 0 Corner: 0
+r: 6 c: 27  Votes: 0 Corner: 0
+r: 6 c: 26  Votes: 0 Corner: 0
+r: 6 c: 25  Votes: 0 Corner: 0
+r: 6 c: 24  Votes: 0 Corner: 0
+r: 6 c: 23  Votes: 0 Corner: 0
+r: 6 c: 22  Votes: 0 Corner: 0
+r: 6 c: 21  Votes: 0 Corner: 0
+r: 6 c: 20  Votes: 0 Corner: 0
+r: 6 c: 19  Votes: 0 Corner: 0
+r: 6 c: 18  Votes: 0 Corner: 0
+r: 6 c: 17  Votes: 0 Corner: 0
+r: 6 c: 16  Votes: 0 Corner: 0
+r: 6 c: 15  Votes: 0 Corner: 0
+r: 6 c: 14  Votes: 0 Corner: 0
+r: 6 c: 13  Votes: 0 Corner: 0
+r: 6 c: 12  Votes: 0 Corner: 0
+r: 6 c: 11  Votes: 0 Corner: 0
+r: 6 c: 10  Votes: 0 Corner: 0
+r: 6 c: 9  Votes: 0 Corner: 0
+r: 6 c: 8  Votes: 0 Corner: 0
+r: 6 c: 7  Votes: 0 Corner: 0
+Neighborhood with: startingPoint: (6,6) endingPoint: (14,6)
+Perpendicular distance from PQ to (6,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (7,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (8,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (9,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (10,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,6)
+Neighborhood with: startingPoint: (7,6) endingPoint: (15,6)
+Perpendicular distance from PQ to (7,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (8,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (9,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (10,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (7,6)
+Neighborhood with: startingPoint: (8,6) endingPoint: (16,6)
+Perpendicular distance from PQ to (8,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (9,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (10,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (8,6)
+Neighborhood with: startingPoint: (9,6) endingPoint: (17,6)
+Perpendicular distance from PQ to (9,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (10,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (9,6)
+Neighborhood with: startingPoint: (10,6) endingPoint: (18,6)
+Perpendicular distance from PQ to (10,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (10,6)
+Neighborhood with: startingPoint: (11,6) endingPoint: (19,6)
+Perpendicular distance from PQ to (11,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (11,6)
+Neighborhood with: startingPoint: (12,6) endingPoint: (20,6)
+Perpendicular distance from PQ to (12,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (12,6)
+Neighborhood with: startingPoint: (13,6) endingPoint: (21,6)
+Perpendicular distance from PQ to (13,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (13,6)
+Neighborhood with: startingPoint: (14,6) endingPoint: (22,6)
+Perpendicular distance from PQ to (14,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (21,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (14,6)
+Neighborhood with: startingPoint: (15,6) endingPoint: (23,6)
+Perpendicular distance from PQ to (15,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (21,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (22,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (15,6)
+Neighborhood with: startingPoint: (16,6) endingPoint: (24,6)
+Perpendicular distance from PQ to (16,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (21,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (22,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (23,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (16,6)
+Neighborhood with: startingPoint: (17,6) endingPoint: (25,6)
+Perpendicular distance from PQ to (17,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (21,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (22,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (23,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (24,6): 0 A:0B: -8C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (17,6)
+Neighborhood with: startingPoint: (18,6) endingPoint: (25,7)
+Perpendicular distance from PQ to (18,6): 0 A:1B: -7C: 24 AX+BY+C=0 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (19,6): 0.141421 A:1B: -7C: 24 AX+BY+C=1 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (20,6): 0.282843 A:1B: -7C: 24 AX+BY+C=2 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (21,6): 0.424264 A:1B: -7C: 24 AX+BY+C=3 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (22,6): 0.565685 A:1B: -7C: 24 AX+BY+C=4 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (23,6): 0.707107 A:1B: -7C: 24 AX+BY+C=5 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (24,6): 0.848528 A:1B: -7C: 24 AX+BY+C=6 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,6): 0.989949 A:1B: -7C: 24 AX+BY+C=7 root(A*A+B*B)=7.07107
+Voting: (25,6)
+Neighborhood with: startingPoint: (19,6) endingPoint: (25,8)
+Perpendicular distance from PQ to (19,6): 0 A:2B: -6C: -2 AX+BY+C=0 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (20,6): 0.316228 A:2B: -6C: -2 AX+BY+C=2 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (21,6): 0.632456 A:2B: -6C: -2 AX+BY+C=4 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (22,6): 0.948683 A:2B: -6C: -2 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (23,6): 1.26491 A:2B: -6C: -2 AX+BY+C=8 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (24,6): 1.58114 A:2B: -6C: -2 AX+BY+C=10 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,6): 1.89737 A:2B: -6C: -2 AX+BY+C=12 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,7): 0.948683 A:2B: -6C: -2 AX+BY+C=6 root(A*A+B*B)=6.32456
+Voting: (25,6)
+Neighborhood with: startingPoint: (20,6) endingPoint: (25,9)
+Perpendicular distance from PQ to (20,6): 0 A:3B: -5C: -30 AX+BY+C=0 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (21,6): 0.514496 A:3B: -5C: -30 AX+BY+C=3 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (22,6): 1.02899 A:3B: -5C: -30 AX+BY+C=6 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (23,6): 1.54349 A:3B: -5C: -30 AX+BY+C=9 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (24,6): 2.05798 A:3B: -5C: -30 AX+BY+C=12 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,6): 2.57248 A:3B: -5C: -30 AX+BY+C=15 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,7): 1.71499 A:3B: -5C: -30 AX+BY+C=10 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,8): 0.857493 A:3B: -5C: -30 AX+BY+C=5 root(A*A+B*B)=5.83095
+Voting: (25,6)
+Neighborhood with: startingPoint: (21,6) endingPoint: (25,10)
+Perpendicular distance from PQ to (21,6): 0 A:4B: -4C: -60 AX+BY+C=0 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (22,6): 0.707107 A:4B: -4C: -60 AX+BY+C=4 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (23,6): 1.41421 A:4B: -4C: -60 AX+BY+C=8 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (24,6): 2.12132 A:4B: -4C: -60 AX+BY+C=12 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (25,6): 2.82843 A:4B: -4C: -60 AX+BY+C=16 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (25,7): 2.12132 A:4B: -4C: -60 AX+BY+C=12 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (25,8): 1.41421 A:4B: -4C: -60 AX+BY+C=8 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (25,9): 0.707107 A:4B: -4C: -60 AX+BY+C=4 root(A*A+B*B)=5.65685
+Voting: (25,6)
+Neighborhood with: startingPoint: (22,6) endingPoint: (25,11)
+Perpendicular distance from PQ to (22,6): 0 A:5B: -3C: -92 AX+BY+C=0 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (23,6): 0.857493 A:5B: -3C: -92 AX+BY+C=5 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (24,6): 1.71499 A:5B: -3C: -92 AX+BY+C=10 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,6): 2.57248 A:5B: -3C: -92 AX+BY+C=15 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,7): 2.05798 A:5B: -3C: -92 AX+BY+C=12 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,8): 1.54349 A:5B: -3C: -92 AX+BY+C=9 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,9): 1.02899 A:5B: -3C: -92 AX+BY+C=6 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,10): 0.514496 A:5B: -3C: -92 AX+BY+C=3 root(A*A+B*B)=5.83095
+Voting: (25,6)
+Neighborhood with: startingPoint: (23,6) endingPoint: (25,12)
+Perpendicular distance from PQ to (23,6): 0 A:6B: -2C: -126 AX+BY+C=0 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (24,6): 0.948683 A:6B: -2C: -126 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,6): 1.89737 A:6B: -2C: -126 AX+BY+C=12 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,7): 1.58114 A:6B: -2C: -126 AX+BY+C=10 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,8): 1.26491 A:6B: -2C: -126 AX+BY+C=8 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,9): 0.948683 A:6B: -2C: -126 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,10): 0.632456 A:6B: -2C: -126 AX+BY+C=4 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,11): 0.316228 A:6B: -2C: -126 AX+BY+C=2 root(A*A+B*B)=6.32456
+Voting: (25,6)
+Neighborhood with: startingPoint: (24,6) endingPoint: (25,13)
+Perpendicular distance from PQ to (24,6): 0 A:7B: -1C: -162 AX+BY+C=0 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,6): 0.989949 A:7B: -1C: -162 AX+BY+C=7 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,7): 0.848528 A:7B: -1C: -162 AX+BY+C=6 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,8): 0.707107 A:7B: -1C: -162 AX+BY+C=5 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,9): 0.565685 A:7B: -1C: -162 AX+BY+C=4 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,10): 0.424264 A:7B: -1C: -162 AX+BY+C=3 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,11): 0.282843 A:7B: -1C: -162 AX+BY+C=2 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,12): 0.141421 A:7B: -1C: -162 AX+BY+C=1 root(A*A+B*B)=7.07107
+Voting: (25,6)
+Neighborhood with: startingPoint: (25,6) endingPoint: (25,14)
+Perpendicular distance from PQ to (25,6): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,7): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,8): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,9): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,10): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,11): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,12): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,13): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,6)
+Neighborhood with: startingPoint: (25,7) endingPoint: (25,15)
+Perpendicular distance from PQ to (25,7): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,8): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,9): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,10): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,11): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,12): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,13): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,14): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,7)
+Neighborhood with: startingPoint: (25,8) endingPoint: (25,16)
+Perpendicular distance from PQ to (25,8): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,9): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,10): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,11): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,12): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,13): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,14): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,15): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,8)
+Neighborhood with: startingPoint: (25,9) endingPoint: (25,17)
+Perpendicular distance from PQ to (25,9): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,10): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,11): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,12): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,13): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,14): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,15): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,16): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,9)
+Neighborhood with: startingPoint: (25,10) endingPoint: (25,18)
+Perpendicular distance from PQ to (25,10): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,11): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,12): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,13): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,14): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,15): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,16): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,17): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,10)
+Neighborhood with: startingPoint: (25,11) endingPoint: (25,19)
+Perpendicular distance from PQ to (25,11): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,12): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,13): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,14): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,15): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,16): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,17): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,18): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,11)
+Neighborhood with: startingPoint: (25,12) endingPoint: (25,20)
+Perpendicular distance from PQ to (25,12): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,13): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,14): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,15): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,16): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,17): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,18): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,19): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,12)
+Neighborhood with: startingPoint: (25,13) endingPoint: (25,21)
+Perpendicular distance from PQ to (25,13): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,14): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,15): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,16): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,17): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,18): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,19): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,20): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,13)
+Neighborhood with: startingPoint: (25,14) endingPoint: (25,22)
+Perpendicular distance from PQ to (25,14): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,15): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,16): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,17): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,18): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,19): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,20): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,21): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,14)
+Neighborhood with: startingPoint: (25,15) endingPoint: (25,23)
+Perpendicular distance from PQ to (25,15): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,16): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,17): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,18): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,19): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,20): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,21): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,22): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,15)
+Neighborhood with: startingPoint: (25,16) endingPoint: (25,24)
+Perpendicular distance from PQ to (25,16): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,17): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,18): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,19): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,20): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,21): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,22): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,23): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,16)
+Neighborhood with: startingPoint: (25,17) endingPoint: (25,25)
+Perpendicular distance from PQ to (25,17): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,18): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,19): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,20): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,21): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,22): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,23): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,24): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,17)
+Neighborhood with: startingPoint: (25,18) endingPoint: (25,26)
+Perpendicular distance from PQ to (25,18): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,19): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,20): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,21): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,22): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,23): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,24): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,25): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,18)
+Neighborhood with: startingPoint: (25,19) endingPoint: (25,27)
+Perpendicular distance from PQ to (25,19): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,20): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,21): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,22): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,23): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,24): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,25): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,26): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,19)
+Neighborhood with: startingPoint: (25,20) endingPoint: (25,28)
+Perpendicular distance from PQ to (25,20): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,21): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,22): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,23): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,24): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,25): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,26): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,27): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,20)
+Neighborhood with: startingPoint: (25,21) endingPoint: (25,29)
+Perpendicular distance from PQ to (25,21): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,22): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,23): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,24): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,25): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,26): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,27): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,28): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,21)
+Neighborhood with: startingPoint: (25,22) endingPoint: (25,30)
+Perpendicular distance from PQ to (25,22): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,23): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,24): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,25): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,26): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,27): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,28): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,29): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,22)
+Neighborhood with: startingPoint: (25,23) endingPoint: (25,31)
+Perpendicular distance from PQ to (25,23): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,24): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,25): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,26): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,27): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,28): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,29): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,30): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,23)
+Neighborhood with: startingPoint: (25,24) endingPoint: (25,32)
+Perpendicular distance from PQ to (25,24): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,25): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,26): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,27): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,28): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,29): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,30): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,31): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,24)
+Neighborhood with: startingPoint: (25,25) endingPoint: (25,33)
+Perpendicular distance from PQ to (25,25): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,26): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,27): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,28): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,29): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,30): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,31): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,32): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,25)
+Neighborhood with: startingPoint: (25,26) endingPoint: (25,34)
+Perpendicular distance from PQ to (25,26): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,27): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,28): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,29): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,30): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,31): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,32): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,33): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,26)
+Neighborhood with: startingPoint: (25,27) endingPoint: (25,35)
+Perpendicular distance from PQ to (25,27): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,28): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,29): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,30): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,31): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,32): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,33): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (25,34): 0 A:8B: 0C: -200 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,27)
+Neighborhood with: startingPoint: (25,28) endingPoint: (24,35)
+Perpendicular distance from PQ to (25,28): 0 A:7B: 1C: -203 AX+BY+C=0 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,29): 0.141421 A:7B: 1C: -203 AX+BY+C=1 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,30): 0.282843 A:7B: 1C: -203 AX+BY+C=2 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,31): 0.424264 A:7B: 1C: -203 AX+BY+C=3 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,32): 0.565685 A:7B: 1C: -203 AX+BY+C=4 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,33): 0.707107 A:7B: 1C: -203 AX+BY+C=5 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,34): 0.848528 A:7B: 1C: -203 AX+BY+C=6 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,35): 0.989949 A:7B: 1C: -203 AX+BY+C=7 root(A*A+B*B)=7.07107
+Voting: (25,35)
+Neighborhood with: startingPoint: (25,29) endingPoint: (23,35)
+Perpendicular distance from PQ to (25,29): 0 A:6B: 2C: -208 AX+BY+C=0 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,30): 0.316228 A:6B: 2C: -208 AX+BY+C=2 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,31): 0.632456 A:6B: 2C: -208 AX+BY+C=4 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,32): 0.948683 A:6B: 2C: -208 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,33): 1.26491 A:6B: 2C: -208 AX+BY+C=8 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,34): 1.58114 A:6B: 2C: -208 AX+BY+C=10 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,35): 1.89737 A:6B: 2C: -208 AX+BY+C=12 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (24,35): 0.948683 A:6B: 2C: -208 AX+BY+C=6 root(A*A+B*B)=6.32456
+Voting: (25,35)
+Neighborhood with: startingPoint: (25,30) endingPoint: (22,35)
+Perpendicular distance from PQ to (25,30): 0 A:5B: 3C: -215 AX+BY+C=0 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,31): 0.514496 A:5B: 3C: -215 AX+BY+C=3 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,32): 1.02899 A:5B: 3C: -215 AX+BY+C=6 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,33): 1.54349 A:5B: 3C: -215 AX+BY+C=9 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,34): 2.05798 A:5B: 3C: -215 AX+BY+C=12 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,35): 2.57248 A:5B: 3C: -215 AX+BY+C=15 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (24,35): 1.71499 A:5B: 3C: -215 AX+BY+C=10 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (23,35): 0.857493 A:5B: 3C: -215 AX+BY+C=5 root(A*A+B*B)=5.83095
+Voting: (25,35)
+Neighborhood with: startingPoint: (25,31) endingPoint: (21,35)
+Perpendicular distance from PQ to (25,31): 0 A:4B: 4C: -224 AX+BY+C=0 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (25,32): 0.707107 A:4B: 4C: -224 AX+BY+C=4 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (25,33): 1.41421 A:4B: 4C: -224 AX+BY+C=8 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (25,34): 2.12132 A:4B: 4C: -224 AX+BY+C=12 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (25,35): 2.82843 A:4B: 4C: -224 AX+BY+C=16 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (24,35): 2.12132 A:4B: 4C: -224 AX+BY+C=12 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (23,35): 1.41421 A:4B: 4C: -224 AX+BY+C=8 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (22,35): 0.707107 A:4B: 4C: -224 AX+BY+C=4 root(A*A+B*B)=5.65685
+Voting: (25,35)
+Neighborhood with: startingPoint: (25,32) endingPoint: (20,35)
+Perpendicular distance from PQ to (25,32): 0 A:3B: 5C: -235 AX+BY+C=0 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,33): 0.857493 A:3B: 5C: -235 AX+BY+C=5 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,34): 1.71499 A:3B: 5C: -235 AX+BY+C=10 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (25,35): 2.57248 A:3B: 5C: -235 AX+BY+C=15 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (24,35): 2.05798 A:3B: 5C: -235 AX+BY+C=12 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (23,35): 1.54349 A:3B: 5C: -235 AX+BY+C=9 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (22,35): 1.02899 A:3B: 5C: -235 AX+BY+C=6 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (21,35): 0.514496 A:3B: 5C: -235 AX+BY+C=3 root(A*A+B*B)=5.83095
+Voting: (25,35)
+Neighborhood with: startingPoint: (25,33) endingPoint: (19,35)
+Perpendicular distance from PQ to (25,33): 0 A:2B: 6C: -248 AX+BY+C=0 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,34): 0.948683 A:2B: 6C: -248 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (25,35): 1.89737 A:2B: 6C: -248 AX+BY+C=12 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (24,35): 1.58114 A:2B: 6C: -248 AX+BY+C=10 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (23,35): 1.26491 A:2B: 6C: -248 AX+BY+C=8 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (22,35): 0.948683 A:2B: 6C: -248 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (21,35): 0.632456 A:2B: 6C: -248 AX+BY+C=4 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (20,35): 0.316228 A:2B: 6C: -248 AX+BY+C=2 root(A*A+B*B)=6.32456
+Voting: (25,35)
+Neighborhood with: startingPoint: (25,34) endingPoint: (18,35)
+Perpendicular distance from PQ to (25,34): 0 A:1B: 7C: -263 AX+BY+C=0 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (25,35): 0.989949 A:1B: 7C: -263 AX+BY+C=7 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (24,35): 0.848528 A:1B: 7C: -263 AX+BY+C=6 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (23,35): 0.707107 A:1B: 7C: -263 AX+BY+C=5 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (22,35): 0.565685 A:1B: 7C: -263 AX+BY+C=4 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (21,35): 0.424264 A:1B: 7C: -263 AX+BY+C=3 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (20,35): 0.282843 A:1B: 7C: -263 AX+BY+C=2 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (19,35): 0.141421 A:1B: 7C: -263 AX+BY+C=1 root(A*A+B*B)=7.07107
+Voting: (25,35)
+Neighborhood with: startingPoint: (25,35) endingPoint: (17,35)
+Perpendicular distance from PQ to (25,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (24,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (23,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (22,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (21,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (25,35)
+Neighborhood with: startingPoint: (24,35) endingPoint: (16,35)
+Perpendicular distance from PQ to (24,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (23,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (22,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (21,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (24,35)
+Neighborhood with: startingPoint: (23,35) endingPoint: (15,35)
+Perpendicular distance from PQ to (23,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (22,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (21,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (23,35)
+Neighborhood with: startingPoint: (22,35) endingPoint: (14,35)
+Perpendicular distance from PQ to (22,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (21,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (22,35)
+Neighborhood with: startingPoint: (21,35) endingPoint: (13,35)
+Perpendicular distance from PQ to (21,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (20,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (21,35)
+Neighborhood with: startingPoint: (20,35) endingPoint: (12,35)
+Perpendicular distance from PQ to (20,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (19,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (20,35)
+Neighborhood with: startingPoint: (19,35) endingPoint: (11,35)
+Perpendicular distance from PQ to (19,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (18,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (19,35)
+Neighborhood with: startingPoint: (18,35) endingPoint: (10,35)
+Perpendicular distance from PQ to (18,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (17,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (18,35)
+Neighborhood with: startingPoint: (17,35) endingPoint: (9,35)
+Perpendicular distance from PQ to (17,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (16,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (10,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (17,35)
+Neighborhood with: startingPoint: (16,35) endingPoint: (8,35)
+Perpendicular distance from PQ to (16,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (15,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (10,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (9,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (16,35)
+Neighborhood with: startingPoint: (15,35) endingPoint: (7,35)
+Perpendicular distance from PQ to (15,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (14,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (10,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (9,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (8,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (15,35)
+Neighborhood with: startingPoint: (14,35) endingPoint: (6,35)
+Perpendicular distance from PQ to (14,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (13,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (12,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (11,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (10,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (9,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (8,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (7,35): 0 A:0B: 8C: -280 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (14,35)
+Neighborhood with: startingPoint: (13,35) endingPoint: (6,34)
+Perpendicular distance from PQ to (13,35): 0 A:-1B: 7C: -232 AX+BY+C=0 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (12,35): 0.141421 A:-1B: 7C: -232 AX+BY+C=1 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (11,35): 0.282843 A:-1B: 7C: -232 AX+BY+C=2 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (10,35): 0.424264 A:-1B: 7C: -232 AX+BY+C=3 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (9,35): 0.565685 A:-1B: 7C: -232 AX+BY+C=4 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (8,35): 0.707107 A:-1B: 7C: -232 AX+BY+C=5 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (7,35): 0.848528 A:-1B: 7C: -232 AX+BY+C=6 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,35): 0.989949 A:-1B: 7C: -232 AX+BY+C=7 root(A*A+B*B)=7.07107
+Voting: (6,35)
+Neighborhood with: startingPoint: (12,35) endingPoint: (6,33)
+Perpendicular distance from PQ to (12,35): 0 A:-2B: 6C: -186 AX+BY+C=0 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (11,35): 0.316228 A:-2B: 6C: -186 AX+BY+C=2 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (10,35): 0.632456 A:-2B: 6C: -186 AX+BY+C=4 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (9,35): 0.948683 A:-2B: 6C: -186 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (8,35): 1.26491 A:-2B: 6C: -186 AX+BY+C=8 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (7,35): 1.58114 A:-2B: 6C: -186 AX+BY+C=10 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,35): 1.89737 A:-2B: 6C: -186 AX+BY+C=12 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,34): 0.948683 A:-2B: 6C: -186 AX+BY+C=6 root(A*A+B*B)=6.32456
+Voting: (6,35)
+Neighborhood with: startingPoint: (11,35) endingPoint: (6,32)
+Perpendicular distance from PQ to (11,35): 0 A:-3B: 5C: -142 AX+BY+C=0 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (10,35): 0.514496 A:-3B: 5C: -142 AX+BY+C=3 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (9,35): 1.02899 A:-3B: 5C: -142 AX+BY+C=6 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (8,35): 1.54349 A:-3B: 5C: -142 AX+BY+C=9 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (7,35): 2.05798 A:-3B: 5C: -142 AX+BY+C=12 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,35): 2.57248 A:-3B: 5C: -142 AX+BY+C=15 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,34): 1.71499 A:-3B: 5C: -142 AX+BY+C=10 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,33): 0.857493 A:-3B: 5C: -142 AX+BY+C=5 root(A*A+B*B)=5.83095
+Voting: (6,35)
+Neighborhood with: startingPoint: (10,35) endingPoint: (6,31)
+Perpendicular distance from PQ to (10,35): 0 A:-4B: 4C: -100 AX+BY+C=0 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (9,35): 0.707107 A:-4B: 4C: -100 AX+BY+C=4 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (8,35): 1.41421 A:-4B: 4C: -100 AX+BY+C=8 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (7,35): 2.12132 A:-4B: 4C: -100 AX+BY+C=12 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (6,35): 2.82843 A:-4B: 4C: -100 AX+BY+C=16 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (6,34): 2.12132 A:-4B: 4C: -100 AX+BY+C=12 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (6,33): 1.41421 A:-4B: 4C: -100 AX+BY+C=8 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (6,32): 0.707107 A:-4B: 4C: -100 AX+BY+C=4 root(A*A+B*B)=5.65685
+Voting: (6,35)
+Neighborhood with: startingPoint: (9,35) endingPoint: (6,30)
+Perpendicular distance from PQ to (9,35): 0 A:-5B: 3C: -60 AX+BY+C=0 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (8,35): 0.857493 A:-5B: 3C: -60 AX+BY+C=5 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (7,35): 1.71499 A:-5B: 3C: -60 AX+BY+C=10 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,35): 2.57248 A:-5B: 3C: -60 AX+BY+C=15 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,34): 2.05798 A:-5B: 3C: -60 AX+BY+C=12 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,33): 1.54349 A:-5B: 3C: -60 AX+BY+C=9 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,32): 1.02899 A:-5B: 3C: -60 AX+BY+C=6 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,31): 0.514496 A:-5B: 3C: -60 AX+BY+C=3 root(A*A+B*B)=5.83095
+Voting: (6,35)
+Neighborhood with: startingPoint: (8,35) endingPoint: (6,29)
+Perpendicular distance from PQ to (8,35): 0 A:-6B: 2C: -22 AX+BY+C=0 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (7,35): 0.948683 A:-6B: 2C: -22 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,35): 1.89737 A:-6B: 2C: -22 AX+BY+C=12 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,34): 1.58114 A:-6B: 2C: -22 AX+BY+C=10 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,33): 1.26491 A:-6B: 2C: -22 AX+BY+C=8 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,32): 0.948683 A:-6B: 2C: -22 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,31): 0.632456 A:-6B: 2C: -22 AX+BY+C=4 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,30): 0.316228 A:-6B: 2C: -22 AX+BY+C=2 root(A*A+B*B)=6.32456
+Voting: (6,35)
+Neighborhood with: startingPoint: (7,35) endingPoint: (6,28)
+Perpendicular distance from PQ to (7,35): 0 A:-7B: 1C: 14 AX+BY+C=0 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,35): 0.989949 A:-7B: 1C: 14 AX+BY+C=7 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,34): 0.848528 A:-7B: 1C: 14 AX+BY+C=6 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,33): 0.707107 A:-7B: 1C: 14 AX+BY+C=5 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,32): 0.565685 A:-7B: 1C: 14 AX+BY+C=4 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,31): 0.424264 A:-7B: 1C: 14 AX+BY+C=3 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,30): 0.282843 A:-7B: 1C: 14 AX+BY+C=2 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,29): 0.141421 A:-7B: 1C: 14 AX+BY+C=1 root(A*A+B*B)=7.07107
+Voting: (6,35)
+Neighborhood with: startingPoint: (6,35) endingPoint: (6,27)
+Perpendicular distance from PQ to (6,35): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,34): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,33): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,32): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,31): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,30): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,29): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,28): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,35)
+Neighborhood with: startingPoint: (6,34) endingPoint: (6,26)
+Perpendicular distance from PQ to (6,34): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,33): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,32): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,31): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,30): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,29): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,28): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,27): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,34)
+Neighborhood with: startingPoint: (6,33) endingPoint: (6,25)
+Perpendicular distance from PQ to (6,33): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,32): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,31): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,30): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,29): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,28): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,27): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,26): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,33)
+Neighborhood with: startingPoint: (6,32) endingPoint: (6,24)
+Perpendicular distance from PQ to (6,32): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,31): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,30): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,29): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,28): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,27): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,26): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,25): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,32)
+Neighborhood with: startingPoint: (6,31) endingPoint: (6,23)
+Perpendicular distance from PQ to (6,31): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,30): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,29): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,28): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,27): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,26): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,25): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,24): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,31)
+Neighborhood with: startingPoint: (6,30) endingPoint: (6,22)
+Perpendicular distance from PQ to (6,30): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,29): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,28): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,27): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,26): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,25): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,24): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,23): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,30)
+Neighborhood with: startingPoint: (6,29) endingPoint: (6,21)
+Perpendicular distance from PQ to (6,29): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,28): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,27): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,26): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,25): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,24): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,23): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,22): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,29)
+Neighborhood with: startingPoint: (6,28) endingPoint: (6,20)
+Perpendicular distance from PQ to (6,28): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,27): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,26): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,25): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,24): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,23): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,22): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,21): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,28)
+Neighborhood with: startingPoint: (6,27) endingPoint: (6,19)
+Perpendicular distance from PQ to (6,27): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,26): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,25): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,24): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,23): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,22): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,21): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,20): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,27)
+Neighborhood with: startingPoint: (6,26) endingPoint: (6,18)
+Perpendicular distance from PQ to (6,26): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,25): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,24): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,23): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,22): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,21): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,20): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,19): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,26)
+Neighborhood with: startingPoint: (6,25) endingPoint: (6,17)
+Perpendicular distance from PQ to (6,25): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,24): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,23): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,22): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,21): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,20): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,19): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,18): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,25)
+Neighborhood with: startingPoint: (6,24) endingPoint: (6,16)
+Perpendicular distance from PQ to (6,24): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,23): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,22): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,21): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,20): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,19): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,18): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,17): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,24)
+Neighborhood with: startingPoint: (6,23) endingPoint: (6,15)
+Perpendicular distance from PQ to (6,23): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,22): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,21): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,20): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,19): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,18): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,17): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,16): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,23)
+Neighborhood with: startingPoint: (6,22) endingPoint: (6,14)
+Perpendicular distance from PQ to (6,22): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,21): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,20): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,19): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,18): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,17): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,16): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,15): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,22)
+Neighborhood with: startingPoint: (6,21) endingPoint: (6,13)
+Perpendicular distance from PQ to (6,21): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,20): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,19): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,18): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,17): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,16): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,15): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,14): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,21)
+Neighborhood with: startingPoint: (6,20) endingPoint: (6,12)
+Perpendicular distance from PQ to (6,20): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,19): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,18): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,17): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,16): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,15): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,14): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,13): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,20)
+Neighborhood with: startingPoint: (6,19) endingPoint: (6,11)
+Perpendicular distance from PQ to (6,19): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,18): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,17): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,16): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,15): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,14): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,13): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,12): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,19)
+Neighborhood with: startingPoint: (6,18) endingPoint: (6,10)
+Perpendicular distance from PQ to (6,18): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,17): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,16): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,15): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,14): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,13): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,12): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,11): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,18)
+Neighborhood with: startingPoint: (6,17) endingPoint: (6,9)
+Perpendicular distance from PQ to (6,17): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,16): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,15): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,14): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,13): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,12): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,11): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,10): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,17)
+Neighborhood with: startingPoint: (6,16) endingPoint: (6,8)
+Perpendicular distance from PQ to (6,16): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,15): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,14): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,13): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,12): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,11): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,10): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,9): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,16)
+Neighborhood with: startingPoint: (6,15) endingPoint: (6,7)
+Perpendicular distance from PQ to (6,15): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,14): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,13): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,12): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,11): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,10): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,9): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,8): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,15)
+Neighborhood with: startingPoint: (6,14) endingPoint: (6,6)
+Perpendicular distance from PQ to (6,14): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,13): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,12): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,11): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,10): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,9): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,8): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Perpendicular distance from PQ to (6,7): 0 A:-8B: 0C: 48 AX+BY+C=0 root(A*A+B*B)=8
+Voting: (6,14)
+Neighborhood with: startingPoint: (6,13) endingPoint: (7,6)
+Perpendicular distance from PQ to (6,13): 0 A:-7B: -1C: 55 AX+BY+C=0 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,12): 0.141421 A:-7B: -1C: 55 AX+BY+C=1 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,11): 0.282843 A:-7B: -1C: 55 AX+BY+C=2 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,10): 0.424264 A:-7B: -1C: 55 AX+BY+C=3 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,9): 0.565685 A:-7B: -1C: 55 AX+BY+C=4 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,8): 0.707107 A:-7B: -1C: 55 AX+BY+C=5 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,7): 0.848528 A:-7B: -1C: 55 AX+BY+C=6 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,6): 0.989949 A:-7B: -1C: 55 AX+BY+C=7 root(A*A+B*B)=7.07107
+Voting: (6,6)
+Neighborhood with: startingPoint: (6,12) endingPoint: (8,6)
+Perpendicular distance from PQ to (6,12): 0 A:-6B: -2C: 60 AX+BY+C=0 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,11): 0.316228 A:-6B: -2C: 60 AX+BY+C=2 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,10): 0.632456 A:-6B: -2C: 60 AX+BY+C=4 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,9): 0.948683 A:-6B: -2C: 60 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,8): 1.26491 A:-6B: -2C: 60 AX+BY+C=8 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,7): 1.58114 A:-6B: -2C: 60 AX+BY+C=10 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,6): 1.89737 A:-6B: -2C: 60 AX+BY+C=12 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (7,6): 0.948683 A:-6B: -2C: 60 AX+BY+C=6 root(A*A+B*B)=6.32456
+Voting: (6,6)
+Neighborhood with: startingPoint: (6,11) endingPoint: (9,6)
+Perpendicular distance from PQ to (6,11): 0 A:-5B: -3C: 63 AX+BY+C=0 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,10): 0.514496 A:-5B: -3C: 63 AX+BY+C=3 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,9): 1.02899 A:-5B: -3C: 63 AX+BY+C=6 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,8): 1.54349 A:-5B: -3C: 63 AX+BY+C=9 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,7): 2.05798 A:-5B: -3C: 63 AX+BY+C=12 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,6): 2.57248 A:-5B: -3C: 63 AX+BY+C=15 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (7,6): 1.71499 A:-5B: -3C: 63 AX+BY+C=10 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (8,6): 0.857493 A:-5B: -3C: 63 AX+BY+C=5 root(A*A+B*B)=5.83095
+Voting: (6,6)
+Neighborhood with: startingPoint: (6,10) endingPoint: (10,6)
+Perpendicular distance from PQ to (6,10): 0 A:-4B: -4C: 64 AX+BY+C=0 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (6,9): 0.707107 A:-4B: -4C: 64 AX+BY+C=4 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (6,8): 1.41421 A:-4B: -4C: 64 AX+BY+C=8 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (6,7): 2.12132 A:-4B: -4C: 64 AX+BY+C=12 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (6,6): 2.82843 A:-4B: -4C: 64 AX+BY+C=16 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (7,6): 2.12132 A:-4B: -4C: 64 AX+BY+C=12 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (8,6): 1.41421 A:-4B: -4C: 64 AX+BY+C=8 root(A*A+B*B)=5.65685
+Perpendicular distance from PQ to (9,6): 0.707107 A:-4B: -4C: 64 AX+BY+C=4 root(A*A+B*B)=5.65685
+Voting: (6,6)
+Neighborhood with: startingPoint: (6,9) endingPoint: (11,6)
+Perpendicular distance from PQ to (6,9): 0 A:-3B: -5C: 63 AX+BY+C=0 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,8): 0.857493 A:-3B: -5C: 63 AX+BY+C=5 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,7): 1.71499 A:-3B: -5C: 63 AX+BY+C=10 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (6,6): 2.57248 A:-3B: -5C: 63 AX+BY+C=15 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (7,6): 2.05798 A:-3B: -5C: 63 AX+BY+C=12 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (8,6): 1.54349 A:-3B: -5C: 63 AX+BY+C=9 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (9,6): 1.02899 A:-3B: -5C: 63 AX+BY+C=6 root(A*A+B*B)=5.83095
+Perpendicular distance from PQ to (10,6): 0.514496 A:-3B: -5C: 63 AX+BY+C=3 root(A*A+B*B)=5.83095
+Voting: (6,6)
+Neighborhood with: startingPoint: (6,8) endingPoint: (12,6)
+Perpendicular distance from PQ to (6,8): 0 A:-2B: -6C: 60 AX+BY+C=0 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,7): 0.948683 A:-2B: -6C: 60 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (6,6): 1.89737 A:-2B: -6C: 60 AX+BY+C=12 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (7,6): 1.58114 A:-2B: -6C: 60 AX+BY+C=10 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (8,6): 1.26491 A:-2B: -6C: 60 AX+BY+C=8 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (9,6): 0.948683 A:-2B: -6C: 60 AX+BY+C=6 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (10,6): 0.632456 A:-2B: -6C: 60 AX+BY+C=4 root(A*A+B*B)=6.32456
+Perpendicular distance from PQ to (11,6): 0.316228 A:-2B: -6C: 60 AX+BY+C=2 root(A*A+B*B)=6.32456
+Voting: (6,6)
+Neighborhood with: startingPoint: (6,7) endingPoint: (13,6)
+Perpendicular distance from PQ to (6,7): 0 A:-1B: -7C: 55 AX+BY+C=0 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (6,6): 0.989949 A:-1B: -7C: 55 AX+BY+C=7 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (7,6): 0.848528 A:-1B: -7C: 55 AX+BY+C=6 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (8,6): 0.707107 A:-1B: -7C: 55 AX+BY+C=5 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (9,6): 0.565685 A:-1B: -7C: 55 AX+BY+C=4 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (10,6): 0.424264 A:-1B: -7C: 55 AX+BY+C=3 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (11,6): 0.282843 A:-1B: -7C: 55 AX+BY+C=2 root(A*A+B*B)=7.07107
+Perpendicular distance from PQ to (12,6): 0.141421 A:-1B: -7C: 55 AX+BY+C=1 root(A*A+B*B)=7.07107
+Voting: (6,6)
+
+After applying k curvature corner detection algorithm:
+r: 6 c: 6  Votes: 8 Corner: 0
+r: 7 c: 6  Votes: 1 Corner: 0
+r: 8 c: 6  Votes: 1 Corner: 0
+r: 9 c: 6  Votes: 1 Corner: 0
+r: 10 c: 6  Votes: 1 Corner: 0
+r: 11 c: 6  Votes: 1 Corner: 0
+r: 12 c: 6  Votes: 1 Corner: 0
+r: 13 c: 6  Votes: 1 Corner: 0
+r: 14 c: 6  Votes: 1 Corner: 0
+r: 15 c: 6  Votes: 1 Corner: 0
+r: 16 c: 6  Votes: 1 Corner: 0
+r: 17 c: 6  Votes: 1 Corner: 0
+r: 18 c: 6  Votes: 0 Corner: 0
+r: 19 c: 6  Votes: 0 Corner: 0
+r: 20 c: 6  Votes: 0 Corner: 0
+r: 21 c: 6  Votes: 0 Corner: 0
+r: 22 c: 6  Votes: 0 Corner: 0
+r: 23 c: 6  Votes: 0 Corner: 0
+r: 24 c: 6  Votes: 0 Corner: 0
+r: 25 c: 6  Votes: 8 Corner: 0
+r: 25 c: 7  Votes: 1 Corner: 0
+r: 25 c: 8  Votes: 1 Corner: 0
+r: 25 c: 9  Votes: 1 Corner: 0
+r: 25 c: 10  Votes: 1 Corner: 0
+r: 25 c: 11  Votes: 1 Corner: 0
+r: 25 c: 12  Votes: 1 Corner: 0
+r: 25 c: 13  Votes: 1 Corner: 0
+r: 25 c: 14  Votes: 1 Corner: 0
+r: 25 c: 15  Votes: 1 Corner: 0
+r: 25 c: 16  Votes: 1 Corner: 0
+r: 25 c: 17  Votes: 1 Corner: 0
+r: 25 c: 18  Votes: 1 Corner: 0
+r: 25 c: 19  Votes: 1 Corner: 0
+r: 25 c: 20  Votes: 1 Corner: 0
+r: 25 c: 21  Votes: 1 Corner: 0
+r: 25 c: 22  Votes: 1 Corner: 0
+r: 25 c: 23  Votes: 1 Corner: 0
+r: 25 c: 24  Votes: 1 Corner: 0
+r: 25 c: 25  Votes: 1 Corner: 0
+r: 25 c: 26  Votes: 1 Corner: 0
+r: 25 c: 27  Votes: 1 Corner: 0
+r: 25 c: 28  Votes: 0 Corner: 0
+r: 25 c: 29  Votes: 0 Corner: 0
+r: 25 c: 30  Votes: 0 Corner: 0
+r: 25 c: 31  Votes: 0 Corner: 0
+r: 25 c: 32  Votes: 0 Corner: 0
+r: 25 c: 33  Votes: 0 Corner: 0
+r: 25 c: 34  Votes: 0 Corner: 0
+r: 25 c: 35  Votes: 8 Corner: 0
+r: 24 c: 35  Votes: 1 Corner: 0
+r: 23 c: 35  Votes: 1 Corner: 0
+r: 22 c: 35  Votes: 1 Corner: 0
+r: 21 c: 35  Votes: 1 Corner: 0
+r: 20 c: 35  Votes: 1 Corner: 0
+r: 19 c: 35  Votes: 1 Corner: 0
+r: 18 c: 35  Votes: 1 Corner: 0
+r: 17 c: 35  Votes: 1 Corner: 0
+r: 16 c: 35  Votes: 1 Corner: 0
+r: 15 c: 35  Votes: 1 Corner: 0
+r: 14 c: 35  Votes: 1 Corner: 0
+r: 13 c: 35  Votes: 0 Corner: 0
+r: 12 c: 35  Votes: 0 Corner: 0
+r: 11 c: 35  Votes: 0 Corner: 0
+r: 10 c: 35  Votes: 0 Corner: 0
+r: 9 c: 35  Votes: 0 Corner: 0
+r: 8 c: 35  Votes: 0 Corner: 0
+r: 7 c: 35  Votes: 0 Corner: 0
+r: 6 c: 35  Votes: 8 Corner: 0
+r: 6 c: 34  Votes: 1 Corner: 0
+r: 6 c: 33  Votes: 1 Corner: 0
+r: 6 c: 32  Votes: 1 Corner: 0
+r: 6 c: 31  Votes: 1 Corner: 0
+r: 6 c: 30  Votes: 1 Corner: 0
+r: 6 c: 29  Votes: 1 Corner: 0
+r: 6 c: 28  Votes: 1 Corner: 0
+r: 6 c: 27  Votes: 1 Corner: 0
+r: 6 c: 26  Votes: 1 Corner: 0
+r: 6 c: 25  Votes: 1 Corner: 0
+r: 6 c: 24  Votes: 1 Corner: 0
+r: 6 c: 23  Votes: 1 Corner: 0
+r: 6 c: 22  Votes: 1 Corner: 0
+r: 6 c: 21  Votes: 1 Corner: 0
+r: 6 c: 20  Votes: 1 Corner: 0
+r: 6 c: 19  Votes: 1 Corner: 0
+r: 6 c: 18  Votes: 1 Corner: 0
+r: 6 c: 17  Votes: 1 Corner: 0
+r: 6 c: 16  Votes: 1 Corner: 0
+r: 6 c: 15  Votes: 1 Corner: 0
+r: 6 c: 14  Votes: 1 Corner: 0
+r: 6 c: 13  Votes: 0 Corner: 0
+r: 6 c: 12  Votes: 0 Corner: 0
+r: 6 c: 11  Votes: 0 Corner: 0
+r: 6 c: 10  Votes: 0 Corner: 0
+r: 6 c: 9  Votes: 0 Corner: 0
+r: 6 c: 8  Votes: 0 Corner: 0
+r: 6 c: 7  Votes: 0 Corner: 0
+
+After marking corners:
+r: 6 c: 6  Votes: 8 Corner: 0
+r: 7 c: 6  Votes: 1 Corner: 0
+r: 8 c: 6  Votes: 1 Corner: 0
+r: 9 c: 6  Votes: 1 Corner: 0
+r: 10 c: 6  Votes: 1 Corner: 0
+r: 11 c: 6  Votes: 1 Corner: 0
+r: 12 c: 6  Votes: 1 Corner: 0
+r: 13 c: 6  Votes: 1 Corner: 0
+r: 14 c: 6  Votes: 1 Corner: 0
+r: 15 c: 6  Votes: 1 Corner: 0
+r: 16 c: 6  Votes: 1 Corner: 0
+r: 17 c: 6  Votes: 1 Corner: 0
+r: 18 c: 6  Votes: 0 Corner: 0
+r: 19 c: 6  Votes: 0 Corner: 0
+r: 20 c: 6  Votes: 0 Corner: 0
+r: 21 c: 6  Votes: 0 Corner: 0
+r: 22 c: 6  Votes: 0 Corner: 0
+r: 23 c: 6  Votes: 0 Corner: 0
+r: 24 c: 6  Votes: 0 Corner: 0
+r: 25 c: 6  Votes: 8 Corner: 0
+r: 25 c: 7  Votes: 1 Corner: 0
+r: 25 c: 8  Votes: 1 Corner: 0
+r: 25 c: 9  Votes: 1 Corner: 0
+r: 25 c: 10  Votes: 1 Corner: 0
+r: 25 c: 11  Votes: 1 Corner: 0
+r: 25 c: 12  Votes: 1 Corner: 0
+r: 25 c: 13  Votes: 1 Corner: 0
+r: 25 c: 14  Votes: 1 Corner: 0
+r: 25 c: 15  Votes: 1 Corner: 0
+r: 25 c: 16  Votes: 1 Corner: 0
+r: 25 c: 17  Votes: 1 Corner: 0
+r: 25 c: 18  Votes: 1 Corner: 0
+r: 25 c: 19  Votes: 1 Corner: 0
+r: 25 c: 20  Votes: 1 Corner: 0
+r: 25 c: 21  Votes: 1 Corner: 0
+r: 25 c: 22  Votes: 1 Corner: 0
+r: 25 c: 23  Votes: 1 Corner: 0
+r: 25 c: 24  Votes: 1 Corner: 0
+r: 25 c: 25  Votes: 1 Corner: 0
+r: 25 c: 26  Votes: 1 Corner: 0
+r: 25 c: 27  Votes: 1 Corner: 0
+r: 25 c: 28  Votes: 0 Corner: 0
+r: 25 c: 29  Votes: 0 Corner: 0
+r: 25 c: 30  Votes: 0 Corner: 0
+r: 25 c: 31  Votes: 0 Corner: 0
+r: 25 c: 32  Votes: 0 Corner: 0
+r: 25 c: 33  Votes: 0 Corner: 0
+r: 25 c: 34  Votes: 0 Corner: 0
+r: 25 c: 35  Votes: 8 Corner: 0
+r: 24 c: 35  Votes: 1 Corner: 0
+r: 23 c: 35  Votes: 1 Corner: 0
+r: 22 c: 35  Votes: 1 Corner: 0
+r: 21 c: 35  Votes: 1 Corner: 0
+r: 20 c: 35  Votes: 1 Corner: 0
+r: 19 c: 35  Votes: 1 Corner: 0
+r: 18 c: 35  Votes: 1 Corner: 0
+r: 17 c: 35  Votes: 1 Corner: 0
+r: 16 c: 35  Votes: 1 Corner: 0
+r: 15 c: 35  Votes: 1 Corner: 0
+r: 14 c: 35  Votes: 1 Corner: 0
+r: 13 c: 35  Votes: 0 Corner: 0
+r: 12 c: 35  Votes: 0 Corner: 0
+r: 11 c: 35  Votes: 0 Corner: 0
+r: 10 c: 35  Votes: 0 Corner: 0
+r: 9 c: 35  Votes: 0 Corner: 0
+r: 8 c: 35  Votes: 0 Corner: 0
+r: 7 c: 35  Votes: 0 Corner: 0
+r: 6 c: 35  Votes: 8 Corner: 0
+r: 6 c: 34  Votes: 1 Corner: 0
+r: 6 c: 33  Votes: 1 Corner: 0
+r: 6 c: 32  Votes: 1 Corner: 0
+r: 6 c: 31  Votes: 1 Corner: 0
+r: 6 c: 30  Votes: 1 Corner: 0
+r: 6 c: 29  Votes: 1 Corner: 0
+r: 6 c: 28  Votes: 1 Corner: 0
+r: 6 c: 27  Votes: 1 Corner: 0
+r: 6 c: 26  Votes: 1 Corner: 0
+r: 6 c: 25  Votes: 1 Corner: 0
+r: 6 c: 24  Votes: 1 Corner: 0
+r: 6 c: 23  Votes: 1 Corner: 0
+r: 6 c: 22  Votes: 1 Corner: 0
+r: 6 c: 21  Votes: 1 Corner: 0
+r: 6 c: 20  Votes: 1 Corner: 0
+r: 6 c: 19  Votes: 1 Corner: 0
+r: 6 c: 18  Votes: 1 Corner: 0
+r: 6 c: 17  Votes: 1 Corner: 0
+r: 6 c: 16  Votes: 1 Corner: 0
+r: 6 c: 15  Votes: 1 Corner: 0
+r: 6 c: 14  Votes: 1 Corner: 0
+r: 6 c: 13  Votes: 0 Corner: 0
+r: 6 c: 12  Votes: 0 Corner: 0
+r: 6 c: 11  Votes: 0 Corner: 0
+r: 6 c: 10  Votes: 0 Corner: 0
+r: 6 c: 9  Votes: 0 Corner: 0
+r: 6 c: 8  Votes: 0 Corner: 0
+r: 6 c: 7  Votes: 0 Corner: 0
